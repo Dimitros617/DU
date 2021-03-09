@@ -1,0 +1,51 @@
+
+.userElement {
+    background: #f4f5f7;
+    margin-bottom: 1.5rem;
+    display: flow-root;
+    border-radius: 10px;
+    /*box-shadow: 4px 3px 6px 2px #e6e6e6;*/
+    border-bottom: 10px solid #e0e0e0;
+    padding: 1rem 1rem;
+}
+
+.nameDiv {
+    display: flow-root;
+}
+
+.nick {
+    float: right;
+    margin-right: 2rem;
+    color: #2a5769;
+    padding: 0.5rem 0rem;
+    font-size: xx-large;
+    font-weight: 700;
+    border-radius: 5px;
+    text-align: right;
+    min-width: 33%;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .nick {
+        float: none;
+        color: #2a5769;
+        padding: 0.5rem 0;
+        margin: 0 0 1.5rem 0;
+        text-align: center;
+    }
+
+
+    .buttonsDiv {
+        width: 100%;
+        float: none;
+        margin-right: 0rem;
+        height: unset;
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+    }
+
+}
