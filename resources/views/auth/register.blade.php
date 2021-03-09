@@ -28,16 +28,13 @@
                     <x-jet-input id="nick" class="block mt-1 w-full" type="text" name="nick" placeholder="Přezdívka " :value="old('nick')" required autofocus autocomplete="nickname" />
                 </div>
 
-                <div class="mt-4">
-                <!--<x-jet-label for="phone" value="{{ __('Telefon') }}" />-->
-                    <x-jet-input id="phone" class="block mt-1 w-full" type="tel" name="phone" placeholder="Telefon ve formátu +420 111 222 333"  :value="old('phone')" required autofocus autocomplete="phone" />
-                </div>
 
                 <div class="mt-4">
                 <!--<x-jet-label for="email" value="{{ __('E-mail') }}" />-->
                     <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="E-mail" :value="old('email')" required />
                 </div>
 
+                <br>
                 <div class="mt-4">
                 <!--<x-jet-label for="password" value="{{ __('Heslo') }}" />-->
                     <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" placeholder="Heslo" required autocomplete="new-password" />
@@ -52,12 +49,12 @@
 
 
                     <x-jet-button class="ml-4 h6">
-                        {{ __('Registrovat') }}
+                        {{ __('Zaregistruj mě') }}
                     </x-jet-button>
                 </div>
                 <div class="flex items-center justify-end mt-4">
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                        {{ __('Máte již účet?') }}
+                        {{ __('Ještě nemáš vlastní účet?') }}
                     </a>
                 </div>
             </form>

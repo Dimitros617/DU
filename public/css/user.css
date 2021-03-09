@@ -16,7 +16,7 @@
 .nick {
     float: right;
     margin-right: 2rem;
-    color: #2a5769;
+    color: #CBF3F0;
     padding: 0.5rem 0rem;
     font-size: xx-large;
     font-weight: 700;
@@ -31,7 +31,7 @@
 
     .nick {
         float: none;
-        color: #2a5769;
+        color: #CBF3F0;
         padding: 0.5rem 0;
         margin: 0 0 1.5rem 0;
         text-align: center;

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Výpůjční a rezervační systém</title>
+        <title>Digitální učebnice</title>
         <link rel="icon" href="{{ URL::asset('img/logo_icon_old3.png') }}">
 
         <!-- Fonts -->
@@ -17,27 +17,6 @@
     </head>
     <body class="antialiased">
 
-        <div class="relative flex items-top justify-center min-h-screen  sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class=" fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-lg text-gray-700 underline ">Hlavní strana</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-lg text-gray-700 underline ">Přihlášení</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-lg text-gray-700 underline ">Registrace</a>
-                        @endif
-                    @endif
-                </div>
-            @endif
-
-                <div class="logo_box ">
-                    <a href="/dashboard">
-                    <div id="logo_max_size">
-                    </div>
-                    </a>
-
-                </div>
+  asd asd asd asd asd asd asd asd
     </body>
 </html>

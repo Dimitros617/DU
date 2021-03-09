@@ -61,7 +61,7 @@
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
-                <h1 class="text-lg font-medium text-vrs-yellow h3">Informace o uživateli {{$user[0] -> userName.' '. $user[0] -> userSurname}}</h1>
+                <h1 class="text-lg font-medium text-su-orange h3">Informace o uživateli {{$user[0] -> userName.' '. $user[0] -> userSurname}}</h1>
 
                 <p class="mt-1 text-md text-white">
                     Pozor, zde upravujete osobní informace jiného uživatele!

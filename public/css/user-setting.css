@@ -8,7 +8,7 @@
 .nick {
     float: right;
     margin-right: 2rem;
-    color: #2a5769;
+    color: #CBF3F0;
     padding: 0.5rem 0rem;
     font-size: xx-large;
     font-weight: 700;
@@ -19,5 +19,5 @@
     font-size: xxx-large;
     font-weight: 700;
     width: 14%;
-    color: #002e40;
+    color: #2EC4B6;
 }

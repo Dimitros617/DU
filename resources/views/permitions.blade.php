@@ -35,7 +35,7 @@
                 @endforeach
                     <form action="/addPermition" method="POST" id="addPermitionForm">
                         @csrf
-                        <a type="submit" metod="POST" class="list-group-item list-group-item-action list-name my-list-group-item my-list-group-item-add" data-toggle="list" role="tab" onclick="this.getElementsByClassName('plus')[0].setAttribute('hidden','');this.getElementsByClassName('buttonLoading')[0].removeAttribute('hidden');  document.getElementById('addPermitionForm').submit()">Přidat novou roli <span class="plus">+</span> <div id="buttonLoading" class="spinner-grow buttonLoading spinner-grow-sm text-vrs-cyan" role="status" hidden></div></a>
+                        <a type="submit" metod="POST" class="list-group-item list-group-item-action list-name my-list-group-item my-list-group-item-add" data-toggle="list" role="tab" onclick="this.getElementsByClassName('plus')[0].setAttribute('hidden','');this.getElementsByClassName('buttonLoading')[0].removeAttribute('hidden');  document.getElementById('addPermitionForm').submit()">Přidat novou roli <span class="plus">+</span> <div id="buttonLoading" class="spinner-grow buttonLoading spinner-grow-sm text-su-blue" role="status" hidden></div></a>
                     </form>
 
             </div>
@@ -49,7 +49,7 @@
                     <form action="/savePermitionData" method="POST" id="savePermitionData-{{$permition->id}}">
                         @csrf
 
-                        <input type="text" class="vrs-h2 text-vrs-cyan w-100 bg-transparent permition-name" name="name" value="{{$permition->name}}">
+                        <input type="text" class="vrs-h2 text-su-blue w-100 bg-transparent permition-name" name="name" value="{{$permition->name}}">
                         <input type="text" name="id" value="{{$permition->id}}" hidden>
 
 

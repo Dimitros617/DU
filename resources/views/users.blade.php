@@ -29,7 +29,7 @@
                                     </div>
 
                                     <div class="col-auto">
-                                        <div class="spinner-border text-vrs-yellow searchSpinner mt--1" id="spinner" role="status" hidden></div>
+                                        <div class="spinner-border text-su-orange searchSpinner mt--1" id="spinner" role="status" hidden></div>
                                     </div>
 
 
@@ -47,7 +47,7 @@
                     @foreach($users as $user)
                         <div class="items-blocky userElement" userID="{{$user->userId}}">
                             <div class="nameDiv">
-                                <div class="vrs-h2 text-vrs-cyan">
+                                <div class="vrs-h2 text-su-blue">
                                     {{$user -> userSurname}}
                                     {{$user -> userName}}
                                 </div>
@@ -56,11 +56,11 @@
                                 </div>
                             </div>
 
-                            <div class="vrs-h3 text-vrs-yellow">
+                            <div class="vrs-h3 text-su-orange">
                                 {{$user -> permitionName}}
                             </div>
 
-                            <div class="vrs-h4 text-vrs-cyan">
+                            <div class="vrs-h4 text-su-blue">
                                 @if(Auth::permition()->new_user == 1 || Auth::permition()->return_verification == 1)
                                     {{$user -> userEmail}}
                                 @endif

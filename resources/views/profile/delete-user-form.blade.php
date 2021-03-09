@@ -23,7 +23,7 @@
         @endphp
 
         @if($dataC != 0)
-            <div class="mt-4 vrs-h3 text-vrs-yellow" onclick="vrsAlert('Počet aktuálních nevyřízených závazků (výpůjček, rezervací): {{$dataC}}')" style="cursor: pointer">
+            <div class="mt-4 vrs-h3 text-su-orange" onclick="vrsAlert('Počet aktuálních nevyřízených závazků (výpůjček, rezervací): {{$dataC}}')" style="cursor: pointer">
                 Nemůžete smazat svůj účet, dokud máte nějaké nevyřízené závazky!
             </div>
         @else

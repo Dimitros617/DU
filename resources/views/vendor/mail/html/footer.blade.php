@@ -4,12 +4,7 @@
 <tr>
 <td class="content-cell" align="center">
 
-    @php
-        $json = file_get_contents('http://dominikfrolik.cz/VRS/bot.json');
-        $obj = json_decode($json)->bots;
-        $randindex = rand(0,count($obj)-1);
-    @endphp
-    © VRS - Zprávu zaslal: {{$obj[$randindex]}} the bot
+    © Digitální učebnice
 </td>
 </tr>
 </table>

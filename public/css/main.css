@@ -1,35 +1,35 @@
 
 
-.bg-vrs-cyan{
-    background: #002e40 !important;
+.bg-su-blue{
+    background: #2EC4B6 !important;
 }
-.bg-vrs-clight{
-    background: #2A5769 !important;
+.bg-su-lblue{
+    background: #CBF3F0 !important;
 }
-.text-vrs-cyan {
-    color: #002e40!important;
+.text-su-blue{
+    color: #2EC4B6 !important;
 }
-.text-vrs-clight{
-    color: #2A5769!important;
+.text-su-lblue{
+    color: #CBF3F0 !important;
 }
-.bg-vrs-yellow{
-    background: #fa9600!important;
+.bg-su-orange{
+    background: #FF9F1C !important;
 }
-.bg-vrs-ylight{
-    background: #fabd4a!important;
+.bg-su-lorange{
+    background: #FFBF69 !important;
 }
-.text-vrs-yellow{
-    color: #fa9600!important;
+.text-su-orange{
+    color: #FF9F1C !important;
 }
-.text-vrs-ylight{
-    color: #fabd4a!important;
+.text-su-lorange{
+    color: #FFBF69 !important;
 }
 
 .text-decor-none{
     text-decoration: none;
 }
 
-.vrs-h2 {
+.su-h2 {
     float: left;
     font-size: xx-large;
     display: contents;
@@ -37,22 +37,22 @@
 }
 
 
-.vrs-h3 {
+.su-h3 {
     font-weight: 700;
     font-size: x-large;
 }
-.vrs-h4 {
+.su-h4 {
     font-weight: 600;
     float: left;
     margin-top: 1rem;
 
 }
 
-.vrs-d-block{
+.su-d-block{
     display: block;
 }
 
-.vrs-d-none{
+.su-d-none{
     display: none !important;
 }
 
@@ -65,7 +65,7 @@ button.submit {
 }
 
 .emptyElementLoans {
-    color: #002e40;
+    color: #2EC4B6;
     font-weight: 700;
     margin: 1rem 0rem;
     text-align: center;
@@ -78,19 +78,19 @@ button.submit {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    border-bottom: 5px solid #fa9600;
+    border-bottom: 5px solid #FF9F1C;
     padding: 3px 4rem;
     font-weight: 700 !important;
     margin-bottom: 4rem !important;
     font-size: xxx-large;
-    color: #002e40;
+    color: #2EC4B6;
 }
 
 .pageTitleSearch{
     width: fit-content;
     font-weight: 700 !important;
     font-size: xxx-large;
-    color: #002e40;
+    color: #2EC4B6;
 }
 
 
@@ -111,7 +111,7 @@ button.submit {
     padding-left: 3rem;
     font-weight: 700 !important;
     font-size: xxx-large;
-    color: #002e40;
+    color: #2EC4B6;
     float: left;
 }
 
@@ -120,7 +120,7 @@ button.submit {
     padding-left: 3rem;
     font-weight: 700 !important;
     font-size: x-large;
-    color: #2a5769;
+    color: #CBF3F0;
     float: left;
 }
 
@@ -130,7 +130,6 @@ input#search {
 }
 
 .search {
-    /* margin-left: 3rem; */
     float: right;
     width: 50%;
     display: inherit;
@@ -140,15 +139,6 @@ input#search {
     height: 3rem;
 }
 
-/*.searchButtonDiv {*/
-/*    overflow: hidden;*/
-/*    padding: 0;*/
-/*    border-radius: 8px !important;*/
-/*    margin-right: 0;*/
-/*    height: 3rem;*/
-/*    padding-left: 0 !important;*/
-/*    padding-right: 0 !important;*/
-/*}*/
 
 .searchButtonDiv {
     overflow: hidden;
@@ -160,13 +150,6 @@ input#search {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
-/*.searchButton {*/
-/*    margin: 0;*/
-/*    width: fit-content;*/
-/*    float: left;*/
-/*    border-radius: 0 !important;*/
-/*}*/
 
 .searchButton {
     margin: 0;
@@ -234,7 +217,7 @@ a.block.px-4.py-2.text-sm.leading-5.text-gray-700 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #fabd4a;
+    background: #FFBF69;
     cursor: pointer;
 }
 
@@ -335,13 +318,13 @@ svg.h-6.w-6 {
         display: block;
     }
 
-    .vrs-h2 {
+    .su-h2 {
         float: none;
         text-align: center;
         text-decoration: none !important;
     }
 
-    .vrs-h3, .vrs-h4 {
+    .su-h3, .su-h4 {
         text-align: center;
         float: none;
         text-decoration: none !important;

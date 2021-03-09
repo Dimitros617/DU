@@ -8,23 +8,15 @@
     <!--
 
      -----------------------------------------------
-
-
-     Tento systém vytvořily:
-
-     -Dominik Frolík = vedoucí týmu a backend
-     -Viola Vrbová = sexy člen týmu a backend
-     -Kateřina Bartáková = databázová podpora
-     -Kateřina Zábranská = zhezkávající člen týmu - css
-
+     Tento systém vytvořil Dominik Frolík jako Bakalářksou práce:
 
      -----------------------------------------------
 
 
      -->
 
-    <title>@yield('title') | VRS</title>
-    <link rel="icon" href="{{ URL::asset('img/logo_icon_old3.png') }}">
+    <title>@yield('title') | DU</title>
+    <link rel="icon" href="{{ URL::asset('img/logo_mini_transparent_square.png') }}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -38,6 +30,7 @@
     <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.esm.js') }}"></script>
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.js') }}"></script>
@@ -48,8 +41,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/notification.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/messages.css') }}">
     <link rel="stylesheet" href="@yield('css')">
     <link rel="stylesheet" href="@yield('css2')">
     <link rel="stylesheet" href="@yield('css3')">
@@ -76,15 +67,8 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100 bg-vrs-cyan pb-4">
+<div class="min-h-screen bg-gray-100 bg-su-lblue pb-4">
     @livewire('navigation-dropdown')
-
-    <!-- Page Heading -->
-{{--            <header class="bg-white shadow">--}}
-{{--                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">--}}
-{{--        {{ $header }}--}}
-{{--                </div>--}}
-{{--            </header>--}}
 
 <!-- Page Content -->
     <main>
