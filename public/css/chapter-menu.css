@@ -19,10 +19,14 @@
     border-bottom: 10px solid #ffbf69;
     transition-duration: 0.5s;
     cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
 }
 .chapter:hover {
     margin: 1rem;
     transform: scale(1.05);
+    border-bottom: 10px solid #ff9f1c;
+    box-shadow: 4px 9px 13px 0px #0000005c;
 }
 
 .chapter_img {
@@ -34,6 +38,13 @@
     background-color: #f7f7f7;
     border-radius: 5px;
     margin-bottom: 1rem;
+    display: flow-root;
+    overflow: hidden;
+}
+
+.chapter_name {
+    cursor: text;
+    text-decoration: none;
 }
 
 button.new_chapter {
@@ -51,5 +62,51 @@ button.new_chapter:hover
 }
 
 .loading,.loading_request {
-    margin-top: 75%;
+    margin-top: -25%;
+}
+
+.gray-box {
+    filter:opacity(0%);
+    background: #00000091;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition-duration: 0.5s;
+
+}
+
+.gray-box:hover {
+    filter:opacity(100%);
+}
+
+.status-icon svg {
+    transform: scale(2);
+}
+
+.status-icon svg:hover {
+    transform: scale(2.1);
+    filter: grayscale(50%);
+}
+
+.status-icon {
+    /* transform: scale(2); */
+    display: flex;
+    width: fit-content;
+    margin: 0;
+    padding: 0;
+    flex: 0 50%;
+    /* height: 100px; */
+    margin-bottom: 2%;
+    padding: 1.5rem;
+}
+
+
+.lock.status-icon, .image.status-icon {
+    align-items: flex-end;
+}
+
+.remove svg, .lock svg  {
+    margin-left: auto;
 }

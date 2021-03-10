@@ -35,12 +35,16 @@
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.esm.js') }}"></script>
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
-    <script src="{{ URL::asset('js/messages.js') }}"></script>
+    <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
+
+
 
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/buttons.css') }}">
     <link rel="stylesheet" href="@yield('css')">
     <link rel="stylesheet" href="@yield('css2')">
     <link rel="stylesheet" href="@yield('css3')">
@@ -53,10 +57,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-utilities.css') }}">
 
 
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
     @section('link')
         @livewireStyles
@@ -67,7 +68,7 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100 bg-su-lblue pb-4">
+<div class="min-h-screen bg-gray-100 bg-su-blue-texture pb-4">
     @livewire('navigation-dropdown')
 
 <!-- Page Content -->

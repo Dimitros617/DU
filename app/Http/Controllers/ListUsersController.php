@@ -19,7 +19,7 @@ class ListUsersController extends Controller
     function showAllUsers()
     {
         Log::info('ListUsersController:showAllUsers');
-        $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->select('users.id as userId', 'users.name as userName', 'users.surname as userSurname', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName')->orderBy('surname','asc')->get();
+        $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->select('users.id as userId', 'users.name as userName', 'users.surname as userSurname', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName', 'permition.possibility_read', 'permition.new_user', 'permition.edit_content', 'permition.edit_permitions')->orderBy('surname','asc')->get();
         //return $permition;
         return view('users', ['users' => $data]);
 
@@ -76,15 +76,30 @@ class ListUsersController extends Controller
 
     public function getUserNames(){
 
+        Log::info('ListUsersController:getUserNames');
+
         $data = DB::table('users')->select('nick')->get();
 
         return $data;
     }
 
     public function setPermition($permition_id){
+
+        Log::info('ListUsersController:setPermition');
             $user = User::find(Auth::user()->id);
             $user->permition = $permition_id;
             $user->save();
+    }
+
+    function statusUser(Request $request)
+    {
+        Log::info('ListUsersController:statusUser');
+
+        $check = true;
+
+        //TODO předat data o stavu žáka nad všemi hystory
+
+        return view('user-status', ['data' => array('James','Dominik','Lukas','Viol')]);
     }
 
 

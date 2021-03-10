@@ -37,16 +37,19 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->ge
 //Kapitoly
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);
-
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove_chapter/{id:id}', [ChapterController::class,'removeChapter']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/status_chapter/{id:id}', [ChapterController::class,'statusChapter']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/rule_chapter/{id:id}', [ChapterController::class,'ruleChapter']);
 
 //Uživatelé
 Route::post('/users/{id:id}/saveUserData', [ListUsersController::class,'saveUserData']);
 Route::get('/users/usersSort/{sort?}', [ListUsersController::class,'usersSort']);
 Route::get('/users/usersFind/{find?}', [ListUsersController::class,'usersFind']);
 Route::get('/getUserNames', [ListUsersController::class,'getUserNames']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/status_user/{id:id}', [ListUsersController::class,'statusUser']);
 
 
 //Oprávnění
 Route::post('/addPermition', [PermitionController::class,'addPermition']);
 Route::post('/savePermitionData', [PermitionController::class,'savePermitionData']);
-Route::get('/removePermition/{id:id}', [PermitionController::class,'removePermition']);
+Route::delete('/removePermition/{id:id}', [PermitionController::class,'removePermition']);

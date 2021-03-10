@@ -78,3 +78,43 @@ function userFind(ele) {
     });
 
 }
+
+
+function getStatusChapter(ele, id){
+
+
+
+    ele.parentNode.parentNode.getElementsByClassName('loading')[0].removeAttribute("hidden");
+    ele.parentNode.parentNode.getElementsByClassName('loading_request')[0].setAttribute("hidden", "");
+
+    $.ajax({
+        url: '/status_user/' + id,
+        method: 'get',
+        success:function(response){
+
+            ele.parentNode.parentNode.getElementsByClassName('loading')[0].setAttribute("hidden", "");
+
+            Swal.fire({
+                html:
+                response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                focusConfirm: false,
+                customClass: 'modal-page',
+            })
+
+
+        },
+        error: function (response){
+
+            ele.parentNode.parentNode.getElementsByClassName('loading_request')[0].removeAttribute("hidden");
+            ele.parentNode.parentNode.getElementsByClassName('loading')[0].setAttribute("hidden", "");
+            ele.parentNode.parentNode.getElementsByClassName('loading_request')[0].innerHTML = '<b>&#x2715;</b>';
+
+            setTimeout(function (ele){
+                ele.parentNode.parentNode.getElementsByClassName('loading_request')[0].setAttribute("hidden", "");
+            },1000,ele);
+        }
+    });
+}

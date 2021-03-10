@@ -6,6 +6,23 @@
 .bg-su-lblue{
     background: #CBF3F0 !important;
 }
+
+.bg-su-blue-gradient{
+    background: linear-gradient(352deg, rgba(46,196,182,1) 0%, rgba(145,226,219,1) 35%, rgba(203,243,240,1) 100%) !important;
+}
+
+.bg-su-blue-orange-gradient{
+    background: linear-gradient(344deg, #FFBF69 0%, rgba(145,226,219,1) 26%, rgba(203,243,240,1) 100%);
+}
+
+.bg-su-orange-gradient{
+    background: linear-gradient(344deg, #FFBF69 0%, #FFBF69 26%, rgba(255,246,233,1) 100%);
+}
+
+.bg-su-blue-texture{
+    background-image: url("https://www.transparenttextures.com/patterns/subtle-zebra-3d.png"), linear-gradient(352deg, rgba(46,196,182,1) 0%, rgba(145,226,219,1) 35%, rgba(203,243,240,1) 100%) !important;
+}
+
 .text-su-blue{
     color: #2EC4B6 !important;
 }
@@ -27,6 +44,10 @@
 
 .text-decor-none{
     text-decoration: none;
+}
+
+.text-su-shadow{
+    text-shadow: 0 0 7px #0000004d;
 }
 
 .su-h2 {
@@ -56,6 +77,18 @@
     display: none !important;
 }
 
+input.su-input-white {
+    background: #ffffff4d;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+select.rule-text {
+    background: #a9e8e2;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
 #buttonHoverText {
     display: none;
 }
@@ -63,6 +96,29 @@
 button.submit {
     min-height: 55px;
 }
+
+
+.swal2-styled.swal2-confirm {
+    background-color: #2EC4B6;
+}
+
+.swal2-styled.swal2-deny {
+    background-color: #FF9F1C;
+}
+
+.swal2-styled.swal2-cancel {
+    background-color: #CBF3F0;
+}
+
+
+
+.modal-page{
+    width:80% !important;
+}
+
+
+
+
 
 
 
@@ -207,6 +263,55 @@ svg.h-6.w-6 {
 
 .mobileHeadMenu{
     margin-right: -0.3rem;
+}
+
+.setting-menu-gear{
+    transition-duration: 0.8s;
+    transition-property: transform;
+}
+
+.setting-menu-gear:hover{
+    transform: rotate(80deg);
+    -webkit-transform: rotate(80deg);
+}
+
+.setting-menu-gear:hover{
+    transform: rotate(200deg);
+    -webkit-transform: rotate(200deg);
+}
+
+/* Animace loga*/
+
+.shaddow-animation-box {
+    width: 300%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    margin-left: -200%;
+    transition-duration: 1s;
+}
+
+.shaddow-animation-box:hover {
+    margin-left: 0%;
+}
+
+.shaddow-animation-white {
+    width: 130%;
+    height: 200%;
+    background: #ffffff40;
+    margin-left: -40%;
+    transform: rotate(
+        136deg
+    );
+}
+
+
+/* Rule page */
+.rule-box {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2rem;
+    margin-top: 2rem;
 }
 
 /* Logo hlavička*/

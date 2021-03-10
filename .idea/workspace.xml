@@ -9,51 +9,137 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Chapters.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/Img/logo_mini_transparent_gray.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/chapter-menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/chapters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapter_img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapter_img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapter_img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapter_img_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/VRS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/VRS.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/sweetalert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_10_213307_create_locks_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_10_213321_create_histories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_10_231707_create_finished_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/dist/sweetalert2.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/dist/sweetalert2.all.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/dist/sweetalert2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/dist/sweetalert2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/dist/sweetalert2.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/dist/sweetalert2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/SweetAlert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/constants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/globalState.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/_destroy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/_main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/buttons-handlers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/close.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/enable-disable-elements.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/getInput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/hideLoading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/keydown-handler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/popup-click-handler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/progress-steps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/update.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/instanceMethods/validation-message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/privateMethods.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/privateProps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_animations.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_body.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_core.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_polyfills.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_theming.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_toasts-animations.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_toasts-body.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/scss/_toasts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/argsToParams.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/bindClickHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/dom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/fire.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/mixin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/showLoading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/staticMethods/timer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/sweetalert2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/sweetalert2.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/DismissReason.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/Timer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/aria.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/classes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/defaultInputValidators.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/animationEndEvent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/domUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/getters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/inputUtils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/measureScrollbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/parseHtmlToContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/render.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderActions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderCloseButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderContainer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderContent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderFooter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderHeader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderIcon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderImage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderInput.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderPopup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderProgressSteps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/dom/renderers/renderTitle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/getTemplateParams.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/ieFix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/iosFix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/isNodeEnv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/openPopup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/scrollbarFix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/setParameters.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/utils/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/src/variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/sweetalert2/sweetalert2.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/chapter_img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/sweetalert/sweetalert.all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/chapter-status.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user-status.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/sweetalert/alert.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/VRS.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.rtl.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/chapter-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chapter-menu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/category-search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/categorySaves.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/cleare-loans-history.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/datePicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/item-search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/loans-search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/remove.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/returnLoan.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/chapters.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chapters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/userGets.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/user-gets.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/singleUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/singleUser.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,6 +339,7 @@
       <path value="$PROJECT_DIR$/vendor/scrivo/highlight.php" />
       <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
+      <path value="$PROJECT_DIR$/vendor/realrashid/sweet-alert" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -284,6 +371,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Xamp\htdocs\baka\resources\views" />
       <recent name="D:\Xamp\htdocs\VRS\resources\views" />
       <recent name="D:\Xamp\htdocs\VRS\resources\views\profile" />
       <recent name="D:\Xamp\htdocs\VRS\resources\lang\cz" />
@@ -395,6 +483,7 @@
       <workItem from="1610652205916" duration="11372000" />
       <workItem from="1610715241776" duration="5978000" />
       <workItem from="1615298384595" duration="30832000" />
+      <workItem from="1615371667734" duration="33596000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1602874504350</created>
@@ -810,7 +899,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php</url>
-          <line>23</line>
+          <line>29</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
@@ -822,6 +911,11 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ChapterController.php</url>
           <line>4</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/lock-setting.blade.php</url>
+          <line>35</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

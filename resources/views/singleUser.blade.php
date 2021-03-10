@@ -7,56 +7,6 @@
     <script src="/js/main.js"></script>
     <script src="/js/user-save.js"></script>
 
-{{--    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg max-w-7xl mx-auto sm:px-6 lg:px-8">--}}
-
-{{--        <div class="container p-6">--}}
-{{--            @if(old('saveCheck'))--}}
-{{--                @if(old('saveCheck') == 1)--}}
-{{--                    <div id="autoHide" class="alert-success">--}}
-{{--                        Změna proběhla úspěšně--}}
-{{--                        @else--}}
-{{--                            <div id="autoHide" class="alert-danger">--}}
-{{--                                Ups... Došlo k chybě při ukládání--}}
-{{--                                @endif--}}
-{{--                                @endif--}}
-{{--                            </div>--}}
-
-{{--            <form  id="userDataForm" onsubmit="saveUserData(this,'{{$user[0]->userId}}'); return false;">--}}
-{{--                @csrf--}}
-
-{{--                    <input name="userId" value="{{$user[0]-> userId}}" hidden> <!-- toto neupravuješ :-) nevidíš, nehrab :-D -->--}}
-
-{{--                <div class="userData">--}}
-{{--                    <input class="name" name="userName" value="{{$user[0] -> userName}}" oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')" required>--}}
-{{--                    <input class="name" name="userSurname" value="{{$user[0] -> userSurname}}" oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')" required>--}}
-{{--                    <input class="nick" name="userNick" value="{{$user[0] -> userNick}}" oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')" required>--}}
-{{--                </div>--}}
-
-{{--                    <label for="userPhone">Telefon: </label>--}}
-{{--                    <input class="userPhone" name="userPhone" value="{{$user[0] -> userPhone}}" size=25 oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')" required>--}}
-{{--                    <label for="userEmail">E-mail: </label>--}}
-{{--                    <input class="" type="email" name="userEmail" value="{{$user[0] -> userEmail}}" size=25 oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')" required>--}}
-
-
-{{--                    <label for="selectPermition">Role uživatele: </label>--}}
-{{--                    <select class="" name="selectPermition" oninput="document.getElementById('userDataForm').getElementsByClassName('submit')[0].removeAttribute('hidden')">--}}
-{{--                    @foreach($permitions as $permition)--}}
-
-{{--                            <option value="{{ $permition -> permitionId }}" @if($permition -> permitionId == $user[0] -> permitionId) selected @endif>{{ $permition -> permitionName }}</option>--}}
-
-{{--                    @endforeach--}}
-{{--                    </select>--}}
-
-{{--                <button type="submit button" class="submit btn btn-primary w-200p float-end p-2 me-4-5 w-10rem text-white" hidden>--}}
-{{--                    <div id="buttonText">Uložit změny</div>--}}
-{{--                    <div id="buttonLoading" class="spinner-grow text-light" role="status" hidden></div>--}}
-{{--                </button>--}}
-{{--            </form>--}}
-{{--                            <button type="submit button" class="btn btn-success w-200p " onclick="prefixNewMessage('{{$user[0] -> userNick}}') ">Poslat zprávu</button>--}}
-
-
-{{--    </div>--}}
-
     <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
     <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -64,7 +14,7 @@
                 <h1 class="text-lg font-medium text-su-orange h3">Informace o uživateli {{$user[0] -> userName.' '. $user[0] -> userSurname}}</h1>
 
                 <p class="mt-1 text-md text-white">
-                    Pozor, zde upravujete osobní informace jiného uživatele!
+                    Pozor, aby jste neupravily něco jiného!
                 </p>
             </div>
         </div>
@@ -110,17 +60,6 @@
                                 </label>
 
                                 <input class="form-input rounded-md shadow-sm mt-1 block w-full" id="nick" type="text" name="userNick" value="{{$user[0] -> userNick}}" required autocomplete="nickname">
-
-
-                            </div>
-
-                            <!-- Telefon -->
-                            <div class="col-span-6 sm:col-span-4">
-                                <label class="block font-medium text-sm text-gray-700" for="phone">
-                                    Telefon
-                                </label>
-
-                                <input class="form-input rounded-md shadow-sm mt-1 block w-full" id="phone" type="text" name="userPhone" value="{{$user[0] -> userPhone}}" size=25 required autocomplete="phone">
 
 
                             </div>
