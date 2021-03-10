@@ -21,7 +21,9 @@ class DashboardController extends Controller
             return $firstUser;
         }
 
-        return view( 'dashboard');
+        $data = DB::table('chapters')->get();
+
+        return view('dashboard', ['chapters' => $data]);
 
     }
 

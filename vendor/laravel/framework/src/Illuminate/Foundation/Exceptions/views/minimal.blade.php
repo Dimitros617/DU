@@ -29,10 +29,10 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-su-blue sm:items-center sm:pt-0">
-            <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex items-center pt-8 sm:justify-start sm:pt-0">
-                    <div class="px-4 text-su-orange border-r border-gray-400 tracking-wider h1">
+        <div class="relative flex items-top justify-center min-h-screen bg-su-lblue sm:items-center sm:pt-0 ">
+            <div class="max-w-xl mx-auto sm:px-6 lg:px-8 overflow-hidden">
+                <div class="flex items-center pt-8 sm:justify-start sm:pt-0 overflow-hidden">
+                    <div class="px-4 text-su-orange border-r border-gray-400 tracking-wider h1 overflow-hidden">
                         @yield('code')
                     </div>
 

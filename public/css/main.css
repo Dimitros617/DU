@@ -64,13 +64,7 @@ button.submit {
     min-height: 55px;
 }
 
-.emptyElementLoans {
-    color: #2EC4B6;
-    font-weight: 700;
-    margin: 1rem 0rem;
-    text-align: center;
-    font-size: larger;
-}
+
 
 
 .pageTitle{
@@ -102,8 +96,6 @@ button.submit {
     padding-bottom: 1rem;
     border-bottom: 10px solid #fa9702;
     margin-bottom: 4rem;
-    /* flex-flow: wrap; */
-    /* height: -webkit-fill-available; */
 }
 
 .pageTitleSearch {
@@ -143,7 +135,6 @@ input#search {
 .searchButtonDiv {
     overflow: hidden;
     padding: 0;
-    /* border-radius: 8px !important; */
     margin-right: -5px;
     margin-top: -1rem !important;
     height: 4rem;
@@ -168,38 +159,6 @@ a.block.px-4.py-2.text-sm.leading-5.text-gray-700 {
     margin-top: 60px;
 }
 
-/* Autocomplete  */
-.autocomplete {
-    width: 100%;
-}
-
-.autocomplete-items {
-    position: fixed;
-    border: 1px solid #d4d4d4;
-    border-bottom: none;
-    z-index: 99;
-    min-width: 200px;
-    width: 20%;
-}
-
-.autocomplete-items div {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #fff;
-    border-bottom: 1px solid #d4d4d4;
-}
-
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-    background-color: #e9e9e9;
-}
-
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-    background-color: DodgerBlue !important;
-    color: #ffffff;
-}
-
 
 /* Scrollbar  */
 
@@ -208,7 +167,7 @@ a.block.px-4.py-2.text-sm.leading-5.text-gray-700 {
 }
 
 ::-webkit-scrollbar-track {
-    background: #2A5769;
+    background: #a5a7aa;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -235,30 +194,6 @@ a.block.px-4.py-2.text-sm.leading-5.text-gray-700 {
 
 .headLogoMobile{
     transform: scale(2);
-}
-
-/*Tlačítkový pás*/
-.buttonsDiv {
-    width: 50%;
-    float: right;
-    margin-right: 2rem;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    margin-top: 2rem;
-}
-
-.buttonsDivItem {
-    border-radius: 0 !important;
-    height: 2.7rem;
-    padding: 0 !important;
-    margin: 0;
-    flex-grow: 1;
-    flex-basis: 0;
-}
-
-button.buttonsDivItem, input.buttonsDivItem {
-    width: 100%;
 }
 
 

@@ -61,22 +61,13 @@
                             </div>
 
                             <div class="vrs-h4 text-su-blue">
-                                @if(Auth::permition()->new_user == 1 || Auth::permition()->return_verification == 1)
+                                @if(Auth::permition()->new_user == 1 || Auth::permition()->	edit_content == 1 || Auth::permition()-> edit_permitions == 1)
                                     {{$user -> userEmail}}
                                 @endif
                             </div>
 
                             <div class="buttonsDiv">
-                            @if(($user->userId != Auth::user()->id))
-                                    <a class="p-0 buttonsDivItem">
-                            <button class="btn btn-primary w-200p buttonsDivItem" onclick="prefixNewMessage('{{$user -> userNick}}') ">Poslat zprávu</button>
-                                    </a>
-                            @endif
-                            @if(Auth::permition()->return_verification == 1 || Auth::permition()->possibility_renting == 1 || Auth::permition()->edit_item == 1)
-                                    <a href="{{url()->current().'/'.$user -> userId.'/loans'}}" class="p-0 buttonsDivItem">
-                                        <button class="btn btn-warning w-200p buttonsDivItem">Závazky uživatele</button>
-                                    </a>
-                            @endif
+
                             @if(Auth::permition()->new_user == 1)
                                 <a href="{{url()->current().'/'.$user -> userId}}" class="p-0 buttonsDivItem">
                                     <button class="btn btn-success w-200p buttonsDivItem">Upravit uživatele</button>
@@ -90,7 +81,7 @@
                     </div>
                 </div>
             @else
-                <div class="display-4 pt-4 pb-4">Nebyli nalezeni žádní uživatelé. Pokud i přesto, že jste v systému, vidíte tuto hlášku, tak je něco hoooodně špatně. :-)</div>
+                <div class="display-4 pt-4 pb-4">Upss.. Nic jsme tu nenašly.</div>
             @endif
 
         </div>

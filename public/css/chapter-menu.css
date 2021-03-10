@@ -1,0 +1,55 @@
+.chapter_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chapter {
+    margin: 1.2rem;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: -2px 1px 17px 0px #2ec4b68c;
+    color: #ff9f1c;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 10px solid #ffbf69;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+.chapter:hover {
+    margin: 1rem;
+    transform: scale(1.05);
+}
+
+.chapter_img {
+    width: 200px;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+button.new_chapter {
+    width: 200px;
+    height: 200px;
+    background: #f7f7f7;
+    border-radius: 5px;
+    font-weight: normal;
+    font-size: x-large;
+    transition-duration: 0.5s;
+}
+button.new_chapter:hover
+{
+    background: #ebecec;
+}
+
+.loading,.loading_request {
+    margin-top: 75%;
+}
