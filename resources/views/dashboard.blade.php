@@ -3,6 +3,7 @@
 
 <script src="/js/main.js"></script>
 <script src="/js/chapters.js"></script>
+<script src="/js/lock.js"></script>
 
 <x-app-layout>
     <x-slot name="header">
@@ -14,15 +15,27 @@
     <div class="container">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-NECO
+                NECO
 
                 </div>
     </div>
     </div>
                     <div class="chapter_box">
                         @foreach($chapters as $chapter)
-                            <a href="/chapter/{{$chapter->id}}" style="text-decoration: none">
-                        <form method="post" action="{{url('/save_image')}}" enctype="multipart/form-data" id="chapterImageChange-{{$chapter->id}}" class="chapter">
+
+                            @php
+                                $lc = "1";
+                            foreach ($locked as $lock){
+
+                                if($lock->element_id == $chapter->id && $lock->locked == "0"){
+                                    $lc = "0";
+                                    break;
+                                }
+                            }
+                            @endphp
+
+                            <a onclick="if(this.children[0] == event.target)checkLock({{$chapter->id}},'chapters',this.getElementsByClassName('loading')[0],this.getElementsByClassName('loading_request')[0], '/chapter/{{$chapter->id}}',this.children[0].children[0].value )" style="text-decoration: none">
+                        <form method="post" action="{{url('/save_image')}}" enctype="multipart/form-data" id="chapterImageChange-{{$chapter->id}}" class="chapter {{$chapter->security}} {{$lc}}  @if($chapter->security != null && $chapter->security != 'empty' && $lc != '0') locked-chapter @endif">
                             @csrf
 
                         <div class="chapter_img" style="background-image: url('/user_files/{{$chapter->chapter_img}}');" >
@@ -49,7 +62,7 @@ NECO
                                 </div>
 
                                 <div class="lock status-icon">
-                                    <svg onclick=" setTimeout(function (ele,id){getRuleChapter(ele, id)},50,this,{{$chapter->id}}); return false" title="Nastavit zámek" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                    <svg onclick=" setTimeout(function (ele,id,spinner,request, token){setLock(ele, id,'chapters',spinner,request, token)},50,this,{{$chapter->id}},this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0], this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.parentNode.children[0].value); return false" title="Nastavit zámek" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
                                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
                                     </svg>
                                 </div>

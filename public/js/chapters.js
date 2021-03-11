@@ -153,53 +153,5 @@ function getStatusChapter(ele, id){
 
 
 
-function getRuleChapter(ele, id){
 
-
-
-    ele.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0].removeAttribute("hidden");
-    ele.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0].setAttribute("hidden", "");
-
-    $.ajax({
-        url: '/rule_chapter/' + id,
-        method: 'get',
-        success:function(response){
-
-            ele.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0].setAttribute("hidden", "");
-
-            Swal.fire({
-                html:
-                response,
-                showCloseButton: false,
-                showCancelButton: false,
-                showConfirmButton: true,
-                showDenyButton: true,
-                confirmButtonText: `Uložit`,
-                denyButtonText: `Zrušit`,
-                focusConfirm: false,
-                customClass: 'modal-page',
-            }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    //TODO uložit změny klíčů
-                }
-                else{
-                    //TODO zahodit změny
-                }
-            })
-
-
-        },
-        error: function (response){
-
-            ele.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0].removeAttribute("hidden");
-            ele.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0].setAttribute("hidden", "");
-            ele.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0].innerHTML = '<b>&#x2715;</b>';
-
-            setTimeout(function (ele){
-                ele.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0].setAttribute("hidden", "");
-            },1000,ele);
-        }
-    });
-}
 

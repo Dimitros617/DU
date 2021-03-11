@@ -19,6 +19,10 @@
     background: linear-gradient(344deg, #FFBF69 0%, #FFBF69 26%, rgba(255,246,233,1) 100%);
 }
 
+.bg-su-texture{
+    background-image: url("https://www.transparenttextures.com/patterns/subtle-zebra-3d.png") !important;
+}
+
 .bg-su-blue-texture{
     background-image: url("https://www.transparenttextures.com/patterns/subtle-zebra-3d.png"), linear-gradient(352deg, rgba(46,196,182,1) 0%, rgba(145,226,219,1) 35%, rgba(203,243,240,1) 100%) !important;
 }
@@ -48,6 +52,14 @@
 
 .text-su-shadow{
     text-shadow: 0 0 7px #0000004d;
+}
+
+.text-su-hologram-blue{
+    color: #f3f3f3;
+    font-size: xxx-large;
+    font-weight: 700;
+    border-radius: 5px;
+    text-shadow: 0 0 11px #3ac8bb;
 }
 
 .su-h2 {
@@ -81,6 +93,31 @@ input.su-input-white {
     background: #ffffff4d;
     border-radius: 5px;
     padding: 5px;
+}
+
+
+.su-hover-card:hover {
+    margin: 1rem;
+    transform: scale(1.05);
+    box-shadow: 4px 9px 13px 0px #0000005c;
+}
+
+.su-animation-05{
+    transition-duration: 0.5s;
+}
+
+.su-animation-1{
+    transition-duration: 1s;
+}
+
+
+.rule-title{
+    background: #0000000d;
+    width: 107%;
+    padding: 32px 4rem;
+    margin-left: -2rem;
+    margin-top: -2rem;
+    text-align: initial;
 }
 
 select.rule-text {

@@ -22,6 +22,10 @@
     overflow: hidden;
     text-decoration: none;
 }
+
+.locked-chapter{
+    border-bottom: 10px solid #2ec4b6  !important;
+}
 .chapter:hover {
     margin: 1rem;
     transform: scale(1.05);

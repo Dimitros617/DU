@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/animation.css') }}">
     <link rel="stylesheet" href="@yield('css')">
     <link rel="stylesheet" href="@yield('css2')">
     <link rel="stylesheet" href="@yield('css3')">

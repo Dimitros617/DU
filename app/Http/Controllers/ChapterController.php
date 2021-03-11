@@ -43,12 +43,4 @@ class ChapterController extends Controller
         return view('chapter-status', ['data' => array('James','Dominik','Lukas','Viol')]);
     }
 
-    function ruleChapter(Request $request)
-    {
-        Log::info('ChapterController:ruleChapter');
-
-        $chapter = Chapters::find($request->id);
-
-        return view('lock-setting', ['chapter' => $chapter]);
-    }
 }

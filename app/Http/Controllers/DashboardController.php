@@ -22,8 +22,11 @@ class DashboardController extends Controller
         }
 
         $data = DB::table('chapters')->get();
+        $check_locks = DB::table('locks')->Join('users', 'locks.user_id', '=', 'users.id')->where('table_name', 'chapters')->where('users.id', Auth::user()->id)->select( 'locks.element_id', 'locks.locked')->get();
 
-        return view('dashboard', ['chapters' => $data]);
+
+
+        return view('dashboard', ['chapters' => $data, 'locked' => $check_locks]);
 
     }
 

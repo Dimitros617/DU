@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\LockController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerUsing;
 use App\Http\Controllers\DashboardController;
@@ -39,7 +40,13 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove_chapter/{id:id}', [ChapterController::class,'removeChapter']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/status_chapter/{id:id}', [ChapterController::class,'statusChapter']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/rule_chapter/{id:id}', [ChapterController::class,'ruleChapter']);
+
+
+//Pravidla
+Route::middleware(['auth:sanctum', 'verified'])->get('/rule_setting/{type?}/{id:id}', [LockController::class,'ruleSetting']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/check_lock/{type?}/{id:id}', [LockController::class,'checkLock']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/save_rule', [LockController::class,'saveRule']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/unlock', [LockController::class,'unlock']);
 
 //Uživatelé
 Route::post('/users/{id:id}/saveUserData', [ListUsersController::class,'saveUserData']);
