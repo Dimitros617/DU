@@ -43,7 +43,7 @@ function setLock(ele, id, element_type, spinner, request, token ){
                             $.ajax({
                                 url: '/save_rule',
                                 type: 'post',
-                                data: { _token: token, table_type: element_type, id: id, key_type: key_type, key: key},
+                                data: { _token: token, table_name: element_type, id: id, key_type: key_type, key: key},
                                 success:function(response){
                                     spinner.setAttribute("hidden", "");
                                     Swal.fire({
@@ -55,6 +55,15 @@ function setLock(ele, id, element_type, spinner, request, token ){
                                 },
                                 error: function (response){
                                     console.log(response);
+                                    let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Hmm... CHYBA!',
+                                        text: err ,
+                                        customClass: {
+                                            container: 'su-shake-horizontal',
+                                        }
+                                    })
                                     spinner.setAttribute("hidden", "");
                                     Swal.fire({
                                         icon: 'error',
@@ -70,7 +79,6 @@ function setLock(ele, id, element_type, spinner, request, token ){
 
                 }
                 else{
-                    //TODO zahodit změny
                 }
             })
 
@@ -78,6 +86,15 @@ function setLock(ele, id, element_type, spinner, request, token ){
         },
         error: function (response){
             console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
             request.removeAttribute("hidden");
             spinner.setAttribute("hidden", "");
             request.innerHTML = '<b>&#x2715;</b>';
@@ -175,21 +192,31 @@ function checkLock(id, element_type, spinner, request, url, token){
                             allowOutsideClick: () => !Swal.isLoading()
                         }).then((result) => {
                             if (result.isConfirmed) {
+                                spinner.removeAttribute("hidden");
                                 let key = `${result.value}`;
                                 if(key == response[2]){
                                     $.ajax({
                                         url: '/unlock',
                                         type: 'post',
-                                        data: { _token: token, type: element_type, id: id},
+                                        data: { _token: token, table_name: element_type, id: id},
                                         success:function(response){
 
                                             if(response == "1") {
-                                                spinner.removeAttribute("hidden");
+
                                                 unlock(url, spinner);
                                             }
                                         },
                                         error: function (response){
                                             console.log(response);
+                                            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Hmm... CHYBA!',
+                                                text: err ,
+                                                customClass: {
+                                                    container: 'su-shake-horizontal',
+                                                }
+                                            })
                                             request.removeAttribute("hidden");
                                             spinner.setAttribute("hidden", "");
                                             request.innerHTML = '<b>&#x2715;</b>';
@@ -227,6 +254,15 @@ function checkLock(id, element_type, spinner, request, url, token){
         },
         error: function (response){
             console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
             request.removeAttribute("hidden");
             spinner.setAttribute("hidden", "");
             request.innerHTML = '<b>&#x2715;</b>';
@@ -259,6 +295,8 @@ function unlock(url,spinner){
                 spinner.removeAttribute("hidden");
             }
             location.href = url;
+        }else{
+            spinner.setAttribute("hidden", "");
         }
     })
 }

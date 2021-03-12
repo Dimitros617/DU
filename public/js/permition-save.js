@@ -46,8 +46,8 @@ let a = $('#savePermitionData-' + id).serialize();
 
 
         },
-        error: function (){
-
+        error: function (response){
+            console.log(response);
             ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
             ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
 
@@ -63,52 +63,81 @@ let a = $('#savePermitionData-' + id).serialize();
 
 function removePermition(ele, id){
 
-    ele.querySelectorAll("div[id='buttonText']")[0].setAttribute("hidden","");
-    ele.querySelectorAll("div[id='buttonLoading']")[0].removeAttribute("hidden");
+    let token = ele.parentNode.children[0].value;
+
+    Swal.fire({
+        title: 'Opravdu?',
+        text: "Vážně chcete tuto roli smazat?",
+        icon: 'question',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: true,
+        showDenyButton: true,
+        confirmButtonText: `Smazat`,
+        denyButtonText: `Zrušit`,
+        focusConfirm: true,
+        showLoaderOnConfirm: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            ele.querySelectorAll("div[id='buttonText']")[0].setAttribute("hidden","");
+            ele.querySelectorAll("div[id='buttonLoading']")[0].removeAttribute("hidden");
 
 
-    $.ajax({
-        url: '/removePermition/' + id,
-        type: 'GET',
-        success:function(response){
+            $.ajax({
+                url: '/removePermition/' + id,
+                type: 'delete',
+                data: { _token: token},
+                success:function(response){
 
-            ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
-            ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
+                    ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
+                    ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
 
-            if(response == "1"){
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#10003;</b>';
-                setTimeout(function (ele){
-                    document.getElementById("list-"+id).setAttribute("hidden", "");
-                    document.getElementsByClassName("active")[0].setAttribute("hidden", "");
-                },1000,ele);
+                    if(response == "1"){
+                        ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#10003;</b>';
+                        setTimeout(function (ele){
+                            document.getElementById("list-"+id).setAttribute("hidden", "");
+                            document.getElementsByClassName("active")[0].setAttribute("hidden", "");
+                        },1000,ele);
 
-            }else if(response == "2"){
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-                vrsAlert('Nemůžete smazat roli, pokud je někomu přiřazena!' );
-                setTimeout(function (ele){
-                    ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Smazat oprávnění";
+                    }else if(response == "2"){
+                        ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Upss...',
+                            text: 'Tahle role je někomu přiřazena, proto ji nemůžu smazat.',
+                            customClass: {
+                                container: 'su-shake-horizontal',
+                            }
+                        })
+                        setTimeout(function (ele){
+                            ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Smazat oprávnění";
 
-                },1000,ele);
-            }else{
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-                setTimeout(function (ele){
-                    ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Smazat oprávnění";
+                        },1000,ele);
+                    }else{
+                        ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
+                        setTimeout(function (ele){
+                            ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Smazat oprávnění";
 
-                },1000,ele);
-            }
+                        },1000,ele);
+                    }
 
-        },
-        error: function (){
+                },
+                error: function (response){
+                    console.log(response);
+                    ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
+                    ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
 
-            ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
-            ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
+                    ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
 
-            ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-
-            setTimeout(function (ele){
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Uložit změny";
-            },1000,ele);
+                    setTimeout(function (ele){
+                        ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = "Uložit změny";
+                    },1000,ele);
+                }
+            });
         }
-    });
+    })
+
+
 
 }

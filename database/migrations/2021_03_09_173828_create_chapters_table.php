@@ -15,9 +15,9 @@ class CreateChaptersTable extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
-            $table->string('name',40)->default('Nová kapitola');
+            $table->string('name',50)->default('Nová kapitola');
             $table->string('description',1024)->default('Popisek nové kapitoly');
-            $table->string('chapter_img')->default('default.png');
+            $table->string('img')->default('default.png');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
             $table->timestamps();

@@ -33,6 +33,11 @@
     box-shadow: 4px 9px 13px 0px #0000005c;
 }
 
+.chapter:active {
+    transform: scale(1);
+}
+
+
 .chapter_img {
     width: 200px;
     height: 200px;

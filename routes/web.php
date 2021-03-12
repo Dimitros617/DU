@@ -34,17 +34,22 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/use
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->get('/permitions', [PermitionController::class,'showPermissions']);
 
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}', [ChapterController::class,'showChapter']);
+
+
+//Kontent
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_name', [ContentController::class,'saveName']);
 
 //Kapitoly
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove_chapter/{id:id}', [ChapterController::class,'removeChapter']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/status_chapter/{id:id}', [ChapterController::class,'statusChapter']);
 
 
 //Pravidla
-Route::middleware(['auth:sanctum', 'verified'])->get('/rule_setting/{type?}/{id:id}', [LockController::class,'ruleSetting']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/check_lock/{type?}/{id:id}', [LockController::class,'checkLock']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/rule_setting/{table_name?}/{id:id}', [LockController::class,'ruleSetting']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/check_lock/{table_name?}/{id:id}', [LockController::class,'checkLock']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/save_rule', [LockController::class,'saveRule']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/unlock', [LockController::class,'unlock']);
 

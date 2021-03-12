@@ -6,10 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\Chapters;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ChapterController extends Controller
 {
+
+    function showChapter($id){
+
+        $data = DB::table('chapters')->where('id', $id)->get();
+
+
+        $data = $data[0];
+
+        return view('chapter', ['chapter' => $data]);
+
+    }
+
+
     function addChapter(){
 
         Log::info('ChapterController:addChapter');

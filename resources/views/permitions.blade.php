@@ -13,29 +13,21 @@
 
         <div class="container p-6">
 
-            @if(old('saveCheck'))
-                @if(old('saveCheck') == 1)
-                    <div id="autoHide" class="alert-success">
-                        Role byla úspěšně vytvořena
-                        @else
-                            <div id="autoHide" class="alert-danger">
-                                Ups... Došlo k chybě při ukládání
-                                @endif
-                                @endif
-                            </div>
 
-            <div class="pageTitle">Uživatelská oprávnění</div>
+        </div>
+
+            <div class="pageTitle">Role</div>
 
             <div class="list-group my-list-group" id="myList permitionList" role="tablist">
 
                 @foreach($permitions as $permition)
 
-                <a class="list-group-item list-group-item-action list-name my-list-group-item" id="list-{{$permition->id}}" permitionId="{{$permition->id}}" data-toggle="list" role="tab" onclick="showPanel({{$permition->id}})">{{$permition->name}} <div class="float-end roleCount" >{{$permition->count}}</div></a>
+                <a class="list-group-item list-group-item-action list-name my-list-group-item bg-su-lblue  rounded-1 su-animation-05 su-animation-move-right" id="list-{{$permition->id}}" permitionId="{{$permition->id}}" data-toggle="list" role="tab" onclick="showPanel({{$permition->id}})">{{$permition->name}} <div class="float-end roleCount " >{{$permition->count}}</div></a>
 
                 @endforeach
                     <form action="/addPermition" method="POST" id="addPermitionForm">
                         @csrf
-                        <a type="submit" metod="POST" class="list-group-item list-group-item-action list-name my-list-group-item my-list-group-item-add" data-toggle="list" role="tab" onclick="this.getElementsByClassName('plus')[0].setAttribute('hidden','');this.getElementsByClassName('buttonLoading')[0].removeAttribute('hidden');  document.getElementById('addPermitionForm').submit()">Přidat novou roli <span class="plus">+</span> <div id="buttonLoading" class="spinner-grow buttonLoading spinner-grow-sm text-su-blue" role="status" hidden></div></a>
+                        <a type="submit" metod="POST" class="list-group-item list-group-item-action list-name my-list-group-item my-list-group-item-add " data-toggle="list" role="tab" onclick="this.getElementsByClassName('plus')[0].setAttribute('hidden','');this.getElementsByClassName('buttonLoading')[0].removeAttribute('hidden');  document.getElementById('addPermitionForm').submit()">Přidat novou roli <span class="plus">+</span> <div id="buttonLoading" class="spinner-grow buttonLoading spinner-grow-sm text-su-blue" role="status" hidden></div></a>
                     </form>
 
             </div>
@@ -44,63 +36,103 @@
 
                 @foreach($permitions as $permition)
 
-                <div class="tab-pane" id="panel-{{$permition->id}}" role="tabpanel">
+                <div class="tab-pane bg-su-blue-gradient" id="panel-{{$permition->id}}" role="tabpanel">
 
-                    <form action="/savePermitionData" method="POST" id="savePermitionData-{{$permition->id}}">
+                    <form action="/savePermitionData" method="POST" id="savePermitionData-{{$permition->id}}" class="tab-pane-head bg-su-texture shadow bg-su-lwhite">
                         @csrf
 
-                        <input type="text" class="vrs-h2 text-su-blue w-100 bg-transparent permition-name" name="name" value="{{$permition->name}}">
+                        <input type="text" class="us-h2 text-su-blue w-100 bg-transparent permition-name text-su-shadow-white" name="name" value="{{$permition->name}}">
                         <input type="text" name="id" value="{{$permition->id}}" hidden>
 
-
+                <div class="my-row-row">
                     <div class="my_row">
-                        <input type="text" id="possibility_renting{{$permition->id}}" name="renting" value="{{$permition->possibility_renting}}" hidden>
-                        <input name="possibility_renting" type="checkbox" data-width="150"  data-toggle="toggle" data-onstyle="danger" data-on=" ANO " data-off=" NE " @if($permition->possibility_renting == 1) checked @endif onchange="changeSwitch(this, 'possibility_renting{{$permition->id}}')">
-                        <label for="possibility_renting">Možnost výpůjčky</label>
+
+                        <div class="switch-box d-grid">
+                            <label for="possibility_read">Čtení kapitol</label>
+                            <label class="switch  ms-auto me-auto">
+                                <input type="checkbox" id="possibility_read{{$permition->id}}" class="radio-rule-slider" @if($permition->possibility_read == 1)value="1" checked @else value="0" @endif >
+
+                                <span class="slider round" for="radio-rule-slider" onclick="changeSwitch(this, this.parentNode.children[0], this.parentNode.parentNode.children[2],'ANO','NE',this.parentNode.parentNode.children[3])"></span>
+
+                            </label>
+                            <div class="switch-label mt-2 font-weight-bolder text-white font-weight-bold text-su-shadow">@if($permition->possibility_read == 1)ANO @else NE @endif</div>
+                            <input class="d-none" type="text" name="read"  @if($permition->possibility_read == 1)value="1" @else value="0" @endif >
+                        </div>
+
                     </div>
 
                     <div class="my_row">
-                        <input type="text" id="new_user{{$permition->id}}" name="user" value="{{$permition->new_user}}" hidden>
-                        <input name="new_user" type="checkbox" data-width="150"  data-toggle="toggle" data-onstyle="danger" data-on=" ANO " data-off=" NE " @if($permition->new_user == 1) checked @endif onchange="changeSwitch(this, 'new_user{{$permition->id}}')">
-                        <label for="new_user">Správa uživatelů</label>
+
+                        <div class="switch-box d-grid">
+                            <label for="new_user">Správa třídnice</label>
+                            <label class="switch  ms-auto me-auto">
+                                <input type="checkbox" id="new_user{{$permition->id}}" name="user" class="radio-rule-slider" @if($permition->new_user == 1)value="1" checked @else value="0" @endif >
+                                <span class="slider round" for="radio-rule-slider" onclick="changeSwitch(this, this.parentNode.children[0], this.parentNode.parentNode.children[2],'ANO','NE',this.parentNode.parentNode.children[3])"></span>
+
+                            </label>
+                            <div class="switch-label mt-2 font-weight-bolder text-white font-weight-bold text-su-shadow">@if($permition->new_user == 1)ANO @else NE @endif</div>
+                            <input class="d-none" type="text" name="user"  @if($permition->new_user == 1)value="1" @else value="0" @endif >
+
+                        </div>
+
                     </div>
 
                     <div class="my_row">
-                        <input type="text" id="return_verification{{$permition->id}}" name="return" value="{{$permition->return_verification}}" hidden>
-                        <input name="return_verification" type="checkbox" data-width="150"  data-toggle="toggle" data-onstyle="danger" data-on=" ANO " data-off=" NE " @if($permition->return_verification == 1) checked @endif onchange="changeSwitch(this, 'return_verification{{$permition->id}}')">
-                        <label for="return_verification">Schvalování výpůjček</label>
+
+                        <div class="switch-box d-grid">
+                            <label for="edit_content">Úprava obsahu</label>
+                            <label class="switch  ms-auto me-auto">
+                                <input type="checkbox" id="edit_content{{$permition->id}}" name="edit" class="radio-rule-slider" @if($permition->edit_content == 1)value="1" checked @else value="0" @endif >
+                                <span class="slider round" for="radio-rule-slider" onclick="changeSwitch(this, this.parentNode.children[0], this.parentNode.parentNode.children[2],'ANO','NE',this.parentNode.parentNode.children[3])"></span>
+
+                            </label>
+                            <div class="switch-label mt-2 font-weight-bolder text-white font-weight-bold text-su-shadow">@if($permition->edit_content == 1)ANO @else NE @endif</div>
+                            <input class="d-none" type="text" name="edit"  @if($permition->edit_content == 1)value="1" @else value="0" @endif >
+
+                        </div>
+
                     </div>
 
-                    <div class="my_row">
-                        <input type="text" id="edit_item{{$permition->id}}" name="edit" value="{{$permition->edit_item}}" hidden>
-                        <input name="edit_item" type="checkbox" data-width="150"  data-toggle="toggle" data-onstyle="danger" data-on=" ANO " data-off=" NE " @if($permition->edit_item == 1) checked @endif onchange="changeSwitch(this, 'edit_item{{$permition->id}}')">
-                        <label for="edit_item">Správa položek a kategorií</label>
-                    </div>
 
                     <div class="my_row">
-                        <input type="text" id="edit_permitions{{$permition->id}}" name="permition" value="{{$permition->edit_permitions}}" hidden>
-                        <input name="edit_permitions" type="checkbox" data-width="150"  data-toggle="toggle" data-onstyle="danger" data-on=" ANO " data-off=" NE " @if($permition->edit_permitions == 1) checked @endif onchange="changeSwitch(this, 'edit_permitions{{$permition->id}}')">
-                        <label for="edit_permitions">Správa oprávnění</label>
+
+
+                        <div class="switch-box d-grid">
+                            <label for="edit_permitions">Správa rolí</label>
+                            <label class="switch  ms-auto me-auto">
+                                <input type="checkbox" id="edit_permitions{{$permition->id}}" name="permition" class="radio-rule-slider" @if($permition->edit_permitions == 1)value="1" checked @else value="0" @endif >
+                                <span class="slider round" for="radio-rule-slider" onclick="changeSwitch(this, this.parentNode.children[0], this.parentNode.parentNode.children[2],'ANO','NE',this.parentNode.parentNode.children[3])"></span>
+
+                            </label>
+                            <div class="switch-label mt-2 font-weight-bolder text-white font-weight-bold text-su-shadow">@if($permition->edit_permitions == 1)ANO @else NE @endif</div>
+                            <input class="d-none" type="text" name="permition"  @if($permition->edit_permitions == 1)value="1" @else value="0" @endif >
+
+                        </div>
+
                     </div>
+                </div>
 
                     </form>
 
                     <div class="button-row">
-                        <div class="buttonsDiv">
-                            <div class="buttonsDivItem">
-                                <button type="submit button" class="buttonsDivItem submit btn btn-primary w-200p float-end p-2 w-10rem text-white" onclick="savePermitionData(this, '{{$permition->id}}' )">
+
+                        <div class="button-bar">
+                            <div class="su">
+                                <button type="submit button" class=" submit  w-200p float-end p-2 w-10rem text-white su-button su-button-danger " onclick="savePermitionData(this, '{{$permition->id}}' )">
                                     <div id="buttonText">Uložit změny</div>
                                     <div id="buttonLoading" class="spinner-grow text-light" role="status" hidden></div>
                                 </button>
                             </div>
 
-                            <div class="buttonsDivItem">
-                                <button type="submit button" class="buttonsDivItem submit btn btn-danger w-200p float-end p-2  w-10rem text-white" onclick="vrsNotify('Opravdu chcete roli smazat?',removePermition, this,'{{$permition->id}}' ); return false">
+                            <div class="su">
+                                @csrf
+                                <button type="submit button" class=" submit  w-200p float-end p-2  w-10rem text-white su-button su-button-sucess" onclick="setTimeout(function (ele,id){removePermition( ele,id)},50,this,'{{$permition->id}}'); return false">
                                     <div id="buttonText">Smazat roli</div>
                                     <div id="buttonLoading" class="spinner-grow text-light" role="status" hidden></div>
                                 </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
 

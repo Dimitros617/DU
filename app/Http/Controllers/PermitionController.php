@@ -15,7 +15,7 @@ class PermitionController extends Controller
 
         Log::info('PermitionController:showPermissions');
 
-        $data = DB::table('permition')->leftJoin('users','permition.id', '=', 'users.permition')->select('permition.*', DB::raw('COUNT(users.permition) as count'))->groupByRaw('permition.id, permition.name, permition.possibility_renting, permition.new_user, permition.return_verification, permition.edit_item, permition.edit_permitions')->get();
+        $data = DB::table('permition')->leftJoin('users','permition.id', '=', 'users.permition')->select('permition.*', DB::raw('COUNT(users.permition) as count'))->groupByRaw('permition.id, permition.name, permition.possibility_read, permition.new_user, permition.edit_content, permition.edit_permitions')->get();
 
         return view('permitions', ['permitions' => $data]);
     }
@@ -31,31 +31,25 @@ class PermitionController extends Controller
 
         $permition = new permition;
         $permition->name = 'Nové oprávnění';
-        $permition->possibility_renting = 0;
+        $permition->possibility_read = 0;
         $permition->new_user = 0;
-        $permition->return_verification = 0;
-        $permition->edit_item = 0;
+        $permition->edit_content = 0;
         $permition->edit_permitions = 0;
         $check = $permition->save();
 
-        return back()->withInput(array('saveCheck' => $check ? '1' : '0'));
+        return back();
     }
 
     function savePermitionData(Request $request){
 
         Log::info('PermitionController:savePermitionData');
 
-        if(Auth::permition()->edit_permitions != 1){
-            abort(403);
-            return "0";
-        }
 
         $permition = permition::find($request->id);
         $permition->name = $request->name;
-        $permition->possibility_renting = $request->renting;
+        $permition->possibility_read = $request->read;
         $permition->new_user = $request->user;
-        $permition->return_verification = $request->return;
-        $permition->edit_item = $request->edit;
+        $permition->edit_content = $request->edit;
         $permition->edit_permitions = $request->permition;
         $check = $permition->save();
 
@@ -75,10 +69,6 @@ class PermitionController extends Controller
 
         Log::info('PermitionController:removePermition');
 
-        if(Auth::permition()->edit_permitions != 1){
-            abort(403);
-            return;
-        }
 
         $data = DB::table('users')->where('permition',$request->id)->get();
         $dataC = count($data);

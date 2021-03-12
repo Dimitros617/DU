@@ -16,7 +16,3 @@ function showPanel(id){
     document.getElementById("panel-" + id).classList.add("active");
 
 }
-
-function changeSwitch(ele, id){
-    document.getElementById(id).value = ele.checked ? 1 : 0;
-}
