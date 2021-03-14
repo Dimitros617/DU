@@ -1,7 +1,7 @@
 
 <div class="pageTitle">Omezení přístupu</div>
 
-<div class="su-h3 text-su-lblue w-100 text-center" >
+<div class="su-h3 text-su-orange w-100 text-center" >
     Nastavte prvku {{$data->name}} podmínku, kterou musí žák splnit, aby se mu tento prvek zpřístupnil.
 </div>
 
@@ -11,9 +11,9 @@
     <form>
 
         {{--        Bez omezení--}}
-        <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-card su-animation-05" id="empty">
+        <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05" id="empty">
 
-            <div class="rule-title bg-su-texture shadow float-start text-su-hologram-blue ">Bez omezení</div>
+            <div class="rule-title bg-su-texture shadow float-start text-su-hologram-blue-inverted ">Bez omezení</div>
 
             <div class="switch-box float-end d-grid " style="margin-top: -5rem;">
                 <label class="switch  ms-auto me-auto">
@@ -27,9 +27,9 @@
 
 
         {{--        Pravidlo pro čas--}}
-    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-card su-animation-05" id="time">
+    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05" id="time">
 
-        <div class="rule-title bg-su-texture shadow  float-start text-su-hologram-blue">Časové omezení</div>
+        <div class="rule-title bg-su-texture shadow  float-start text-su-hologram-blue-inverted">Časové omezení</div>
 
         <div class="switch-box float-end d-grid" style="margin-top: -5rem;">
             <label class="switch  ms-auto me-auto">
@@ -50,9 +50,9 @@
 
 
         {{--        Pravidlo pro předchozí--}}
-    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-card su-animation-05" id="prev">
+    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05" id="prev">
 
-        <div class="rule-title  bg-su-texture shadow float-start text-su-hologram-blue">Dokončit po předchozím</div>
+        <div class="rule-title  bg-su-texture shadow float-start text-su-hologram-blue-inverted">Dokončit po předchozím</div>
 
         <div class="switch-box float-end d-grid" style="margin-top: -5rem;">
             <label class="switch  ms-auto me-auto">
@@ -77,9 +77,9 @@
     </div>
 
 {{--        Pravidlo pro heslo--}}
-    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-card su-animation-05" id="key">
+    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05" id="key">
 
-        <div class="rule-title bg-su-texture shadow  float-start text-su-hologram-blue">Vlastní klíč</div>
+        <div class="rule-title bg-su-texture shadow  float-start text-su-hologram-blue-inverted">Vlastní klíč</div>
 
         <div class="switch-box float-end d-grid" style="margin-top: -5rem;">
             <label class="switch  ms-auto me-auto">
@@ -99,4 +99,7 @@
     </div>
 
     </form>
+</div>
+<div class="w-100 text-center text-su-shadow-white text-su-orange font-weight-bold mt-4">
+    Po znovu uložení, všichni, kteří už tuto část odemkly, jí budou muset odemnknout znovu podle nově nastaveného pravidla!
 </div>

@@ -92,6 +92,7 @@ button.new_chapter:hover
 
 .status-icon svg {
     transform: scale(2);
+    color: white;
 }
 
 .status-icon svg:hover {

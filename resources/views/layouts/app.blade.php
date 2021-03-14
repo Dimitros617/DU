@@ -35,6 +35,7 @@
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.esm.js') }}"></script>
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script src="{{ URL::asset('js/dragable.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
 
@@ -69,14 +70,44 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100 bg-su-blue-texture pb-4">
+<div class="min-h-screen bg-gray-100 bg-su-blue-texture " >
     @livewire('navigation-dropdown')
 
 <!-- Page Content -->
     <main>
         {{ $slot }}
     </main>
+    <div class="footer">
+
+        <span onclick="
+
+             if(!isNaN(window.easterEggCount)){
+                 window.easterEggCount++;
+             }else {
+                 window.easterEggCount = 0;
+             }
+
+             if(window.easterEggCount > 3){
+            Swal.fire({
+              title: 'Nice, objevil si mě XD',
+               text: 'Víte, že dle průzkumu se 85% lidí snaží znovu usnout, aby dokončily svůj sen?',
+              width: 600,
+              padding: '3em',
+              confirmButtonText: 'No to jsem jako nevěděl!',
+              background: '#fff url(/user_files/trees.png)',
+              backdrop: `
+                rgba(0,0,123,0.4)
+                url('/user_files/nyan-cat.gif')
+                    left top
+                    no-repeat
+                    `
+         })}
+        ">©</span> <a href="http://www.dominikfrolik.cz/"> Dominik Frolík </a> |  Bakalářská práce 2021 pro <a href="https://www.zcu.cz/cs/index.html"> ZČU </a> v Plzni
+
+    </div>
 </div>
+
+
 
 @stack('modals')
 

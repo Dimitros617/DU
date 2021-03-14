@@ -1,5 +1,38 @@
 
 
+function addChapter(form, spinner, symbol){
+
+    spinner.removeAttribute("hidden");
+    symbol.setAttribute("hidden", "");
+
+    $.ajax({
+        url: '/add_chapter',
+        method: 'POST',
+        data: form.serialize(),
+        success:function(response){
+
+            location.reload();
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+
+            spinner.setAttribute("hidden", "");
+            symbol.removeAttribute("hidden");
+        }
+    });
+
+}
+
 
 function removeChapterBox(ele, id){
 

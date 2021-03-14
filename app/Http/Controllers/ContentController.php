@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Big_box;
 use App\Models\Chapters;
+use App\Models\Middle_box;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -12,6 +14,15 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class ContentController extends Controller
 {
+    function editSetting(Request $request){
+
+        Log::info('ContentController:editSetting');
+
+        $data = "";
+
+        return view('edit-setting', ['data' => $data]);
+    }
+
     function saveImage(Request $request){
 
         Log::info('ContentController:saveImage');
@@ -22,7 +33,7 @@ class ContentController extends Controller
             ]);
 
             $img_type = $request->file('img')->getClientOriginalExtension();
-            $img_path = $request->table_name.'_xxx_'.$request->id.'.'.$img_type;
+            $img_path = $request->table_name.'_'.$request->id.'.'.$img_type;
             request()->img->move(public_path('/user_files'), $img_path);
         }
 
@@ -44,7 +55,6 @@ class ContentController extends Controller
         Log::info('ContentController:saveName');
 
         if(strlen($request->name) > 50){
-            Log::info('Yep');
             return response('Jméno nesmí být delší jak 50 znaků!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
 
         }
@@ -60,5 +70,151 @@ class ContentController extends Controller
         }
 
         return  $check ? "1" : "0";
+    }
+
+    function saveDescription(Request $request){
+
+        Log::info('ContentController:saveDescription');
+
+        if(strlen($request->description) > 1024){
+            return response('Popisek nesmí být delší jak 1024 znaků!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+
+        }
+
+        DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->update(['description' => $request->description]);
+
+        $new = DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->get();
+        $new = $new[0]->description;
+
+        $check = true;
+        if($new != $request->description){
+            $check = false;
+        }
+
+        return  $check ? "1" : "0";
+    }
+
+    function addBigbox(Request $request){
+
+        Log::info('ContentController:addBigbox');
+
+        $position = DB::table('big_box')
+            ->where('parent', $request->id)
+            ->orderBy('position', 'desc')
+            ->first();
+
+        if($position == "") {
+            $position = 1;
+        }else{
+            $position = ($position->position)+1;
+        }
+
+        $box = new Big_box;
+        $box->parent = $request->id;
+        $box->position = $position;
+        $check = $box->save();
+
+
+        return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: Big_box', 500)->header('Content-Type', 'text/plain');
+
+    }
+
+    function addMiddlebox(Request $request){
+
+        Log::info('ContentController:addMiddlebox');
+
+        $position = DB::table('middle_box')
+            ->where('parent', $request->id)
+            ->orderBy('position', 'desc')
+            ->first();
+
+        if($position == "") {
+            $position = 1;
+        }else{
+            $position = ($position->position)+1;
+        }
+
+        $box = new Middle_box;
+        $box->parent = $request->id;
+        $box->position = $position;
+        $check = $box->save();
+
+
+        return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: Middle_box', 500)->header('Content-Type', 'text/plain');
+
+    }
+
+    function move(Request $request){
+
+        Log::info('ContentController:move');
+
+        $temp = DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->get();
+
+        $parent_id = $temp[0]->parent;
+        $position = $temp[0]->position;
+
+        $last = DB::table($request->table_name)
+            ->where('parent', $parent_id)
+            ->orderBy('position', 'desc')
+            ->first()->position;
+
+        Log::info('id: ' .  $request->id . ' | rodic: ' . $parent_id . ' | pozice: ' . $position . ' | posledni: ' . $last);
+
+        if($position == 1 && $request->direction == "up"){
+            return  response('Výš už to bohužel nepůjde! Dosáhli jste vrcholu!', 500)->header('Content-Type', 'text/plain');
+        }
+
+        if($position == $last && $request->direction == "down"){
+            return  response('Níž už to bohužel nepůjde! "Už jste úplně na dně!', 500)->header('Content-Type', 'text/plain');
+        }
+
+        $data = DB::table($request->table_name)
+            ->where('parent', $parent_id)
+            ->orderBy('position', 'asc')
+            ->get();
+
+        if($request->direction == "up"){
+
+            $new_position = DB::table($request->table_name)
+                ->where('parent', $parent_id)
+                ->where('position', ($position-1))
+                ->get()[0]->id;
+
+            $old_position = DB::table($request->table_name)
+                ->where('parent', $parent_id)
+                ->where('position', $position)
+                ->update(['position' => ($position-1)]);
+
+            $new_position = DB::table($request->table_name)
+                ->where('id', $new_position)
+                ->update(['position' => ($position)]);
+
+        }else{
+
+            $new_position = DB::table($request->table_name)
+                ->where('parent', $parent_id)
+                ->where('position', ($position+1))
+                ->get()[0]->id;
+
+            $old_position = DB::table($request->table_name)
+                ->where('parent', $parent_id)
+                ->where('position', $position)
+                ->update(['position' => ($position+1)]);
+
+            $new_position = DB::table($request->table_name)
+                ->where('id', $new_position)
+                ->update(['position' => ($position)]);
+
+
+        }
+
+        return  $new_position && $old_position ? "1" : response('Nastala chyba při přesouvání elementu!', 500)->header('Content-Type', 'text/plain');
+
     }
 }

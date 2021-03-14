@@ -5,6 +5,10 @@ function setLock(ele, id, element_type, spinner, request, token ){
     spinner.removeAttribute("hidden");
     request.setAttribute("hidden", "");
 
+    if(token == undefined){
+        token =  document.querySelectorAll("input[name='_token']")[0].value;
+    }
+
     $.ajax({
         url: '/rule_setting/'+ element_type + "/" + id,
         method: 'get',
@@ -13,8 +17,7 @@ function setLock(ele, id, element_type, spinner, request, token ){
             spinner.setAttribute("hidden", "");
 
             Swal.fire({
-                html:
-                response,
+                html: response,
                 showCloseButton: false,
                 showCancelButton: false,
                 showConfirmButton: true,
@@ -25,6 +28,7 @@ function setLock(ele, id, element_type, spinner, request, token ){
                 customClass: 'modal-page',
             }).then((result) => {
                 if (result.isConfirmed) {
+
 
                     let all_rules = document.getElementsByClassName('rule-box');
 
@@ -49,7 +53,7 @@ function setLock(ele, id, element_type, spinner, request, token ){
                                     Swal.fire({
                                         icon: 'success',
                                         title: 'Uloženo',
-                                        text: 'Pravidlo bylo úspěšně uloženo!',
+                                        text: 'Pravidlo bylo úspěšně nastaveno!',
                                     })
 
                                 },
@@ -99,17 +103,29 @@ function setLock(ele, id, element_type, spinner, request, token ){
             spinner.setAttribute("hidden", "");
             request.innerHTML = '<b>&#x2715;</b>';
 
-            setTimeout(function (ele){
+            setTimeout(function (request){
                 request.setAttribute("hidden", "");
-            },1000,ele);
+            },1000,request);
         }
     });
 }
 
+/**
+ *
+ * @param id = (int) ID Elementu, které chceme ověřit
+ * @param element_type = (String) Jméno tabulky kde máme id ověřovat
+ * @param spinner = (Element) = Loading element, který se zobrazuje s skrývá
+ * @param request = (Element) = Výsledek po loadingu element, který zobrazuje ano nebo ne (stav http requestu)
+ * @param url = (String) url adresa kam chceme odkázat pro případ, že odemknutí proběhne v pořádku, hodnota UNDEFINED pouze reloadne stránku
+ * @param token = (String) CSRF token pro odeslání POSTEM
+ */
 function checkLock(id, element_type, spinner, request, url, token){
 
     spinner.removeAttribute("hidden");
 
+    if(token == undefined){
+        token =  document.querySelectorAll("input[name='_token']")[0].value;
+    }
 
     $.ajax({
         url: '/check_lock/' + element_type + "/" + id,
@@ -118,7 +134,12 @@ function checkLock(id, element_type, spinner, request, url, token){
 
             spinner.setAttribute("hidden", "");
             if(response[0] == "1"){
-                location.href = url;
+                if(url == undefined){
+                    location.reload();
+                }else{
+                    location.href = url;
+                }
+
             }else{
 
                 switch(response[1]) {
@@ -294,9 +315,13 @@ function unlock(url,spinner){
             if(spinner != undefined) {
                 spinner.removeAttribute("hidden");
             }
-            location.href = url;
+            if(url == undefined){
+                location.reload();
+            }else{
+                location.href = url;
+            }
         }else{
-            spinner.setAttribute("hidden", "");
+            location.reload();
         }
     })
 }

@@ -26,10 +26,15 @@ let a = $('#savePermitionData-' + id).serialize();
 
             }else if(response == "-1"){
 
-                vrsAlert('Alespoň jedna role musí mít možnost "Správy oprávnění"!' );
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Upss...',
+                    text: 'Alespoň jedna role musí mít přiřazenou možnost "Správy rolí"!',
+                    customClass: {
+                        container: 'su-shake-horizontal',
+                    }
+                })
                 ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-                let input = document.getElementById("edit_permitions"+id).parentNode
-                let a = input.getElementsByClassName("toggle-off")[0].click();
 
                 let roleCount = document.getElementById("list-"+id).getElementsByClassName("roleCount")[0].cloneNode(true);
                 document.getElementById("list-"+id).innerHTML = document.getElementById("panel-" + id).getElementsByClassName("permition-name")[0].value;

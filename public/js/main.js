@@ -127,15 +127,22 @@ function saveImage(form, table, id, loading, request, img){
     });
 }
 
-function saveName(form, table, id, loading, request){
+function saveText(form, table, id, loading, request, route){
 
+
+    let element = form.querySelectorAll(("input[name="+route+"]"))[0];
+    let value = element.value;
+    let def = element.getAttribute("default");
+    if(value.trim() == def.trim()){
+        return false;
+    }
 
 
     loading.removeAttribute("hidden");
     request.setAttribute("hidden", "");
 
     $.ajax({
-        url: '/save_name',
+        url: '/save_'+route,
         method: 'POST',
         data: new FormData(form),
         processData: false,
@@ -147,6 +154,7 @@ function saveName(form, table, id, loading, request){
             request.removeAttribute("hidden");
 
             if(response[0] == "1"){
+                element.setAttribute("default", element.value);
                 request.innerHTML = '<b>&#10003;</b>';
             }else{
                 Swal.fire({
@@ -172,7 +180,7 @@ function saveName(form, table, id, loading, request){
             Swal.fire({
                 icon: 'error',
                 title: 'Hmm...',
-                text: 'Nastala chyba!' + err,
+                text: 'Nastala chyba! ' + err,
                 customClass: {
                     container: 'su-shake-horizontal',
                 }
@@ -187,3 +195,13 @@ function saveName(form, table, id, loading, request){
         }
     });
 }
+
+function changeLockImg(ele, value){
+    if(value =='1') {
+        ele.classList.add('text-su-orange')
+    }
+}
+
+$(function(){
+    $('svg[onload]').trigger('onload');
+});

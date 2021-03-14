@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChaptersTable extends Migration
+class CreateBigBoxTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateChaptersTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapters', function (Blueprint $table) {
+        Schema::create('big_box', function (Blueprint $table) {
             $table->id();
-//            $table->unsignedBigInteger('parent');
-            $table->string('name',50)->default('Nová kapitola');
-            $table->string('description',1024)->default('Popisek nové kapitoly');
+            $table->unsignedBigInteger('parent');
+            $table->string('name',50)->nullable()->default('Nový velký box');
+            $table->string('description',1024)->nullable()->default('Popisek nového velkého boxu');
             $table->string('img')->default('default.png');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
@@ -25,7 +25,7 @@ class CreateChaptersTable extends Migration
             $table->string('style')->nullable();
             $table->timestamps();
 
-//            $table->foreign('parent')->references('id')->on('books');
+            $table->foreign('parent')->references('id')->on('chapters');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateChaptersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chapters');
+        Schema::dropIfExists('big_box');
     }
 }

@@ -40,5 +40,26 @@ class DatabaseSeeder extends Seeder
             'edit_permitions' => 1,
 
         ]);
+            //Seed pro typy
+        DB::table('element_types')->insert([
+            'id' => 1,
+            'name' => 'Nadpis',
+            'blade' => 'title-element',
+        ]);
+        DB::table('element_types')->insert([
+            'id' => 2,
+            'name' => 'Text',
+            'blade' => 'text-element',
+        ]);
+        DB::table('element_types')->insert([
+            'id' => 3,
+            'name' => 'Obrázek',
+            'blade' => 'image-element',
+        ]);
+        DB::table('element_types')->insert([
+            'id' => 4,
+            'name' => 'Video',
+            'blade' => 'video-element',
+        ]);
     }
 }
