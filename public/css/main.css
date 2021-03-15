@@ -202,6 +202,26 @@ button.submit {
     min-height: 55px;
 }
 
+.font-weight-500{
+    font-weight: 500;
+}
+
+.rotate-90{
+    transform: rotate(90deg);
+}
+
+.rotate-180{
+    transform: rotate(180deg);
+}
+
+.rotate-270{
+    transform: rotate(270deg);
+}
+
+
+.bg-norepeat{
+    background-repeat: no-repeat;
+}
 
 .swal2-styled.swal2-confirm {
     background-color: #2EC4B6;
@@ -552,37 +572,37 @@ svg.h-6.w-6 {
 /*Opacity*/
 
 .su-opacity-0{
-    opacity: 0;
+    opacity: 0 !important;
 }
 .su-opacity-10{
-    opacity: 0.1;
+    opacity: 0.1 !important;
 }
 .su-opacity-20{
-    opacity: 0.2;
+    opacity: 0.2 !important;
 }
 .su-opacity-30{
-    opacity: 0.3;
+    opacity: 0.3 !important;
 }
 .su-opacity-40{
-    opacity: 0.4;
+    opacity: 0.4 !important;
 }
 .su-opacity-50{
-    opacity: 0.5;
+    opacity: 0.5 !important;
 }
 .su-opacity-60{
-    opacity: 0.6;
+    opacity: 0.6 !important;
 }
 .su-opacity-70{
-    opacity: 0.7;
+    opacity: 0.7 !important;
 }
 .su-opacity-80{
-    opacity: 0.8;
+    opacity: 0.8 !important;
 }
 .su-opacity-90{
-    opacity: 0.9;
+    opacity: 0.9 !important;
 }
 .su-opacity-100{
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .pt-16{
@@ -627,9 +647,10 @@ div#su-dragable-header:hover {
     background-color: #FF9F1C !important;
 }
 
-div#su-dragable-header:active #su-dragable {
+div#su-dragable-header:active {
     opacity: 0.8;
-    transform: scale(0.9);
+    transform: scale(0.95);
+    border-radius: 5px;
     cursor: grabbing;
 }
 

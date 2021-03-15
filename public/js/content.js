@@ -1,4 +1,16 @@
 
+window.contentEdit = 0;
+
+
+
+window.addEventListener('beforeunload', (event) => {
+    if(window.contentEdit<=0){
+        delete e['returnValue'];
+    }
+    event.returnValue = `Ups.. našli jsme celkem ` + window.contentEdit + "neuložených záznamů.";
+});
+
+
 function addElement(parent, icon, spinner){
 
     icon.setAttribute("hidden", "");
@@ -83,7 +95,7 @@ function moveElement(parent, direction, request, loading){
 }
 
 /**
- *
+ * @param ele = (Element( element tlačítka editace v edit baru
  * @param element = (Element) ten který budeme editovat live
  * @param id = (Int) Id elementu do databáze
  * @param element_type = (String) Jméno tabulky v databázi
@@ -91,7 +103,7 @@ function moveElement(parent, direction, request, loading){
  * @param request = (Element) Výspis pro stav requestu
  * @param token = (String) Token pro poslání POSTem
  */
-function editSetting(element, id, element_type, spinner, request, token){
+function editSetting(ele, element, id, element_type, spinner, request, token){
 
 
     spinner.removeAttribute("hidden");
@@ -132,37 +144,56 @@ function editSetting(element, id, element_type, spinner, request, token){
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    // $.ajax({
-                    //     url: '/save_rule',
-                    //     type: 'post',
-                    //     data: { _token: token, table_name: element_type, id: id, key_type: key_type, key: key},
-                    //     success:function(response){
-                    //         spinner.setAttribute("hidden", "");
-                    //         Swal.fire({
-                    //             icon: 'success',
-                    //             title: 'Uloženo',
-                    //             text: 'Pravidlo bylo úspěšně nastaveno!',
-                    //         })
-                    //
-                    //     },
-                    //     error: function (response){
-                    //         console.log(response);
-                    //         let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                    //         Swal.fire({
-                    //             icon: 'error',
-                    //             title: 'Hmm... CHYBA!',
-                    //             text: err ,
-                    //             customClass: {
-                    //                 container: 'su-shake-horizontal',
-                    //             }
-                    //         })
-                    //         spinner.setAttribute("hidden", "");
-                    //
-                    //     }
-                    // });
+                    spinner.removeAttribute("hidden");
+                    $.ajax({
+                        url: '/save_setting/' + element_type + "/" + id,
+                        type: 'post',
+                        data: { _token: token, table_name: element_type, name: element.getAttribute('name'), description: element.getAttribute('description'), style: element.getAttribute('style')},
+                        success:function(response){
+                            spinner.setAttribute("hidden", "");
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Uloženo',
+                                text: 'Všechno jsme nastavily!',
+                            })
+
+                        },
+                        error: function (response){
+                            console.log(response);
+                            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Hmm... CHYBA!',
+                                text: err ,
+                                customClass: {
+                                    container: 'su-shake-horizontal',
+                                }
+                            })
+                            spinner.setAttribute("hidden", "");
+
+                        }
+                    });
+                    window.contentEdit--;
 
                 }
+                else if(result.isDenied){
+
+                    element.setAttribute("style", element.getAttribute("old_style"));
+                    window.contentEdit--;
+                }
+                else{
+                    window.contentEdit++;
+                    ele.classList.add('text-su-orange');
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'POZOR!',
+                        text: 'Nastavení nebylo uloženo, ale zůstane zobrazeno, dokud stránku znovu nenačteš. Pro jistotu jsem ti neuloženou práci zvýraznil.' ,
+                    })
+                }
+
             })
+            $('input[onload]').trigger('onload');
+
         },
         error: function (response){
             console.log(response);

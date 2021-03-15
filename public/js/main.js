@@ -127,7 +127,17 @@ function saveImage(form, table, id, loading, request, img){
     });
 }
 
-function saveText(form, table, id, loading, request, route){
+/**
+ *
+ * @param form = (Element || undefined) = pokud je definován formulář data jsou serializována pokud ne je nutné vyplnit "token", "table_name" a "id"
+ * @param table = (String) Jméno tabulky elementu
+ * @param id = (Int) ID elementu z z tabulky v databázi
+ * @param loading = (Element) Loading spinner
+ * @param request = (Element) label pro vypsání requestu
+ * @param route = (String) kterou routu, tedy co chceme uloži "text", "description"...
+ * @param token (String) pokud není definován form, stringová hodnota tokenu pro poslání POST metodou
+ */
+function saveText(form, table, id, loading, request, route, token){
 
 
     let element = form.querySelectorAll(("input[name="+route+"]"))[0];
@@ -137,6 +147,12 @@ function saveText(form, table, id, loading, request, route){
         return false;
     }
 
+    if(form == undefined){
+        let data = { _token: token, table_name: table, id: id}
+    }else{
+        let data = new FormData(form);
+    }
+
 
     loading.removeAttribute("hidden");
     request.setAttribute("hidden", "");
@@ -144,7 +160,7 @@ function saveText(form, table, id, loading, request, route){
     $.ajax({
         url: '/save_'+route,
         method: 'POST',
-        data: new FormData(form),
+        data: data,
         processData: false,
         contentType: false,
         datatype : "application/json",

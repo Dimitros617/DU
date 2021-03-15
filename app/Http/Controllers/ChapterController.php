@@ -12,7 +12,20 @@ use Illuminate\Support\Facades\Log;
 class ChapterController extends Controller
 {
 
+    function showChapterEdit($id){
+        return $this->showChapter($id, true);
+    }
+
     function showChapter($id){
+
+        Log::info('ChapterController:showChapter');
+
+        $args = func_get_args();
+
+        $edit = false;
+        if(count($args)>1 && $args[1]){
+            $edit = true;
+        }
 
         $data = DB::table('chapters')
             ->where('id', $id)
@@ -59,7 +72,8 @@ class ChapterController extends Controller
             'big_boxes' => $big_boxes,
             'middle_boxes' => $middle_boxes,
             'big_boxes_locks' => $big_boxes_locks,
-            'middle_boxes_locks' => $middle_boxes_locks]);
+            'middle_boxes_locks' => $middle_boxes_locks,
+            'edit' => $edit]);
 
     }
 

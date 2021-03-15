@@ -35,7 +35,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/use
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->get('/permitions', [PermitionController::class,'showPermissions']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}', [ChapterController::class,'showChapter']);
-
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_content'])->get('/chapter/{id:id}/edit', [ChapterController::class,'showChapterEdit']);
 
 //Kontent
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
@@ -48,6 +48,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/move', [ContentController::class,'move']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/edit_setting/{table_name?}/{id:id}', [ContentController::class,'editSetting']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_setting/{table_name?}/{id:id}', [ContentController::class,'saveSetting']);
 
 //Kapitoly
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);

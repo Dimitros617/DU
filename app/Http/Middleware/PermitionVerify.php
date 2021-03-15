@@ -33,7 +33,7 @@ class permitionVerify
         $return = 0;
         for ($i = 2; $i < count($args)-$count; $i++) {
             $val = $args[$i];
-            Log::info('middleware-PermitionVerify: ' . $val);
+            Log::info('middleware-PermitionVerify: ' . $val . ' = ' . Auth::permition()->$val);
             $return += Auth::permition()->$val == 1 ? 1 : 0;
 
         }

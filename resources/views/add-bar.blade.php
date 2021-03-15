@@ -1,7 +1,7 @@
 
 
 
-<div class=" max-w-7xl mx-auto d-flex align-items-center justify-center add-bar-container add-bar-container-hover" onclick="addElement(this.parentNode, this.getElementsByClassName('add-bar-svg')[0],  this.getElementsByClassName('loading')[0])">
+<div class=" max-w-7xl mx-auto d-flex align-items-center justify-center add-bar-container add-bar-container-hover w-100" onclick="addElement(this.parentNode, this.getElementsByClassName('add-bar-svg')[0],  this.getElementsByClassName('loading')[0])">
     <div class="line"></div>
     <div class="icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus-circle-fill add-bar-svg" viewBox="0 0 16 16">

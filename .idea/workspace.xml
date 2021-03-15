@@ -9,45 +9,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/app/Models/Big_box.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Elements.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Middle_box.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_120639_create_element_types_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/chapter.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/dragable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/edit-setting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapters_xxx_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapters_xxx_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/chapters_xxx_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/nyan-cat.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/trees.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/big-box.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/locked-box.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/middle-box.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chapter-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chapter-menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/PermitionVerify.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/PermitionVerify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chapters.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chapters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/lock.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/edit-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/edit-setting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/permition-save.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/permition-save.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/add-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/add-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/big-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/big-box.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/middle-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/middle-box.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,6 +74,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/Http/Controllers/ContentController.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpDebugGeneral" show_user_defined_constants="false" />
   <component name="PhpServers">
@@ -392,7 +371,8 @@
       <workItem from="1610652205916" duration="11372000" />
       <workItem from="1610715241776" duration="5978000" />
       <workItem from="1615298384595" duration="30832000" />
-      <workItem from="1615371667734" duration="163311000" />
+      <workItem from="1615371667734" duration="164025000" />
+      <workItem from="1615799433596" duration="31075000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1602874504350</created>
@@ -730,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615585831241</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Repozicování a rozděláno editování">
+      <created>1615763141271</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1615763141271</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +779,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Přidán vlastní middleware pro verifikaci oprávění přístupu na stránku přihlášeného uživatele" />
     <MESSAGE value="Rozdělení funcí do příslušných controllerů a přidáno vykreslování dostupných a nedostupných itemů dané kateogie podle oprávění na seznamu kategorií." />
     <MESSAGE value="Opravena chyba timestamp v modelech, opravena chyba v Auth::permition + rozpracována stránka moje výpůjčky" />
     <MESSAGE value="Přidána stránka moje výpůjčky, doděláno odstranění kategoriií a přidán přehled závazků nad kategoriemi" />
@@ -817,7 +803,8 @@
     <MESSAGE value="Edit user bladu, přidáno mazání a mdální okna" />
     <MESSAGE value="Dodělány podmínky pro zamikání a kontrolu" />
     <MESSAGE value="Předělány universální obrázky a name ukládání, opraveno lockování a výpisy Errorů, přidány permitions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Předělány universální obrázky a name ukládání, opraveno lockování a výpisy Errorů, přidány permitions" />
+    <MESSAGE value="Repozicování a rozděláno editování" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repozicování a rozděláno editování" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

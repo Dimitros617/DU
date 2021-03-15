@@ -18,9 +18,18 @@ class ContentController extends Controller
 
         Log::info('ContentController:editSetting');
 
-        $data = "";
+        return view('edit-setting', ['data' => $request]);
+    }
 
-        return view('edit-setting', ['data' => $data]);
+    function saveSetting(Request $request){
+
+        $check = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->update(['name' => $request->name, 'description' => $request->description, 'style' => $request->style]);
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
     }
 
     function saveImage(Request $request){
@@ -59,9 +68,14 @@ class ContentController extends Controller
 
         }
 
-        DB::table($request->table_name)->where('id', $request->id)->update(['name' => $request->name]);
+        DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->update(['name' => $request->name]);
 
-        $new = DB::table($request->table_name)->where('id', $request->id)->get();
+        $new = DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->get();
+
         $new = $new[0]->name;
 
         $check = true;
