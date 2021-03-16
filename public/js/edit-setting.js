@@ -4,11 +4,12 @@ function edit_loadAttribute(ele, table_name, id, attribute){
     ele.value = box.getAttribute(attribute);
 }
 
-function edit_saveAttribute(ele, table_name, id, attribute){
+function edit_saveAttribute(ele, table_name, id, attribute, required){
 
     let box = document.getElementById(table_name + '_' + id);
 
-    if(ele.value.trim() == ""){
+    required = required == undefined ? true : required;
+    if(ele.value.trim() == "" && required){
         Swal.fire({
             icon: 'error',
             title: 'Ups..',
@@ -35,8 +36,8 @@ function edit_loadStyle(ele, table_name, id, style){
             ele.value = color == "" ? "#ffffff" : color;
             break;
         case "background-image":
-            let url = box.style.backgroundImage;
-            ele.value = url;
+            let url = box.style.backgroundImage.trim().split('"')[1];
+            ele.value = url == undefined ? "" : url;
             break;
 
         case "image-top":
@@ -166,7 +167,7 @@ function edit_loadStyle(ele, table_name, id, style){
 
 function edit_saveStyle(ele, table_name, id, style){
     let box = document.getElementById(table_name + '_' + id);
-
+    window.contentEdit++;
     let float;
     let margin;
     let padding;

@@ -1,3 +1,6 @@
+
+
+
 function IsJsonString(str) {
     try {
         JSON.parse(str);
@@ -220,4 +223,7 @@ function changeLockImg(ele, value){
 
 $(function(){
     $('svg[onload]').trigger('onload');
+    $('input[onload]').trigger('onload');
 });
+
+

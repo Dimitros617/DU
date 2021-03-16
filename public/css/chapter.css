@@ -54,13 +54,14 @@
 
 .edit-box-icon {
     margin: 0 0.3rem;
-    opacity: 0.2;
+    mix-blend-mode: difference;
     transition-duration: 0.2s;
     cursor: pointer;
 }
 
 .edit-box-icon:hover {
     opacity: 0.8;
+    mix-blend-mode: unset;
     transform: scale(1.2);
 }
 

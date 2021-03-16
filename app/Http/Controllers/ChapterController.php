@@ -63,10 +63,11 @@ class ChapterController extends Controller
 
         $elements = DB::table('elements')
             ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->join('element_types', 'elements.type', '=', 'element_types.id')
             ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
             ->join('chapters', 'big_box.parent', '=', 'chapters.id')
             ->where('chapters.id', $id)
-            ->select('elements.id', 'elements.parent', 'elements.name', 'elements.description', 'elements.url', 'elements.security', 'elements.key', 'elements.position', 'elements.style', 'elements.type', 'elements.data', 'elements.data1', 'elements.data2', 'elements.results', 'elements.created_at', 'elements.updated_at')
+            ->select('elements.id', 'elements.parent', 'elements.name', 'elements.description', 'elements.url', 'elements.security', 'elements.key', 'elements.position', 'elements.style', 'elements.type', 'elements.data', 'elements.data1', 'elements.data2', 'elements.results', 'elements.created_at', 'elements.updated_at', 'element_types.blade')
             ->orderBy('position', 'asc')
             ->get();
 

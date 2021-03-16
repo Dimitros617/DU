@@ -35,6 +35,36 @@ class ContentController extends Controller
                 ->where('id', $request->id)
                 ->update(['name' => $request->name, 'description' => $request->description, 'style' => $request->style]);
 
+        if($request->src != null){
+            $check = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->update(['url' => $request->src]);
+        }
+
+        if($request->data != null){
+            $check = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->update(['data' => $request->data]);
+        }
+
+        if($request->data1 != null){
+            $check = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->update(['data1' => $request->data1]);
+        }
+
+        if($request->data2 != null){
+            $check = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->update(['data2' => $request->data2]);
+        }
+
+        if($request->results != null){
+            $check = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->update(['results' => $request->results]);
+        }
+
         if(!$check) {
             return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }

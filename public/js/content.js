@@ -211,7 +211,17 @@ function editSetting(ele, element, id, element_type, spinner, request, token){
                     $.ajax({
                         url: '/save_setting/' + element_type + "/" + id,
                         type: 'post',
-                        data: { _token: token, table_name: element_type, name: element.getAttribute('name'), description: element.getAttribute('description'), style: element.getAttribute('style')},
+                        data: { _token: token,
+                            table_name: element_type,
+                            name: element.getAttribute('name'),
+                            description: element.getAttribute('description'),
+                            style: element.getAttribute('style'),
+                            src: element.getAttribute('src'),
+                            data: element.getAttribute('data'),
+                            data1: element.getAttribute('data1'),
+                            data2: element.getAttribute('data2'),
+                            results: element.getAttribute('results'),
+                        },
                         success:function(response){
                             spinner.setAttribute("hidden", "");
                             Swal.fire({
@@ -237,21 +247,26 @@ function editSetting(ele, element, id, element_type, spinner, request, token){
                         }
                     });
                     window.contentEdit--;
-
+                    ele.classList.remove('text-su-orange');
+                    ele.classList.remove('unblend');
                 }
                 else if(result.isDenied){
 
                     element.setAttribute("style", element.getAttribute("old_style"));
+                    ele.classList.remove('text-su-orange');
+                    ele.classList.remove('unblend');
                     window.contentEdit--;
                 }
                 else{
-                    window.contentEdit++;
-                    ele.classList.add('text-su-orange');
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'POZOR!',
-                        text: 'Nastavení nebylo uloženo, ale zůstane zobrazeno, dokud stránku znovu nenačteš. Pro jistotu jsem ti neuloženou práci zvýraznil.' ,
-                    })
+                    if(window.contentEdit>0) {
+                        ele.classList.add('text-su-orange');
+                        ele.classList.add('unblend');
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'POZOR!',
+                            text: 'Nastavení nebylo uloženo, ale zůstane zobrazeno, dokud stránku znovu nenačteš. Pro jistotu jsem ti neuloženou práci zvýraznil.',
+                        })
+                    }
                 }
 
             })

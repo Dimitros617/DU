@@ -29,7 +29,7 @@ foreach ($big_boxes_locks as $lock){
          old_style="{{$big_box->style}}"
          old_name="{{$big_box->name}}"
          old_description="{{$big_box->description}}"
-         class="bg-white overflow-hidden box-su-shadow sm:rounded-lg max-w-7xl mx-auto sm:px-6 lg:px-8 p-4 mb-5 su-animation-02 bg-norepeat"
+         class="bg-white box-su-shadow sm:rounded-lg max-w-7xl mx-auto sm:px-6 lg:px-8 p-4 mb-5 su-animation-02 bg-norepeat"
          id="big_box_{{$big_box->id}}"
          type="big_box"
          include="middle_box"

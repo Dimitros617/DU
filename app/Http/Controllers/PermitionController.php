@@ -15,7 +15,10 @@ class PermitionController extends Controller
 
         Log::info('PermitionController:showPermissions');
 
-        $data = DB::table('permition')->leftJoin('users','permition.id', '=', 'users.permition')->select('permition.*', DB::raw('COUNT(users.permition) as count'))->groupByRaw('permition.id, permition.name, permition.possibility_read, permition.new_user, permition.edit_content, permition.edit_permitions')->get();
+        $data = DB::table('permition')
+            ->leftJoin('users','permition.id', '=', 'users.permition')
+            ->select('permition.*', DB::raw('COUNT(users.permition) as count'))
+            ->groupByRaw('permition.id, permition.name, permition.possibility_read, permition.new_user, permition.edit_content, permition.edit_permitions, permition.default')->get();
 
         return view('permitions', ['permitions' => $data]);
     }

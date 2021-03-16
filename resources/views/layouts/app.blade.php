@@ -39,6 +39,7 @@
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
 
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 
 
@@ -56,6 +57,9 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-grid.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-reboot.css') }}">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.bubble.css">
+
 {{--    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-utilities.css') }}">--}}
 
 
