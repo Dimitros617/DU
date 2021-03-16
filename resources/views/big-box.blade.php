@@ -36,8 +36,9 @@ foreach ($big_boxes_locks as $lock){
          element_id="{{$big_box->id}}"
          locked="@if($big_box->security != null && $big_box->security != 'empty') 1 @else 0 @endif">
 
-
-        @include('edit-bar')
+        @if($edit)
+            @include('edit-bar')
+        @endif
 
         @foreach($middle_boxes as $middle_box)
             @if($big_box->id == $middle_box->parent)
@@ -45,7 +46,9 @@ foreach ($big_boxes_locks as $lock){
             @endif
         @endforeach
 
-        @include('add-bar')
+        @if($edit)
+            @include('add-bar')
+        @endif
     </div>
 @endif
 

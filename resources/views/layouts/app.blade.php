@@ -8,7 +8,7 @@
     <!--
 
      -----------------------------------------------
-     Tento systém vytvořil Dominik Frolík jako Bakalářksou práce:
+     Tento systém vytvořil Dominik Frolík jako Bakalářksou práci:
 
      -----------------------------------------------
 
@@ -56,7 +56,7 @@
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-grid.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-reboot.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-utilities.css') }}">
+{{--    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/bootstrap/css/bootstrap-utilities.css') }}">--}}
 
 
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
@@ -70,41 +70,41 @@
 
 </head>
 <body class="font-sans antialiased">
-<div class="min-h-screen bg-gray-100 bg-su-blue-texture " >
+<div class="min-h-screen bg-gray-100 bg-su-blue-texture " style="padding-bottom: 8rem" >
     @livewire('navigation-dropdown')
 
 <!-- Page Content -->
     <main>
         {{ $slot }}
     </main>
-    <div class="footer">
+{{--    <div class="footer">--}}
 
-        <span onclick="
+{{--        <span onclick="--}}
 
-             if(!isNaN(window.easterEggCount)){
-                 window.easterEggCount++;
-             }else {
-                 window.easterEggCount = 0;
-             }
+{{--             if(!isNaN(window.easterEggCount)){--}}
+{{--                 window.easterEggCount++;--}}
+{{--             }else {--}}
+{{--                 window.easterEggCount = 0;--}}
+{{--             }--}}
 
-             if(window.easterEggCount > 3){
-            Swal.fire({
-              title: 'Nice, objevil si mě XD',
-               text: 'Víte, že dle průzkumu se 85% lidí snaží znovu usnout, aby dokončily svůj sen?',
-              width: 600,
-              padding: '3em',
-              confirmButtonText: 'No to jsem jako nevěděl!',
-              background: '#fff url(/user_files/trees.png)',
-              backdrop: `
-                rgba(0,0,123,0.4)
-                url('/user_files/nyan-cat.gif')
-                    left top
-                    no-repeat
-                    `
-         })}
-        ">©</span> <a href="http://www.dominikfrolik.cz/"> Dominik Frolík </a> |  Bakalářská práce 2021 pro <a href="https://www.zcu.cz/cs/index.html"> ZČU </a> v Plzni
+{{--             if(window.easterEggCount > 3){--}}
+{{--            Swal.fire({--}}
+{{--              title: 'Nice, objevil si mě XD',--}}
+{{--               text: 'Víte, že dle průzkumu se 85% lidí snaží znovu usnout, aby dokončily svůj sen?',--}}
+{{--              width: 600,--}}
+{{--              padding: '3em',--}}
+{{--              confirmButtonText: 'No to jsem jako nevěděl!',--}}
+{{--              background: '#fff url(/user_files/trees.png)',--}}
+{{--              backdrop: `--}}
+{{--                rgba(0,0,123,0.4)--}}
+{{--                url('/user_files/nyan-cat.gif')--}}
+{{--                    left top--}}
+{{--                    no-repeat--}}
+{{--                    `--}}
+{{--         })}--}}
+{{--        ">©</span> <a href="http://www.dominikfrolik.cz/"> Dominik Frolík </a> |  Bakalářská práce 2021 pro <a href="https://www.zcu.cz/cs/index.html"> ZČU </a> v Plzni--}}
 
-    </div>
+{{--    </div>--}}
 </div>
 
 

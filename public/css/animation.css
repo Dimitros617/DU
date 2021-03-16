@@ -26,3 +26,16 @@
     animation-duration: 700ms;
     animation-timing-function: ease-in-out;
 }
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating-1 {
+    -webkit-animation: rotating 1s linear infinite;
+}

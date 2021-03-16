@@ -8913,6 +8913,10 @@ a.badge-dark:focus, a.badge-dark.focus {
         width: 50% !important;
     }
 
+    .w-lg-25 {
+        width: 25% !important;
+    }
+
   .float-lg-start {
     float: left !important;
   }

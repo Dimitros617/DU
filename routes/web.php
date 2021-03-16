@@ -42,8 +42,9 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_name', [ContentController::class,'saveName']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_description', [ContentController::class,'saveDescription']);
 
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_big_box', [ContentController::class,'addBigbox']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_middle_box', [ContentController::class,'addMiddlebox']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_element', [ContentController::class,'addElement']);
+
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/get_element_selector', [ContentController::class,'getElementsSelector']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/move', [ContentController::class,'move']);
 

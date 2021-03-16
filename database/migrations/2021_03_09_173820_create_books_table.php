@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChaptersTable extends Migration
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,16 @@ class CreateChaptersTable extends Migration
      */
     public function up()
     {
-        Schema::create('chapters', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent')->nullable();
-            $table->string('name',50)->default('Nová kapitola');
-            $table->string('description',1024)->default('Popisek nové kapitoly');
+            $table->string('subject',50)->default('Předmět');
+            $table->string('name',50)->default('Nová učebnice');
+            $table->string('description',1024)->default('Popisek nové učebnice');
             $table->string('img')->default('default.png');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
             $table->string('position')->nullable();
-            $table->string('style')->nullable();
             $table->timestamps();
-
-            $table->foreign('parent')->references('id')->on('books');
         });
     }
 
@@ -36,6 +33,6 @@ class CreateChaptersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chapters');
+        Schema::dropIfExists('books');
     }
 }

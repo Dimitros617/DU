@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Big_box;
 use App\Models\Chapters;
 use App\Models\Middle_box;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -19,6 +20,13 @@ class ContentController extends Controller
         Log::info('ContentController:editSetting');
 
         return view('edit-setting', ['data' => $request]);
+    }
+
+    function getElementsSelector(Request $request){
+
+        Log::info('ContentController:getElementsSelector');
+        $data = DB::table('element_types')->get();
+        return view('elements-selector', ['elements' => $data, 'data' => $request]);
     }
 
     function saveSetting(Request $request){
@@ -112,11 +120,11 @@ class ContentController extends Controller
         return  $check ? "1" : "0";
     }
 
-    function addBigbox(Request $request){
+    function addElement(Request $request){
 
-        Log::info('ContentController:addBigbox');
+        Log::info('ContentController:addElement');
 
-        $position = DB::table('big_box')
+        $position = DB::table($request->table_name)
             ->where('parent', $request->id)
             ->orderBy('position', 'desc')
             ->first();
@@ -127,40 +135,30 @@ class ContentController extends Controller
             $position = ($position->position)+1;
         }
 
-        $box = new Big_box;
-        $box->parent = $request->id;
-        $box->position = $position;
-        $check = $box->save();
+        if($request->type == null) {
 
-
-        return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: Big_box', 500)->header('Content-Type', 'text/plain');
-
-    }
-
-    function addMiddlebox(Request $request){
-
-        Log::info('ContentController:addMiddlebox');
-
-        $position = DB::table('middle_box')
-            ->where('parent', $request->id)
-            ->orderBy('position', 'desc')
-            ->first();
-
-        if($position == "") {
-            $position = 1;
-        }else{
-            $position = ($position->position)+1;
+            $check = DB::table($request->table_name)->insert([
+                'parent' => $request->id,
+                'position' => $position,
+                'created_at' => Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
+        }
+        else{
+            $check = DB::table($request->table_name)->insert([
+                'parent' => $request->id,
+                'type' => $request->type,
+                'position' => $position,
+                'created_at' => Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon::now()->toDateTimeString(),
+            ]);
         }
 
-        $box = new Middle_box;
-        $box->parent = $request->id;
-        $box->position = $position;
-        $check = $box->save();
 
-
-        return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: Middle_box', 500)->header('Content-Type', 'text/plain');
+        return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
 
     }
+
 
     function move(Request $request){
 

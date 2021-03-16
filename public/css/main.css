@@ -99,6 +99,12 @@
     text-shadow: 0 0 20px #ff9f1c, 0 0 20px #ff9f1c;
 }
 
+.bg-su-image-center{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 .su-h2 {
     float: left;
     font-size: xx-large;
@@ -177,6 +183,9 @@ input.su-input-white {
     opacity: 1 !important;
 }
 
+.bg-su-lblack {
+    background: #00000014 !important;
+}
 
 
 .rule-title{
@@ -250,7 +259,7 @@ button.submit {
     background: linear-gradient(180deg, rgb(255 255 255 / 52%) 0%, rgb(255 255 255 / 22%) 100%);
     padding: 0;
     bottom: 1;
-    position: unset;
+    position: inherit;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -274,7 +283,7 @@ button.submit {
     background: linear-gradient(180deg, rgb(255 255 255 / 52%) 0%, rgb(255 255 255 / 22%) 100%);
     padding: 2rem 0;
     bottom: 1;
-    position: unset;
+    position: inherit;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -509,6 +518,8 @@ a.block.px-4.py-2.text-sm.leading-5.text-gray-700 {
 
 
 
+
+
 /*Změna barvy a velikosti mobilní nabídky v hlavičce*/
 svg.h-6.w-6 {
     color: #002c3d;
@@ -520,6 +531,11 @@ svg.h-6.w-6 {
 }
 
 .setting-menu-gear{
+    transition-duration: 0.8s;
+    transition-property: transform;
+}
+
+.setting-menu-gear-infinity{
     transition-duration: 0.8s;
     transition-property: transform;
 }

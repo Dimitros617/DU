@@ -16,7 +16,7 @@ class CreateElementsTable extends Migration
         Schema::create('elements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('parent');
-            $table->string('type')->nullable();
+            $table->unsignedBigInteger('type');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
             $table->string('position')->nullable();
@@ -34,6 +34,7 @@ class CreateElementsTable extends Migration
             $table->timestamps();
 
             $table->foreign('parent')->references('id')->on('middle_box');
+            $table->foreign('type')->references('id')->on('element_types');
         });
     }
 

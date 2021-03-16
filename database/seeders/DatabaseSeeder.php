@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         DB::table('permition')->insert([
             'id' => 1,
             'name' => 'Nový',
+            'default' => 1,
             'possibility_read' => 0,
             'new_user' => 0,
             'edit_content' => 0,
@@ -44,22 +45,32 @@ class DatabaseSeeder extends Seeder
         DB::table('element_types')->insert([
             'id' => 1,
             'name' => 'Nadpis',
+            'svg' => 'fonts.svg',
             'blade' => 'title-element',
         ]);
         DB::table('element_types')->insert([
             'id' => 2,
             'name' => 'Text',
+            'svg' => 'fonts.svg',
             'blade' => 'text-element',
         ]);
         DB::table('element_types')->insert([
             'id' => 3,
             'name' => 'Obrázek',
+            'svg' => 'image.svg',
             'blade' => 'image-element',
         ]);
         DB::table('element_types')->insert([
             'id' => 4,
             'name' => 'Video',
+            'svg' => 'video.svg',
             'blade' => 'video-element',
+        ]);
+        DB::table('element_types')->insert([
+            'id' => 5,
+            'name' => 'Dokončit',
+            'svg' => 'finish.svg',
+            'blade' => 'finish-element',
         ]);
     }
 }

@@ -10,45 +10,108 @@ window.addEventListener('beforeunload', (event) => {
     event.returnValue = `Ups.. našli jsme celkem ` + window.contentEdit + "neuložených záznamů.";
 });
 
+/**
+ *
+ * @param parent = (Element) Div který je editovaným boxem
+ * @param icon = (Element) Ikonka plus svg, která se změní na loading bublinku
+ * @param spinner = (Element) loading bublibka
+ * @param type = (ID) ID typu elementu, které chceme vližit s tabulky element_types
+ */
+function addElement(parent, icon, spinner, type){
 
-function addElement(parent, icon, spinner){
+    if(icon == null || spinner == null){
+        spinner = parent.getElementsByClassName('add-bar-loading')[0];
+        icon = parent.getElementsByClassName('add-bar-icon')[0];
+    }
 
     icon.setAttribute("hidden", "");
     spinner.removeAttribute("hidden");
 
-    let element_type = parent.getAttribute("include");
+    let table_name = parent.getAttribute("include");
     let id = parent.getAttribute("element_id");
     let token = document.querySelectorAll("input[name='_token']")[0].value;
 
-    $.ajax({
-        url: '/add_'+ element_type,
-        type: 'post',
-        data: { _token: token, table_name: element_type, id: id},
-        success:function(response){
+    type = type == undefined ? null : type;
+
+    if(table_name == "elements" && type == null){
+
+        table_name = parent.getAttribute("type");
+
+        $.ajax({
+            url: '/get_element_selector',
+            type: 'post',
+            data: { _token: token, table_name: table_name, id: id},
+            success:function(response){
+
+                Swal.fire({
+                    html: response,
+                    showCloseButton: false,
+                    showCancelButton: false,
+                    showConfirmButton: false,
+                    showDenyButton: false,
+                    focusConfirm: false,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        spinner.removeAttribute("hidden");
+
+                    }
+                    else if(result.isDenied){
+                    }
+                    else{
+                    }
+
+                })
+
+            },
+            error: function (response){
+                console.log(response);
+                let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hmm... CHYBA!',
+                    text: err ,
+                    customClass: {
+                        container: 'su-shake-horizontal',
+                    }
+                })
+
+                spinner.setAttribute("hidden", "");
+                icon.removeAttribute("hidden");
+
+            }
+        });
+
+    }else{
+        $.ajax({
+            url: '/add_element',
+            type: 'post',
+            data: { _token: token, table_name: table_name, id: id, type: type},
+            success:function(response){
 
 
                 location.reload();
 
 
-        },
-        error: function (response){
-            console.log(response);
-            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            },
+            error: function (response){
+                console.log(response);
+                let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hmm... CHYBA!',
+                    text: err ,
+                    customClass: {
+                        container: 'su-shake-horizontal',
+                    }
+                })
 
-            spinner.setAttribute("hidden", "");
-            icon.removeAttribute("hidden");
+                spinner.setAttribute("hidden", "");
+                icon.removeAttribute("hidden");
 
-        }
-    });
-
+            }
+        });
+    }
 }
 
 function moveElement(parent, direction, request, loading){

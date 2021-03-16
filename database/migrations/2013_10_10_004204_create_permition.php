@@ -13,6 +13,7 @@ class CreatePermition extends Migration
 
             $table->id();
             $table->string('name',40);
+            $table->tinyInteger('default',)->default('0');
             $table->tinyInteger('possibility_read',)->default('0');
             $table->tinyInteger('new_user',)->default('0');
             $table->tinyInteger('edit_content',)->default('0');
