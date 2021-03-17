@@ -44,30 +44,24 @@ class DatabaseSeeder extends Seeder
             //Seed pro typy
         DB::table('element_types')->insert([
             'id' => 1,
-            'name' => 'Nadpis',
-            'svg' => 'fonts.svg',
-            'blade' => 'title-element',
-        ]);
-        DB::table('element_types')->insert([
-            'id' => 2,
             'name' => 'Text',
             'svg' => 'fonts.svg',
             'blade' => 'text-element',
         ]);
         DB::table('element_types')->insert([
-            'id' => 3,
+            'id' => 2,
             'name' => 'Obrázek',
             'svg' => 'image.svg',
             'blade' => 'image-element',
         ]);
         DB::table('element_types')->insert([
-            'id' => 4,
+            'id' => 3,
             'name' => 'Video',
             'svg' => 'video.svg',
             'blade' => 'video-element',
         ]);
         DB::table('element_types')->insert([
-            'id' => 5,
+            'id' => 4,
             'name' => 'Dokončit',
             'svg' => 'finish.svg',
             'blade' => 'finish-element',

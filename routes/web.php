@@ -41,6 +41,10 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_name', [ContentController::class,'saveName']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_description', [ContentController::class,'saveDescription']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_column', [ContentController::class,'saveColumn']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_finished', [ContentController::class,'saveFinished']);
+
+Route::middleware(['auth:sanctum', 'verified', ])->post('/finish_element', [ContentController::class,'finishElement']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_element', [ContentController::class,'addElement']);
 

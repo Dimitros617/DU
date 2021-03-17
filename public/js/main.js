@@ -149,11 +149,11 @@ function saveText(form, table, id, loading, request, route, token){
     if(value.trim() == def.trim()){
         return false;
     }
-
+    let data
     if(form == undefined){
-        let data = { _token: token, table_name: table, id: id}
+        data = { _token: token, table_name: table, id: id}
     }else{
-        let data = new FormData(form);
+        data = new FormData(form);
     }
 
 

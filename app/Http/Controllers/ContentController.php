@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Big_box;
 use App\Models\Chapters;
+use App\Models\Finished;
 use App\Models\Middle_box;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
@@ -150,6 +152,58 @@ class ContentController extends Controller
         return  $check ? "1" : "0";
     }
 
+    function saveColumn(Request $request){
+
+        Log::info('ContentController:saveColumn ');
+
+        DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->update([$request->column => $request->data]);
+
+        $new = DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->value($request->column);
+
+
+        $check = true;
+        if($new != $request->data){
+            $check = false;
+        }
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
+    function saveFinished(Request $request){
+
+        Log::info('ContentController:saveFinished');
+
+        DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->update([$request->column => $request->data]);
+
+        $new = DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->value($request->column);
+
+
+        $check = true;
+        if($new != $request->data){
+            $check = false;
+        }
+
+        DB::table('finished')
+            ->Join('elements', 'finished.element_id', '=', 'elements.id')
+            ->where('elements.id', $request->id)
+            ->delete();
+
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
     function addElement(Request $request){
 
         Log::info('ContentController:addElement');
@@ -187,6 +241,18 @@ class ContentController extends Controller
 
         return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
 
+    }
+
+    function finishElement(Request $request){
+
+        $fin = new Finished;
+        $fin->element_id = $request->id;
+        $fin->user_id = Auth::user()->id;
+        $check = $fin->save();
+
+        if(!$check) {
+            return response('Nastala chyba při vkladání dat do databáze, tabulka Finished', 500)->header('Content-Type', 'text/plain');
+        }
     }
 
 

@@ -15,11 +15,11 @@ class CreateFinishedTable extends Migration
     {
         Schema::create('finished', function (Blueprint $table) {
             $table->id();
-            $table->string('table_name');
-            $table->tinyInteger('element_id');
+            $table->unsignedBigInteger('element_id');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
+            $table->foreign('element_id')->references('id')->on('elements');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

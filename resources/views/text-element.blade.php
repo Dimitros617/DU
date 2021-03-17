@@ -20,13 +20,14 @@
 
 
         <div class="this-element text-editor-setting mt-2" style="z-index: 999; position: relative;" >
-            <div id="editor" class="d-content mt-2" style="font-size: 150%">
-                <p>Cau <strong>VIOLKO</strong> ...</p>
-
+            <div id="editor" class=" editor-content d-content mt-2" style="font-size: 150%">
+                @php
+                echo $element->data;
+                @endphp
             </div>
         </div>
 
-
+    @if($edit)
         <script>
             var toolbarOptions = [
                 ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -44,8 +45,10 @@
                 ['clean']                                         // remove formatting button
             ];
 
+            const editor = $('#editor');
+
             var quill = new Quill('#editor', {
-                debug: 'info',
+                debug: false,
                 modules: {
                     toolbar: {
                         containerDiv: '#editor-setting',
@@ -58,10 +61,19 @@
                 },
                 theme: 'snow',
                 readOnly: false,
-                placeholder: 'Sem zadejte text...',
+                placeholder: 'Zde zadávejte text...',
             });
 
+            document.getElementById("editor").firstChild.onblur = () =>
 
+                saveColumn(
+                document.getElementById('elements_{{$element->id}}'),
+                document.getElementById('elements_{{$element->id}}').getElementsByClassName('edit-bar')[0].getElementsByClassName('loading')[0],
+                document.getElementById('elements_{{$element->id}}').getElementsByClassName('edit-bar')[0].getElementsByClassName('loading_request')[0],
+                document.getElementById('elements_{{$element->id}}').getElementsByClassName('editor-content')[0].firstChild.innerHTML,
+                'data');
         </script>
+    @endif
+
 
 </div>

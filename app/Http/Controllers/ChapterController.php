@@ -32,6 +32,10 @@ class ChapterController extends Controller
             ->orderBy('position', 'asc')
             ->get();
 
+        $finished = DB::table('finished')
+            ->where('user_id', Auth::user()->id)
+            ->get();
+
         $big_boxes = DB::table('big_box')
             ->join('chapters', 'big_box.parent', '=', 'chapters.id')
             ->where('chapters.id', $id)
@@ -93,6 +97,8 @@ class ChapterController extends Controller
 //            'elements_locks' => $elements_locks,
 //            'edit' => $edit];
 
+//        return $elements;
+
         return view('chapter',
             ['chapter' => $data,
             'big_boxes' => $big_boxes,
@@ -101,6 +107,7 @@ class ChapterController extends Controller
             'middle_boxes_locks' => $middle_boxes_locks,
             'elements' => $elements,
             'elements_locks' => $elements_locks,
+            'finished' => $finished,
             'edit' => $edit]);
 
     }

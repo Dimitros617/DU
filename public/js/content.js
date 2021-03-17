@@ -294,3 +294,122 @@ function editSetting(ele, element, id, element_type, spinner, request, token){
         }
     });
 }
+
+function saveColumn(element, spinner, request, data, column, route){
+
+    route = route == undefined ? '/save_column' : route;
+
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+    spinner.removeAttribute("hidden");
+    $.ajax({
+        url: route,
+        type: 'post',
+        data: { _token: token,
+            data: data,
+            table_name: element.getAttribute('type'),
+            id: element.getAttribute('element_id'),
+            column: column,
+        },
+        success:function(response){
+            spinner.setAttribute("hidden", "");
+            request.removeAttribute("hidden");
+            request.innerHTML = '<b>&#10003;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+            spinner.setAttribute("hidden", "");
+
+        }
+    });
+
+}
+
+function finishElement(element){
+
+    Swal.fire({
+        icon: "question",
+        title: 'Opravdu?',
+        text: 'Po označení této části za ukončenou, to nebudeš moci změnit.',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: true,
+        showDenyButton: true,
+        confirmButtonText: `Uložit`,
+        denyButtonText: `Zrušit`,
+        focusConfirm: false,
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            let token =  document.querySelectorAll("input[name='_token']")[0].value;
+
+            $.ajax({
+                url: '/finish_element',
+                type: 'post',
+                data: { _token: token,
+                    table_name: element.getAttribute('type'),
+                    id: element.getAttribute('element_id'),
+                },
+                success:function(response){
+                    location.reload();
+                },
+                error: function (response){
+                    console.log(response);
+                    let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Hmm... CHYBA!',
+                        text: err ,
+                        customClass: {
+                            container: 'su-shake-horizontal',
+                        }
+                    })
+                    spinner.setAttribute("hidden", "");
+
+                }
+            });
+        }
+        else if(result.isDenied){
+
+        }
+        else{
+
+        }
+
+    })
+}
+
+// Swal.fire({
+//     html: response,
+//     showCloseButton: false,
+//     showCancelButton: false,
+//     showConfirmButton: true,
+//     showDenyButton: true,
+//     confirmButtonText: `Uložit`,
+//     denyButtonText: `Zrušit`,
+//     focusConfirm: false,
+// }).then((result) => {
+//     if (result.isConfirmed) {
+//
+//     }
+//     else if(result.isDenied){
+//
+//     }
+//     else{
+//
+//     }
+//
+// })

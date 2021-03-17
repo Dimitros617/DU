@@ -173,18 +173,38 @@ class LockController extends Controller
                 case 'prev':
 
                     $temp = explode(":", $check_data[0]->key);
-                    Log::info($temp);
+
                     $find_table = $temp[0];
                     $find_id = $temp[1];
+
                     $finished_data = DB::table('finished')
                         ->Join('users', 'finished.user_id', '=', 'users.id')
-                        ->where('table_name', $find_table)
-                        ->where('element_id', $find_id)
+                        ->Join('elements', 'finished.element_id', '=', 'elements.id')
+                        ->where('elements.data', $check_data[0]->key)
                         ->where('users.id', Auth::user()->id)
+                        ->select('finished.id')
                         ->get();
 
+
+                    Log::info($finished_data);
+
+
                     if(count($finished_data) == 0 ) {
-                        $response_data = $check_data[0]->name;
+
+                        $response_name = DB::table($find_table)
+                            ->where('id', $find_id)
+                            ->value('name');
+
+                        $response_data = $response_name;
+                    }
+                    else if(count($finished_data) == 1 ){
+                        DB::table('locks')
+                            ->Join('users', 'locks.user_id', '=', 'users.id')
+                            ->where('table_name', $request->table_name)
+                            ->where('element_id', $request->id)
+                            ->where('users.id', Auth::user()->id)
+                            ->update(['locked' => '0']);
+                        return array("1");
                     }else{
                         return response('Duplicitní záznamy v tabulce finished', 500)->header('Content-Type', 'text/plain');
                     }
@@ -196,10 +216,12 @@ class LockController extends Controller
                     return response('Neznámý typ zabezepečení elementu', 500)->header('Content-Type', 'text/plain');
             }
 
-            return $check_locks[0]->locked == '1' ? array("0",$check_data[0]->security, $response_data) : "1";
+            return $check_locks[0]->locked == '1' ? array("0",$check_data[0]->security, $response_data) : array("1");
 
 
     }
+
+
 
     function unlock(Request $request)
     {
