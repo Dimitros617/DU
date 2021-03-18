@@ -33,7 +33,6 @@ return array(
     'App\\Models\\Chapters' => $baseDir . '/app/Models/Chapters.php',
     'App\\Models\\ListUsers' => $baseDir . '/app/Models/ListUsers.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
-    'App\\Models\\messages' => $baseDir . '/app/Models/messages.php',
     'App\\Models\\permition' => $baseDir . '/app/Models/permition.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

@@ -9,20 +9,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_194627_create_images_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_194526_images.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Big_box.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Big_box.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Chapters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Chapters.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Elements.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Elements.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Finished.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Finished.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_10_231707_create_finished_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110755_create_finished_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Middle_box.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Middle_box.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/messages.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/chapters.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chapters.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/finish-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/finish-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/text-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/text-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,14 +377,7 @@
       <workItem from="1615298384595" duration="30832000" />
       <workItem from="1615371667734" duration="164025000" />
       <workItem from="1615799433596" duration="74641000" />
-      <workItem from="1616000061081" duration="17641000" />
-    </task>
-    <task id="LOCAL-00004" summary="Založení calculatoru a root cest na home">
-      <created>1603126798033</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1603126798033</updated>
+      <workItem from="1616000061081" duration="29312000" />
     </task>
     <task id="LOCAL-00005" summary="Meeting 22.10.2020">
       <created>1603374492121</created>
@@ -717,7 +715,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615935398476</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Přidáno ukládání a načítání textu, vytváření finish buttonů a dokončování + implementováno do zámků">
+      <created>1616020918058</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1616020918058</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -779,7 +784,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="opravena chyba při prokliku na profil uživatele z přehledu závazků kategorie" />
     <MESSAGE value="Vyřešeno issue : Ověření unikátnosti category.name #10" />
     <MESSAGE value="Vyřešeno issue : Date picker iterval #9" />
     <MESSAGE value="Opravena chyba při kontrole názvů kategorie a změně zpět na původní název" />
@@ -804,7 +808,8 @@
     <MESSAGE value="Editor dodělán" />
     <MESSAGE value="Přidávání a načítání elementů" />
     <MESSAGE value="Přidán element obrázku, videa a textového editoru" />
-    <option name="LAST_COMMIT_MESSAGE" value="Přidán element obrázku, videa a textového editoru" />
+    <MESSAGE value="Přidáno ukládání a načítání textu, vytváření finish buttonů a dokončování + implementováno do zámků" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidáno ukládání a načítání textu, vytváření finish buttonů a dokončování + implementováno do zámků" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

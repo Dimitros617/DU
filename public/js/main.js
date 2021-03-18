@@ -218,6 +218,7 @@ function saveText(form, table, id, loading, request, route, token){
 function changeLockImg(ele, value){
     if(value =='1') {
         ele.classList.add('text-su-orange')
+        ele.classList.add('unblend');
     }
 }
 

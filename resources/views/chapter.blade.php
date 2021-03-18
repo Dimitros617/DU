@@ -57,7 +57,7 @@
         </div>
     </form>
 
-    <div id="page" class="max-w-7xl mx-auto" type="page" include="big_box" element_id="{{$chapter->id}}">
+    <div id="page" class="max-w-7xl mx-auto" type="chapters" include="big_box" element_id="{{$chapter->id}}">
 
         @foreach($big_boxes as $big_box)
 

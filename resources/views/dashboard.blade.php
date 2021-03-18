@@ -4,6 +4,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/chapters.js"></script>
 <script src="/js/lock.js"></script>
+<script src="/js/content.js"></script>
 
 <x-app-layout>
     <x-slot name="header">
@@ -89,8 +90,21 @@
                             }
                             @endphp
 
-                            <a onclick="if(this.children[0] == event.target)checkLock({{$chapter->id}},'chapters',this.getElementsByClassName('loading')[0],this.getElementsByClassName('loading_request')[0], '/chapter/{{$chapter->id}}',this.children[0].children[0].value )" style="text-decoration: none">
-                        <form method="post" action="{{url('/save_image')}}" enctype="multipart/form-data" id="chapterImageChange-{{$chapter->id}}" class="chapter {{$chapter->security}} {{$lc}}  @if(($chapter->security != null && $chapter->security != 'empty' && $lc != '0') || ( $chapter->security != null && $chapter->security != 'empty' && Auth::permition()->edit_content == '1')) locked-chapter @endif" locked=" @if($chapter->security != null && $chapter->security != 'empty') 1 @else 0 @endif">
+                            <a onclick="if(this.children[0] == event.target)checkLock({{$chapter->id}},'chapters',this.getElementsByClassName('loading')[0],this.getElementsByClassName('loading_request')[0], '/chapter/{{$chapter->id}}',this.children[0].children[0].value )"
+                               style="text-decoration: none"
+                               type="chapters"
+                               element_id="{{$chapter->id}}"
+                            >
+
+                        <form method="post"
+                              action="{{url('/save_image')}}"
+                              enctype="multipart/form-data"
+                              id="chapterImageChange-{{$chapter->id}}"
+                              class="chapter {{$chapter->security}} {{$lc}}  @if(($chapter->security != null && $chapter->security != 'empty' && $lc != '0') || ( $chapter->security != null && $chapter->security != 'empty' && Auth::permition()->edit_content == '1')) locked-chapter @endif"
+                              locked=" @if($chapter->security != null && $chapter->security != 'empty') 1 @else 0 @endif"
+                              type="chapters"
+                              element_id="{{$chapter->id}}"
+                        >
                             @csrf
 
                         <div class="chapter_img" style="background-image: url('/user_files/{{$chapter->img}}');" >
@@ -104,7 +118,7 @@
                                 </div>
 
                                 <div class="remove status-icon">
-                                    <svg title="Smazat kapitolu" onclick=" setTimeout(function (ele,id){removeChapterBox(ele, id)},50,this,{{$chapter->id}}); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <svg title="Smazat kapitolu" onclick=" setTimeout(function (ele,load){removeElement(ele, load)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode,this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                     </svg>
                                 </div>

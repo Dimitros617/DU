@@ -9,4 +9,9 @@ class Finished extends Model
 {
     protected $table = 'Finished';
     use HasFactory;
+
+    public function finished()
+    {
+        return $this->hasMany('finished');
+    }
 }

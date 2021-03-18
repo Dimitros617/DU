@@ -44,6 +44,8 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_column', [ContentController::class,'saveColumn']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_finished', [ContentController::class,'saveFinished']);
 
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove/{table_name?}/{id:id}', [ContentController::class,'removeElement']);
+
 Route::middleware(['auth:sanctum', 'verified', ])->post('/finish_element', [ContentController::class,'finishElement']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_element', [ContentController::class,'addElement']);
@@ -57,7 +59,6 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 
 //Kapitoly
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove_chapter/{id:id}', [ChapterController::class,'removeChapter']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/status_chapter/{id:id}', [ChapterController::class,'statusChapter']);
 
 

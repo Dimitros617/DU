@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Big_box;
 use App\Models\Chapters;
+use App\Models\Elements;
 use App\Models\Finished;
 use App\Models\Middle_box;
 use Carbon\Carbon;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
+use phpDocumentor\Reflection\Element;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ContentController extends Controller
@@ -241,6 +243,41 @@ class ContentController extends Controller
 
         return  $check ? "1" : response('Nastala chyba při vytváření nového záznamu v databázi tabulka: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
 
+    }
+
+    function removeElement(Request $request)
+    {
+        Log::info('ContentController:removeElement');
+
+        $check = true;
+
+        switch ($request->table_name) {
+            case 'elements':
+                $check = Elements::deleteHard($request->id);
+                Log::info('Delete elements: ' . $check);
+                break;
+            case 'middle_box':
+                $check = Middle_box::deleteHard($request->id);
+                Log::info('Delete middle_box: ' . $check);
+                break;
+            case 'big_box':
+                $check = Big_box::deleteHard($request->id);
+                Log::info('Delete big_box');
+                break;
+            case 'chapters':
+                $check = Chapters::deleteHard($request->id);
+                Log::info('Delete chapters');
+                break;
+            case 'books':
+                Log::info('Delete books');
+                break;
+        }
+
+        //TODO dodělat smazání z databáze
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
     }
 
     function finishElement(Request $request){

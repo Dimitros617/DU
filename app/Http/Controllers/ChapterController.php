@@ -123,17 +123,7 @@ class ChapterController extends Controller
         return back();
     }
 
-    function removeChapter(Request $request)
-    {
-        Log::info('ChapterController:removeChapter');
 
-            $check = true;
-            //$check = DB::table('categories')->where('id', $request->id)->delete();
-
-        //TODO dodělat smazání z databáze + obrázek
-
-            return $check ? "1" : "0";
-    }
 
     function statusChapter(Request $request)
     {

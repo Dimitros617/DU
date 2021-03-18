@@ -392,6 +392,68 @@ function finishElement(element){
     })
 }
 
+function removeElement(element, spinner){
+
+    let table_name =  element.getAttribute('type');
+    let id = element.getAttribute('element_id');
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+
+    spinner.removeAttribute("hidden");
+
+    Swal.fire({
+        icon: 'question',
+        title:'Smazat?',
+        text: 'Opravdu chcete tuto položku smazat?',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: true,
+        showDenyButton: true,
+        confirmButtonText: `Uložit`,
+        denyButtonText: `Zrušit`,
+        focusConfirm: false,
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+                url: '/remove/'+table_name+'/'+id,
+                type: 'delete',
+                data:
+                {
+                    _token: token,
+                    table_name: table_name,
+                    id: id,
+                },
+                success:function(response){
+                    element.remove();
+                },
+                error: function (response){
+                    console.log(response);
+                    let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Hmm... CHYBA!',
+                        text: err ,
+                        customClass: {
+                            container: 'su-shake-horizontal',
+                        }
+                    })
+                    spinner.setAttribute("hidden", "");
+
+                }
+            });
+        }
+        else if(result.isDenied){
+
+        }
+        else{
+
+        }
+
+    })
+
+
+}
+
 // Swal.fire({
 //     html: response,
 //     showCloseButton: false,
