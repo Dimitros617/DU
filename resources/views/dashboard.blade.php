@@ -107,7 +107,7 @@
                         >
                             @csrf
 
-                        <div class="chapter_img" style="background-image: url('/user_files/{{$chapter->img}}');" >
+                        <div class="chapter_img" style="background-image: url('{{$chapter->img}}');" >
                             <div class="gray-box">
 
 
@@ -124,7 +124,7 @@
                                 </div>
 
                                 <div class="image status-icon">
-                                    <svg title="Změnit obrázek" onclick="this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('input_chapter_img')[0].click(); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                                    <svg title="Změnit obrázek" onclick="setTimeout(function (input, imageElement, spinner){imageSelector(input, imageElement, spinner)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('input_chapter_img')[0],this.parentNode.parentNode.parentNode, this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
                                         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                                         <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
                                     </svg>
@@ -140,7 +140,7 @@
                             <div class="spinner-grow text-warning loading" role="status" hidden></div>
                             <div class="loading_request" role="status" hidden></div>
                         </div>
-                        <input type="file" class="input_chapter_img" name="img" value="" onchange="saveImage(this.parentNode,'chapters',{{$chapter->id}},this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.getElementsByClassName('chapter_img')[0])" hidden>
+                            <input type="text" class="input_chapter_img" name="img" value="" onclick="saveColumn(this.parentNode, this.parentNode.getElementsByClassName('loading')[0], this.parentNode.getElementsByClassName('loading_request')[0], this.value, 'img')" hidden>
                             <input type="text" name="table_name" value="chapters"  hidden>
                             <input type="number" name="id" value="{{$chapter->id}}" hidden>
 

@@ -39,18 +39,24 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_
 
 //Kontent
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_image', [ContentController::class,'addImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_name', [ContentController::class,'saveName']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_description', [ContentController::class,'saveDescription']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_column', [ContentController::class,'saveColumn']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_finished', [ContentController::class,'saveFinished']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove/{table_name?}/{id:id}', [ContentController::class,'removeElement']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove_image/{id:id}', [ContentController::class,'removeImage']);
 
 Route::middleware(['auth:sanctum', 'verified', ])->post('/finish_element', [ContentController::class,'finishElement']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/image_selector', [ContentController::class,'getImagesSelector']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/image_selector_gallery', [ContentController::class,'getImagesSelectorGallery']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_element', [ContentController::class,'addElement']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/get_element_selector', [ContentController::class,'getElementsSelector']);
+
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/move', [ContentController::class,'move']);
 

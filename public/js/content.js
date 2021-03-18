@@ -454,6 +454,61 @@ function removeElement(element, spinner){
 
 }
 
+function imageSelector(output, imgElement, spinner){
+
+    spinner.removeAttribute("hidden");
+    $.ajax({
+        url: '/image_selector',
+        type: 'get',
+        success:function(response){
+            spinner.setAttribute("hidden", "");
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                showDenyButton: false,
+                confirmButtonText: `Vložit`,
+                denyButtonText: `Zrušit`,
+                focusConfirm: false,
+                customClass: 'modal-page',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let a = document.getElementById('image-selector-output').value;
+                    output.value = document.getElementById('image-selector-output').value;
+                    output.click();
+                    if(imgElement != null){
+                        let refresh = '?random=\\' + new Date().getTime();
+                        imgElement.setAttribute("style","background-image: url('"+ output.value + refresh +"');");
+                    }
+                }
+                else if(result.isDenied){
+
+                }
+                else{
+
+                }
+
+            })
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+            spinner.setAttribute("hidden", "");
+
+        }
+    });
+
+}
+
 // Swal.fire({
 //     html: response,
 //     showCloseButton: false,

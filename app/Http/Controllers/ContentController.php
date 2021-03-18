@@ -7,6 +7,7 @@ use App\Models\Big_box;
 use App\Models\Chapters;
 use App\Models\Elements;
 use App\Models\Finished;
+use App\Models\Images;
 use App\Models\Middle_box;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
+use League\Flysystem\File;
 use phpDocumentor\Reflection\Element;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -32,6 +34,22 @@ class ContentController extends Controller
         $data = DB::table('element_types')->get();
         return view('elements-selector', ['elements' => $data, 'data' => $request]);
     }
+
+    function getImagesSelector(Request $request){
+
+        Log::info('ContentController:getElementsSelector');
+        $data = DB::table('images')->get();
+        return view('images-selector', ['images' => $data]);
+    }
+
+    function getImagesSelectorGallery(){
+
+        Log::info('ContentController:getImagesSelectorGallery');
+        $data = DB::table('images')->get();
+        return view('images-selector-gallery', ['images' => $data]);
+    }
+
+
 
     function saveSetting(Request $request){
 
@@ -84,21 +102,53 @@ class ContentController extends Controller
             ]);
 
             $img_type = $request->file('img')->getClientOriginalExtension();
-            $img_path = $request->table_name.'_'.$request->id.'.'.$img_type;
-            request()->img->move(public_path('/user_files'), $img_path);
+            $img_name = $request->file('img')->getClientOriginalName();
+//            $img_path = Carbon::now()->toDateTimeString().'.'.$img_type;
+            request()->img->move(public_path('/user_files'), $img_name);
+            $img_name = '/user_files/'.$img_name;
         }
 
-        DB::table($request->table_name)->where('id', $request->id)->update(['img' => $img_path]);
+        $img = new Images;
+        $img->url = $img_name;
+        $check = $img->save();
 
-        $new_img = DB::table($request->table_name)->where('id', $request->id)->get();
-        $new_img = $new_img[0]->img;
+        if(!$check){
+            return response('Chyba při ukládání do databáze Images!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+    }
 
-        $check = true;
-        if($new_img != $img_path){
-            $check = false;
+    function addImage(Request $request){
+
+        Log::info('ContentController:addImage');
+
+        $img = new Images;
+        $img->url = $request->url;
+        $check = $img->save();
+
+        if(!$check){
+            return response('Chyba při ukládání do databáze Images!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
+    function removeImage(Request $request){
+
+        Log::info('ContentController:removeImage ');
+
+        $img = Images::find($request->id);
+
+        if (is_file(public_path($img->url))) {
+            $check = unlink(public_path($img->url));
+            if(!$check){
+                return response('Chyba při mazání souboru ze složky! v databázi ale nadále zůstal.' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+            }
         }
 
-        return  $check ? array('1',$img_path) : array('0');
+        $check = Images::find($request->id)->delete();
+
+        if(!$check){
+            return response('Chyba při mazání z databáze, ale fyzicky se obrázek vymazal správně!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+
     }
 
     function saveName(Request $request){
@@ -269,11 +319,10 @@ class ContentController extends Controller
                 Log::info('Delete chapters');
                 break;
             case 'books':
+                //TODO dodělat smazání z databáze
                 Log::info('Delete books');
                 break;
         }
-
-        //TODO dodělat smazání z databáze
 
         if(!$check) {
             return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');

@@ -55,7 +55,7 @@ function changeRadio(ele){
     label.innerHTML = "ZAPNUTO";
 }
 
-function saveImage(form, table, id, loading, request, img){
+function saveImage(form, loading, request){
 
 
 
@@ -74,25 +74,11 @@ function saveImage(form, table, id, loading, request, img){
             loading.setAttribute("hidden", "");
             request.removeAttribute("hidden");
 
-            if(response[0] == "1"){
-                let refresh = '?random=\\' + new Date().getTime();
-                img.setAttribute("style","background-image: url('/user_files/"+ response[1] + refresh +"');");
-                request.innerHTML = '<b>&#10003;</b>';
-            }else{
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Upss...',
-                    text: 'Tento obrázek se nám nepodařilo nahrát. Zkuste jiný obrázek.',
-                    customClass: {
-                        container: 'su-shake-horizontal',
-                    }
-                })
-                request.innerHTML = '<b>&#x2715;</b>';
-            }
+            request.innerHTML = '<b>&#10003;</b>';
 
-            setTimeout(function (request){
-                request.setAttribute("hidden", "");
-            },1000,request);
+        setTimeout(function (request){
+            request.setAttribute("hidden", "");
+        },1000,request);
 
 
         },
@@ -129,6 +115,138 @@ function saveImage(form, table, id, loading, request, img){
         }
     });
 }
+
+function addImage(url, loading, request){
+
+
+
+    loading.removeAttribute("hidden");
+    request.setAttribute("hidden", "");
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+
+    var pattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+
+    if (!pattern.test(url)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ajajaj!',
+            text: 'Zadaný text není platná URL adresa' ,
+            customClass: {
+                container: 'su-shake-horizontal',
+            }
+        })
+        return;
+    }
+
+    $.ajax({
+        url: '/add_image',
+        method: 'POST',
+        data:
+            {
+                _token: token,
+                url: url,
+            },
+        success:function(response){
+
+            loading.setAttribute("hidden", "");
+            request.removeAttribute("hidden");
+
+            request.innerHTML = '<b>&#10003;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+
+
+        },
+        error: function (response){
+            console.log(response);
+
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+
+            request.removeAttribute("hidden");
+            loading.setAttribute("hidden", "");
+            request.innerHTML = '<b>&#x2715;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+        }
+    });
+}
+
+function removeImage(element, spinner, request){
+
+    let id = element.getAttribute('image_id');
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+
+    spinner.removeAttribute("hidden");
+
+
+
+            $.ajax({
+                url: '/remove_image/'+id,
+                type: 'delete',
+                data:
+                    {
+                        _token: token,
+                        id: id,
+                    },
+                success:function(response){
+                    element.remove();
+                    spinner.setAttribute("hidden", "");
+                },
+                error: function (response){
+                    console.log(response);
+                    let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Hmm... CHYBA!',
+                        text: err ,
+                        customClass: {
+                            container: 'su-shake-horizontal',
+                        }
+                    })
+                    spinner.setAttribute("hidden", "");
+
+                }
+            });
+      }
+
+function refreshGallery(gallery){
+
+    setTimeout(function (gallery){
+        $.ajax({
+            url: '/image_selector_gallery',
+            method: 'get',
+            success:function(response){
+                gallery.innerHTML = response;
+            },
+            error: function (response){
+                console.log(response);
+                let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hmm...',
+                    text: 'Nastala chyba! ' + err,
+                    customClass: {
+                        container: 'su-shake-horizontal',
+                    }
+                })
+
+            }
+        });
+    }, 100,gallery);
+}
+
 
 /**
  *
