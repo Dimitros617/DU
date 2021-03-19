@@ -10,6 +10,49 @@ function IsJsonString(str) {
     return true;
 }
 
+
+function getStatus(spinner, route){
+
+
+
+    spinner.removeAttribute("hidden");
+
+
+    $.ajax({
+        url: route,
+        method: 'get',
+        success:function(response){
+
+            spinner.setAttribute("hidden", "");
+
+            Swal.fire({
+                html:
+                response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                focusConfirm: false,
+                customClass: 'modal-page',
+            })
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+            spinner.setAttribute("hidden", "");
+        }
+    });
+}
+
 function changeSwitch(ele, checkbox, label, yes, no, input){
 
     checkbox.value = checkbox.value == "1" ? "0" : "1";
@@ -246,7 +289,6 @@ function refreshGallery(gallery){
         });
     }, 100,gallery);
 }
-
 
 /**
  *

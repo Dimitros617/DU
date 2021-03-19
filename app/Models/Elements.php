@@ -31,6 +31,8 @@ class Elements extends Model
             Log::info('Chyba při mazání finished elementů: ' . $check1);
         }
 
+        Elements::delete_reposition(Elements::find($id)->position);
+
         $check2 = Elements::find($id)->delete();
 
         if(!$check2){
@@ -38,6 +40,28 @@ class Elements extends Model
         }
 
         return ($check1 && $check2 ? true : false);
+    }
+
+    public static function delete_reposition($position){
+
+        $dats = DB::table('elements')
+            ->orderBy('position', 'asc')
+            ->get();
+
+
+        foreach ($dats as $data){
+
+            if($data->position >= $position){
+                $temp = Elements::find($data->id);
+                $temp->position = ($temp->position-1);
+                $check = $temp->save();
+                if(!$check){
+                    Log::info('Chyba při repozicování elements');
+                }
+            }
+
+        }
+
     }
 
 }

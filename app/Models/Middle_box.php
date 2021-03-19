@@ -24,6 +24,8 @@ class Middle_box extends Model
             $check1 = ($temp_check && $check1 ? true : false);
         }
 
+        Middle_box::delete_reposition(Middle_box::find($id)->position);
+
         $check2 = Middle_box::find($id)->delete();
 
         if(!$check2){
@@ -31,5 +33,27 @@ class Middle_box extends Model
         }
 
         return ($check1 && $check2 ? true : false);
+    }
+
+    public static function delete_reposition($position){
+
+        $dats = DB::table('middle_box')
+            ->orderBy('position', 'asc')
+            ->get();
+
+
+        foreach ($dats as $data){
+
+            if($data->position >= $position){
+                $temp = Middle_box::find($data->id);
+                $temp->position = ($temp->position-1);
+                $check = $temp->save();
+                if(!$check){
+                    Log::info('Chyba při repozicování middle_box');
+                }
+            }
+
+        }
+
     }
 }

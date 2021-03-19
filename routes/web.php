@@ -69,6 +69,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 
 //Učebnice
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_book', [BooksController::class,'addBook']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_book_status/{id:id}', [BooksController::class,'getStatus']);
 
 //Kapitoly
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);
