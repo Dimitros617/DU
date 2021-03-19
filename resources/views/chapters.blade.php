@@ -123,6 +123,18 @@
                                     </svg>
                                 </div>
 
+                                <div class="move-up status-icon">
+                                    <svg onclick="  setTimeout(function (ele,load, req){ moveElement(ele,'up', load, req)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode,this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                                        <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                                    </svg>
+                                </div>
+
+                                <div class="move-down lock status-icon">
+                                    <svg onclick="  setTimeout(function (ele,load, req){ moveElement(ele,'down', load, req)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode,this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right float-end" viewBox="0 0 16 16">
+                                        <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                    </svg>
+                                </div>
+
                                 <div class="image status-icon">
                                     <svg title="Změnit obrázek" onclick="setTimeout(function (input, imageElement, spinner){imageSelector(input, imageElement, spinner)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('input_chapter_img')[0],this.parentNode.parentNode.parentNode, this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
                                         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
@@ -156,6 +168,7 @@
 
                             <form method="post" action="{{url('/add_chapter')}}" class="chapter">
                                 @csrf
+                                <input type="text" name="id" value="{{$book}}" hidden>
                                 <div >
                                     <button onclick="addChapter(this.parentNode.parentNode, this.getElementsByClassName('loading')[0], this.getElementsByClassName('symbol')[0])" class="new_chapter">
                                         <div class="spinner-grow text-warning loading" role="status" hidden></div>

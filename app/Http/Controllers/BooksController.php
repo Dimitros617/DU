@@ -18,7 +18,18 @@ class BooksController extends Controller
 
         Log::info('BooksController:addBook');
 
+        $position = DB::table('books')
+            ->orderBy('position', 'desc')
+            ->first();
+
+        if($position == "") {
+            $position = 1;
+        }else{
+            $position = ($position->position)+1;
+        }
+
         $book = new Books;
+        $book->position = $position;
         $check = $book->save();
 
         return back();

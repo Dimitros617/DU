@@ -22,7 +22,9 @@ class DashboardController extends Controller
         }
 
         $data = DB::table('books')
+            ->orderBy('position', 'asc')
             ->get();
+
         $check_locks = DB::table('locks')
             ->Join('users', 'locks.user_id', '=', 'users.id')
             ->where('table_name', 'books')

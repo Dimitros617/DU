@@ -49,6 +49,8 @@
     margin-bottom: 1rem;
     display: flow-root;
     overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chapter_name {

@@ -15,10 +15,11 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('parent')->nullable()->default(0);
             $table->string('subject',50)->default('Předmět');
             $table->string('name',50)->default('Nová učebnice');
             $table->string('description',1024)->default('Popisek nové učebnice');
-            $table->string('img')->default('default.png');
+            $table->string('img')->default('/user_files/default.png');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
             $table->string('position')->nullable();

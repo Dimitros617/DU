@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 class Books extends Model
 {
     use HasFactory;
+    public bool $timestamps = false;
 
     public static function deleteHard($id)
     {

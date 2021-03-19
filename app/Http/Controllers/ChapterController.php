@@ -19,6 +19,7 @@ class ChapterController extends Controller
 
         $data = DB::table('chapters')
             ->where('parent', $id)
+            ->orderBy('position', 'asc')
             ->get();
 
         $check_locks = DB::table('locks')
@@ -33,7 +34,7 @@ class ChapterController extends Controller
         $history = new HistoryController;
         $history->log(Auth::user()->id, 'books', $id);
 
-        return view('chapters', ['chapters' => $data, 'locked' => $check_locks]);
+        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id]);
 
     }
 
@@ -139,11 +140,24 @@ class ChapterController extends Controller
     }
 
 
-    function addChapter(){
+    function addChapter(Request $request){
 
         Log::info('ChapterController:addChapter');
 
+        $position = DB::table('chapters')
+            ->where('parent', $request->id)
+            ->orderBy('position', 'desc')
+            ->first();
+
+        if($position == "") {
+            $position = 1;
+        }else{
+            $position = ($position->position)+1;
+        }
+
         $chapter = new Chapters;
+        $chapter->parent = $request->id;
+        $chapter->position = $position;
         $check = $chapter->save();
 
         return back();

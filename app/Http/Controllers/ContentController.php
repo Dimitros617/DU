@@ -161,9 +161,11 @@ class ContentController extends Controller
 
         }
 
+
         DB::table($request->table_name)
             ->where('id', $request->id)
             ->update(['name' => $request->name]);
+
 
         $new = DB::table($request->table_name)
             ->where('id', $request->id)
@@ -171,12 +173,12 @@ class ContentController extends Controller
 
         $new = $new[0]->name;
 
-        $check = true;
+
         if($new != $request->name){
-            $check = false;
+            return response('Nastal problém při ukládání dat do databáze!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }
 
-        return  $check ? "1" : "0";
+        return   "1";
     }
 
     function saveDescription(Request $request){

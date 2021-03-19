@@ -18,7 +18,7 @@ class CreateChaptersTable extends Migration
             $table->unsignedBigInteger('parent')->nullable();
             $table->string('name',50)->default('Nová kapitola');
             $table->string('description',1024)->default('Popisek nové kapitoly');
-            $table->string('img')->default('default.png');
+            $table->string('img')->default('/user_files/default.png');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
             $table->string('position')->nullable();

@@ -9,21 +9,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Books.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/books.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Books.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/chapter-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chapter-menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,14 +370,7 @@
       <workItem from="1615371667734" duration="164025000" />
       <workItem from="1615799433596" duration="74641000" />
       <workItem from="1616000061081" duration="46613000" />
-      <workItem from="1616149898381" duration="8690000" />
-    </task>
-    <task id="LOCAL-00007" summary="Založení calculatoru a root cest na home">
-      <created>1603985362845</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1603985362845</updated>
+      <workItem from="1616149898381" duration="15104000" />
     </task>
     <task id="LOCAL-00008" summary="databaze (ver. 1.0)">
       <created>1605321508821</created>
@@ -719,7 +708,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616098470963</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Přidáno rozdělování na učebnice + implementováno img selector na element setting">
+      <created>1616160019794</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1616160019794</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -781,7 +777,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Opravena chyba při kontrole názvů kategorie a změně zpět na původní název" />
     <MESSAGE value="Zpracována issue: Značení stavu výpůjčky #8" />
     <MESSAGE value="Přidán kompletní systém pro schvalování výpůjček, + update bootstrapu na v5" />
     <MESSAGE value="Zhezkání controllerů" />
@@ -806,7 +801,8 @@
     <MESSAGE value="Přidáno ukládání a načítání textu, vytváření finish buttonů a dokončování + implementováno do zámků" />
     <MESSAGE value="Doděláno odstraňování všech prvků" />
     <MESSAGE value="Vytvořen správce obrázků" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vytvořen správce obrázků" />
+    <MESSAGE value="Přidáno rozdělování na učebnice + implementováno img selector na element setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidáno rozdělování na učebnice + implementováno img selector na element setting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

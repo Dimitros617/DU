@@ -124,6 +124,18 @@
                                     </svg>
                                 </div>
 
+                                <div class="move-up status-icon">
+                                    <svg onclick="  setTimeout(function (ele,load, req){ moveElement(ele,'up', load, req)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode,this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                                        <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753l-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                                    </svg>
+                                </div>
+
+                                <div class="move-down lock status-icon">
+                                    <svg onclick="  setTimeout(function (ele,load, req){ moveElement(ele,'down', load, req)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode,this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right float-end" viewBox="0 0 16 16">
+                                        <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753l5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                    </svg>
+                                </div>
+
                                 <div class="image status-icon">
                                     <svg title="Změnit obrázek" onclick="setTimeout(function (input, imageElement, spinner){imageSelector(input, imageElement, spinner)},50,this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('input_chapter_img')[0],this.parentNode.parentNode.parentNode, this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0]); return false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
                                         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
@@ -142,13 +154,13 @@
                             <div class="loading_request" role="status" hidden></div>
                         </div>
                             <input type="text" class="input_chapter_img" name="img" value="" onclick="saveColumn(this.parentNode, this.parentNode.getElementsByClassName('loading')[0], this.parentNode.getElementsByClassName('loading_request')[0], this.value, 'img')" hidden>
-                            <input type="text" name="table_name" value="chapters"  hidden>
+                            <input type="text" name="table_name" value="books"  hidden>
                             <input type="number" name="id" value="{{$book->id}}" hidden>
 
                             <input type="text" class="hidden_input_name" name="name" value="{{$book->name}}" default="{{$book->name}}"  hidden>
                             <input type="number" name="chapter_id" value="{{$book->id}}" hidden>
 
-                        <div class="chapter_name" contenteditable onclick="return false" oninput="this.parentNode.getElementsByClassName('hidden_input_name')[0].value = this.innerHTML" onfocusout="saveText(this.parentNode,'chapters',{{$book->id}},this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],'name')">{{$book->name}}</div>
+                        <div class="chapter_name" contenteditable onclick="return false" oninput="this.parentNode.getElementsByClassName('hidden_input_name')[0].value = this.innerHTML" onfocusout="saveText(this.parentNode,'books',{{$book->id}},this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],'name')">{{$book->name}}</div>
 
 
                         </form>
