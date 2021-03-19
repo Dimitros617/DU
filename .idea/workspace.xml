@@ -9,30 +9,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/app/Models/Images.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/83005318_175911690451487_8401358959037906944_o.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-43.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-44.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/asd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/pozadiAPK.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/images-selector-gallery.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/images-selector.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Books.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/books.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_194627_create_images_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_194627_create_images_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/league/flysystem/src/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/league/flysystem/src/File.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -259,7 +250,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
@@ -267,11 +258,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Xamp\htdocs\baka\public\js" />
       <recent name="D:\Xamp\htdocs\baka\resources\views" />
       <recent name="D:\Xamp\htdocs\baka\public\user_files" />
       <recent name="D:\Xamp\htdocs\baka\resources\views\auth" />
       <recent name="D:\Xamp\htdocs\VRS\resources\views" />
-      <recent name="D:\Xamp\htdocs\VRS\resources\views\profile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Xamp\htdocs\baka\resources\views" />
@@ -382,14 +373,8 @@
       <workItem from="1615298384595" duration="30832000" />
       <workItem from="1615371667734" duration="164025000" />
       <workItem from="1615799433596" duration="74641000" />
-      <workItem from="1616000061081" duration="45391000" />
-    </task>
-    <task id="LOCAL-00006" summary="Meeting 22.10.2020 repaire">
-      <created>1603380044695</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1603380044695</updated>
+      <workItem from="1616000061081" duration="46613000" />
+      <workItem from="1616149898381" duration="8690000" />
     </task>
     <task id="LOCAL-00007" summary="Založení calculatoru a root cest na home">
       <created>1603985362845</created>
@@ -727,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616077366146</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Vytvořen správce obrázků">
+      <created>1616098470962</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1616098470963</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +781,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Vyřešeno issue : Date picker iterval #9" />
     <MESSAGE value="Opravena chyba při kontrole názvů kategorie a změně zpět na původní název" />
     <MESSAGE value="Zpracována issue: Značení stavu výpůjčky #8" />
     <MESSAGE value="Přidán kompletní systém pro schvalování výpůjček, + update bootstrapu na v5" />
@@ -814,7 +805,8 @@
     <MESSAGE value="Přidán element obrázku, videa a textového editoru" />
     <MESSAGE value="Přidáno ukládání a načítání textu, vytváření finish buttonů a dokončování + implementováno do zámků" />
     <MESSAGE value="Doděláno odstraňování všech prvků" />
-    <option name="LAST_COMMIT_MESSAGE" value="Doděláno odstraňování všech prvků" />
+    <MESSAGE value="Vytvořen správce obrázků" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vytvořen správce obrázků" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

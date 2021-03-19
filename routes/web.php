@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LockController;
@@ -29,10 +30,13 @@ Route::get('/credentials', function () {    return view('credentials');});
 Route::middleware(['auth:sanctum', 'verified'])->get('/', [DashboardController::class,'show']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class,'show']) ->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/chapters/{id:id}', [ChapterController::class,'showChapters']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/users', [ListUsersController::class,'showAllUsers']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:new_user'])->get('/users/{id:id}', [ListUsersController::class,'showUser']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->get('/permitions', [PermitionController::class,'showPermissions']);
+
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}', [ChapterController::class,'showChapter']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_content'])->get('/chapter/{id:id}/edit', [ChapterController::class,'showChapterEdit']);
@@ -62,6 +66,9 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/edit_setting/{table_name?}/{id:id}', [ContentController::class,'editSetting']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_setting/{table_name?}/{id:id}', [ContentController::class,'saveSetting']);
+
+//Učebnice
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_book', [BooksController::class,'addBook']);
 
 //Kapitoly
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);

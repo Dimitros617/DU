@@ -25,12 +25,7 @@
                    onload="edit_loadAttribute(this, '{{$data->table_name}}','{{$data->id}}','name')"
             >
 
-            <label class="edit-setting-label h3 text-su-blue text-su-shadow-white">Popisek
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle-fill text-su-shadow-white float-end su-svg-shadow-white su-tooltip"  viewBox="0 0 16 16">
-                    <title>Adresa z YOUTUBE musí obsahovat "EMBED" aby byla validní např: www.youtube.com/embed</title>
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
-                </svg>
-            </label>
+            <label class="edit-setting-label h3 text-su-blue text-su-shadow-white">Popisek</label>
 
             <input type="text"
                    placeholder="Toto pole nesmí být prázdné"
@@ -59,14 +54,25 @@
             >
 
             <label class="edit-setting-label h3 text-su-blue text-su-shadow-white">Obrázek</label>
+            <div class="d-inline-flex justify-content-between">
             <input type="text"
                    placeholder="URL obrázku"
-                   class="w-100 p-2 su-input-white rounded mb-3 font-weight-500"
+                   class="input-image-url p-2 su-input-white rounded mb-3 font-weight-500 me-3 "
+                   style="width: -moz-fit-content; width: -webkit-fill-available;"
                    onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','background-image')"
                    onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','background-image')"
             >
-
-            <label class="edit-setting-label h3 text-su-blue text-su-shadow-white">Video</label>
+                <svg title="Změnit obrázek" onclick="imageSelector(null,document.getElementById('{{$data->table_name}}_{{$data->id}}'), null);     $('input[onload]').trigger('onload');" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-image text-white cursor-pointer" viewBox="0 0 16 16">
+                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                    <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                </svg>
+            </div>
+            <label class="edit-setting-label h3 text-su-blue text-su-shadow-white">Video
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle-fill text-su-shadow-white float-end su-svg-shadow-white su-tooltip"  viewBox="0 0 16 16">
+                    <title>Adresa z YOUTUBE musí obsahovat "EMBED" aby byla validní např: www.youtube.com/embed</title>
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                </svg>
+            </label>
             <input type="text"
                    placeholder="URL videa"
                    class="w-100 p-2 su-input-white rounded mb-3 font-weight-500"

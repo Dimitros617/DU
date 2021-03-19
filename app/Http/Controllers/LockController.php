@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Big_box;
+use App\Models\Books;
 use App\Models\Chapters;
 use App\Models\Elements;
 use App\Models\Locks;
@@ -22,6 +23,11 @@ class LockController extends Controller
 
 
         switch ($request->table_name) {
+            case 'books':
+                $data = Books::find($request->id);
+                $options = DB::table('chapters')->get();
+                $table = array('books','Učebnice');
+                break;
             case 'chapters':
                 $data = Chapters::find($request->id);
                 $options = DB::table('chapters')->get();
@@ -81,6 +87,10 @@ class LockController extends Controller
     function checkLock(Request $request)
     {
         Log::info('LockController:checkLock ');
+
+        if(Auth::permition()->edit_content == "1"){
+            return array("1");
+        }
 
 
         $check_data = DB::table($request->table_name)

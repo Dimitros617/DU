@@ -2,7 +2,7 @@
 @section('css', URL::asset('css/chapter-menu.css'))
 
 <script src="/js/main.js"></script>
-<script src="/js/books.js"></script>
+<script src="/js/chapters.js"></script>
 <script src="/js/lock.js"></script>
 <script src="/js/content.js"></script>
 
@@ -72,48 +72,47 @@
                 </div>
     </div>
     </div>
-
-    <div class="pageTitle mb-4 mt-8 text-su-shadow-white">Učebnice</div>
+    <div class="pageTitle mb-4 mt-8 text-su-shadow-white">Kapitoly</div>
 
 
                     <div class="chapter_box ">
 
-                        @foreach($books as $book)
+                        @foreach($chapters as $chapter)
 
                             @php
                                 $lc = "1";
                             foreach ($locked as $lock){
 
-                                if($lock->element_id == $book->id && $lock->locked == "0"){
+                                if($lock->element_id == $chapter->id && $lock->locked == "0"){
                                     $lc = "0";
                                     break;
                                 }
                             }
                             @endphp
 
-                            <a onclick="if(this.children[0] == event.target)checkLock({{$book->id}},'books',this.getElementsByClassName('loading')[0],this.getElementsByClassName('loading_request')[0], '/chapters/{{$book->id}}',this.children[0].children[0].value )"
+                            <a onclick="if(this.children[0] == event.target)checkLock({{$chapter->id}},'chapters',this.getElementsByClassName('loading')[0],this.getElementsByClassName('loading_request')[0], '/chapter/{{$chapter->id}}',this.children[0].children[0].value )"
                                style="text-decoration: none"
-                               type="books"
-                               element_id="{{$book->id}}"
+                               type="chapters"
+                               element_id="{{$chapter->id}}"
                             >
 
                         <form method="post"
                               action="{{url('/save_image')}}"
                               enctype="multipart/form-data"
-                              id="bookImageChange-{{$book->id}}"
-                              class="chapter {{$book->security}} {{$lc}}  @if(($book->security != null && $book->security != 'empty' && $lc != '0') || ( $book->security != null && $book->security != 'empty' && Auth::permition()->edit_content == '1')) locked-chapter @endif"
-                              locked=" @if($book->security != null && $book->security != 'empty') 1 @else 0 @endif"
-                              type="books"
-                              element_id="{{$book->id}}"
+                              id="chapterImageChange-{{$chapter->id}}"
+                              class="chapter {{$chapter->security}} {{$lc}}  @if(($chapter->security != null && $chapter->security != 'empty' && $lc != '0') || ( $chapter->security != null && $chapter->security != 'empty' && Auth::permition()->edit_content == '1')) locked-chapter @endif"
+                              locked=" @if($chapter->security != null && $chapter->security != 'empty') 1 @else 0 @endif"
+                              type="chapters"
+                              element_id="{{$chapter->id}}"
                         >
                             @csrf
 
-                        <div class="chapter_img" style="background-image: url('{{$book->img}}');" >
+                        <div class="chapter_img" style="background-image: url('{{$chapter->img}}');" >
                             <div class="gray-box">
 
 
                                 <div class="status status-icon">
-                                    <svg onclick=" setTimeout(function (ele,id){getStatusBook(ele, id)},50,this,{{$book->id}}); return false" title="Přehled žáků" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb-fill" viewBox="0 0 16 16">
+                                    <svg onclick=" setTimeout(function (ele,id){getStatusChapter(ele, id)},50,this,{{$chapter->id}}); return false" title="Přehled žáků" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb-fill" viewBox="0 0 16 16">
                                         <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
                                     </svg>
                                 </div>
@@ -132,7 +131,7 @@
                                 </div>
 
                                 <div class="lock status-icon">
-                                    <svg onload="changeLockImg(this, this.parentNode.parentNode.parentNode.parentNode.getAttribute('locked').trim())" onclick=" setTimeout(function (ele,id,spinner,request, token){setLock(ele, id,'books',spinner,request, token)},50,this,{{$book->id}},this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0], this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.parentNode.children[0].value); return false" title="Nastavit zámek" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                    <svg onload="changeLockImg(this, this.parentNode.parentNode.parentNode.parentNode.getAttribute('locked').trim())" onclick=" setTimeout(function (ele,id,spinner,request, token){setLock(ele, id,'chapters',spinner,request, token)},50,this,{{$chapter->id}},this.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0], this.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.parentNode.parentNode.parentNode.children[0].value); return false" title="Nastavit zámek" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
                                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
                                     </svg>
                                 </div>
@@ -143,26 +142,26 @@
                         </div>
                             <input type="text" class="input_chapter_img" name="img" value="" onclick="saveColumn(this.parentNode, this.parentNode.getElementsByClassName('loading')[0], this.parentNode.getElementsByClassName('loading_request')[0], this.value, 'img')" hidden>
                             <input type="text" name="table_name" value="chapters"  hidden>
-                            <input type="number" name="id" value="{{$book->id}}" hidden>
+                            <input type="number" name="id" value="{{$chapter->id}}" hidden>
 
-                            <input type="text" class="hidden_input_name" name="name" value="{{$book->name}}" default="{{$book->name}}"  hidden>
-                            <input type="number" name="chapter_id" value="{{$book->id}}" hidden>
+                            <input type="text" class="hidden_input_name" name="name" value="{{$chapter->name}}" default="{{$chapter->name}}"  hidden>
+                            <input type="number" name="chapter_id" value="{{$chapter->id}}" hidden>
 
-                        <div class="chapter_name" contenteditable onclick="return false" oninput="this.parentNode.getElementsByClassName('hidden_input_name')[0].value = this.innerHTML" onfocusout="saveText(this.parentNode,'chapters',{{$book->id}},this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],'name')">{{$book->name}}</div>
+                        <div class="chapter_name" contenteditable onclick="return false" oninput="this.parentNode.getElementsByClassName('hidden_input_name')[0].value = this.innerHTML" onfocusout="saveText(this.parentNode,'chapters',{{$chapter->id}},this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],'name')">{{$chapter->name}}</div>
 
 
                         </form>
                             </a>
                         @endforeach
 
-                            <form method="post" action="{{url('/add_book')}}" class="chapter">
+                            <form method="post" action="{{url('/add_chapter')}}" class="chapter">
                                 @csrf
                                 <div >
-                                    <button onclick="addBook(this.parentNode.parentNode, this.getElementsByClassName('loading')[0], this.getElementsByClassName('symbol')[0])" class="new_chapter">
+                                    <button onclick="addChapter(this.parentNode.parentNode, this.getElementsByClassName('loading')[0], this.getElementsByClassName('symbol')[0])" class="new_chapter">
                                         <div class="spinner-grow text-warning loading" role="status" hidden></div>
                                         <span class="symbol" style="font-size: xxx-large">&#43;</span>
                                         <br>
-                                        Přidat učebnici
+                                        Přidat kapitolu
                                     </button>
                                 </div>
                             </form>

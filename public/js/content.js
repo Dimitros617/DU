@@ -392,6 +392,11 @@ function finishElement(element){
     })
 }
 
+/**
+ *
+ * @param element = (Element) ten který chceme smazat musí obsahovat atributy type a element_id
+ * @param spinner = (Element) loading div
+ */
 function removeElement(element, spinner){
 
     let table_name =  element.getAttribute('type');
@@ -454,14 +459,24 @@ function removeElement(element, spinner){
 
 }
 
+/**
+ *
+ * @param output = (Element | null) = input do kterého se vloží url vybraného obrázku
+ * @param imgElement = (Element | null) Element kterému se nastavý obrázek na pozadí
+ * @param spinner = (Element) loading element
+ */
 function imageSelector(output, imgElement, spinner){
 
-    spinner.removeAttribute("hidden");
+    if(spinner != null) {
+        spinner.removeAttribute("hidden");
+    }
     $.ajax({
         url: '/image_selector',
         type: 'get',
         success:function(response){
-            spinner.setAttribute("hidden", "");
+            if(spinner != null) {
+                spinner.setAttribute("hidden", "");
+            }
             Swal.fire({
                 html: response,
                 showCloseButton: false,
@@ -474,12 +489,15 @@ function imageSelector(output, imgElement, spinner){
                 customClass: 'modal-page',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    let a = document.getElementById('image-selector-output').value;
-                    output.value = document.getElementById('image-selector-output').value;
-                    output.click();
+
+                    let val = document.getElementById('image-selector-output').value;
+                    if(output != null){
+                        output.value = val;
+                        output.click();
+                    }
                     if(imgElement != null){
                         let refresh = '?random=\\' + new Date().getTime();
-                        imgElement.setAttribute("style","background-image: url('"+ output.value + refresh +"');");
+                        imgElement.style.setProperty("background-image", "url('" + val + refresh + "')", "important")
                     }
                 }
                 else if(result.isDenied){
@@ -502,7 +520,9 @@ function imageSelector(output, imgElement, spinner){
                     container: 'su-shake-horizontal',
                 }
             })
-            spinner.setAttribute("hidden", "");
+            if(spinner != null) {
+                spinner.setAttribute("hidden", "");
+            }
 
         }
     });

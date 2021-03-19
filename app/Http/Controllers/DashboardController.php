@@ -21,18 +21,17 @@ class DashboardController extends Controller
             return $firstUser;
         }
 
-        $data = DB::table('chapters')
+        $data = DB::table('books')
             ->get();
         $check_locks = DB::table('locks')
             ->Join('users', 'locks.user_id', '=', 'users.id')
-            ->where('table_name', 'chapters')
+            ->where('table_name', 'books')
             ->where('users.id', Auth::user()->id)
             ->select( 'locks.element_id', 'locks.locked')
             ->get();
 
 
-
-        return view('dashboard', ['chapters' => $data, 'locked' => $check_locks]);
+        return view('dashboard', ['books' => $data, 'locked' => $check_locks]);
 
     }
 

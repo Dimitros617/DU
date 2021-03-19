@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Big_box;
+use App\Models\Books;
 use App\Models\Chapters;
 use App\Models\Elements;
 use App\Models\Finished;
@@ -319,7 +320,7 @@ class ContentController extends Controller
                 Log::info('Delete chapters');
                 break;
             case 'books':
-                //TODO dodělat smazání z databáze
+                $check = Books::deleteHard($request->id);
                 Log::info('Delete books');
                 break;
         }

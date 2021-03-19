@@ -11,8 +11,34 @@ use Illuminate\Support\Facades\Log;
 
 class ChapterController extends Controller
 {
+    function showChapters($id)
+    {
+
+        Log::info('ChapterController:showChapters');
+
+
+        $data = DB::table('chapters')
+            ->where('parent', $id)
+            ->get();
+
+        $check_locks = DB::table('locks')
+            ->Join('users', 'locks.user_id', '=', 'users.id')
+            ->Join('chapters', 'locks.element_id', '=', 'chapters.id')
+            ->where('table_name', 'chapters')
+            ->where('chapters.parent', $id)
+            ->where('users.id', Auth::user()->id)
+            ->select( 'locks.element_id', 'locks.locked')
+            ->get();
+
+        $history = new HistoryController;
+        $history->log(Auth::user()->id, 'books', $id);
+
+        return view('chapters', ['chapters' => $data, 'locked' => $check_locks]);
+
+    }
 
     function showChapterEdit($id){
+        Log::info('ChapterController:showChapterEdit');
         return $this->showChapter($id, true);
     }
 
