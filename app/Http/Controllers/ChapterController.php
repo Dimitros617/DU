@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Books;
 use App\Models\Chapters;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ class ChapterController extends Controller
 
         Log::info('ChapterController:showChapters');
 
+        $title_name = Books::find($id)->name;
 
         $data = DB::table('chapters')
             ->where('parent', $id)
@@ -34,7 +36,7 @@ class ChapterController extends Controller
         $history = new HistoryController;
         $history->log(Auth::user()->id, 'books', $id);
 
-        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id]);
+        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_name' => $title_name]);
 
     }
 

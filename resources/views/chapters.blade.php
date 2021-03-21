@@ -1,6 +1,8 @@
 @section('title','Digitální učebnice')
 @section('css', URL::asset('css/chapter-menu.css'))
 
+@section('title_name',$title_name)
+
 <script src="/js/main.js"></script>
 <script src="/js/chapters.js"></script>
 <script src="/js/lock.js"></script>
