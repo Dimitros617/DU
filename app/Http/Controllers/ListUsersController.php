@@ -20,7 +20,6 @@ class ListUsersController extends Controller
     {
         Log::info('ListUsersController:showAllUsers');
         $data = DB::table('users')->join('permition', 'users.permition', '=', 'permition.id')->select('users.id as userId', 'users.name as userName', 'users.surname as userSurname', 'users.email as userEmail','users.nick as userNick', 'permition.id as permitionId', 'permition.name as permitionName', 'permition.possibility_read', 'permition.new_user', 'permition.edit_content', 'permition.edit_permitions')->orderBy('surname','asc')->get();
-        //return $permition;
         return view('users', ['users' => $data]);
 
 
@@ -91,15 +90,59 @@ class ListUsersController extends Controller
             $user->save();
     }
 
-    function statusUser(Request $request)
+    function getStatus($id)
     {
-        Log::info('ListUsersController:statusUser');
+        Log::info('ListUsersController:getStatus');
 
-        $check = true;
+        $data = DB::table('histories')
+            ->Join('users', 'histories.user_id', '=', 'users.id')
+            ->where('histories.user_id', '=', $id)
+            ->select( DB::raw('MAX(histories.created_at) as last'),  DB::raw('COUNT(histories.element_id) as entry'), 'histories.table_name', 'histories.element_id','histories.user_id','users.name as user_name','users.surname as user_surname')
+            ->groupBy('histories.element_id')
+            ->orderBy('histories.created_at','desc')
+            ->get();
 
-        //TODO předat data o stavu žáka nad všemi hystory
+        foreach ($data as $dat){
 
-        return view('user-status', ['data' => array('James','Dominik','Lukas','Viol')]);
+            $name = DB::table($dat->table_name)
+                ->where('id', '=', $dat->element_id)
+                ->get();
+
+            if(count($name) != 0){
+                $dat->name = $name[0]->name;
+            }else{
+                $dat->name = null;
+            }
+
+            $lock = DB::table('locks')
+                ->where('user_id', '=', $id)
+                ->where('table_name', '=', $dat->table_name)
+                ->where('element_id', '=', $dat->element_id)
+                ->get();
+
+            if(count($lock) != 0){
+                $dat->locked = $lock[0]->locked;
+                $dat->lockedDate = $lock[0]->created_at;
+            }else{
+                $dat->locked = null;
+            }
+
+            $finish = DB::table('finished')
+                ->Join('elements', 'finished.element_id', '=', 'elements.id')
+                ->where('finished.user_id', '=', $dat->user_id)
+                ->where('elements.data', '=', ($dat->table_name.":".$dat->element_id))
+                ->get();
+
+            if(count($finish) != 0){
+                $dat->finish = $finish[0]->created_at;
+            }else{
+                $dat->finish = null;
+            }
+
+        }
+
+
+        return view('user-status', ['data' => $data]);
     }
 
 

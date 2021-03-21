@@ -4,6 +4,7 @@ namespace Illuminate\Http\Concerns;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use SplFileInfo;
 use stdClass;

@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Fortify\Contracts\RegisterResponse;
 use Laravel\Fortify\Contracts\RegisterViewResponse;
+use Illuminate\Support\Facades\Log;
 
 class RegisteredUserController extends Controller
 {
@@ -51,7 +52,9 @@ class RegisteredUserController extends Controller
     public function store(Request $request,
                           CreatesNewUsers $creator): RegisterResponse
     {
-        event(new Registered($user = $creator->create($request->all())));
+
+        $user = $creator->create($request->all());
+        event(new Registered($user));
 
         $this->guard->login($user);
 

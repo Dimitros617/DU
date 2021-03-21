@@ -101,10 +101,11 @@
                               action="{{url('/save_image')}}"
                               enctype="multipart/form-data"
                               id="bookImageChange-{{$book->id}}"
-                              class="chapter {{$book->security}} {{$lc}}  @if(($book->security != null && $book->security != 'empty' && $lc != '0') || ( $book->security != null && $book->security != 'empty' && Auth::permition()->edit_content == '1')) locked-chapter @endif"
+                              class="chapter {{$lc}}  @if(($book->security != null && $book->security != 'empty' && $lc != '0') || ( $book->security != null && $book->security != 'empty' && Auth::permition()->edit_content == '1')) locked-chapter @endif"
                               locked=" @if($book->security != null && $book->security != 'empty') 1 @else 0 @endif"
                               type="books"
                               element_id="{{$book->id}}"
+                              @if($book->security == 'invisible' && Auth::permition()->edit_content != '1') hidden @endif
                         >
                             @csrf
 

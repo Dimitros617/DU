@@ -50,21 +50,44 @@ class PermitionController extends Controller
 
         $permition = permition::find($request->id);
         $permition->name = $request->name;
+        $permition->default = $request->default;
         $permition->possibility_read = $request->read;
         $permition->new_user = $request->user;
         $permition->edit_content = $request->edit;
         $permition->edit_permitions = $request->permition;
         $check = $permition->save();
 
-        $check_edit_permitions = DB::table('permition')->select('edit_permitions')->groupByRaw('edit_permitions')->get();
+        $check_edit_permitions = DB::table('permition')
+            ->select('edit_permitions')
+            ->groupByRaw('edit_permitions')
+            ->get();
+
         if(count($check_edit_permitions) == 1){
             $permition = permition::find($request->id);
             $permition->edit_permitions = 1;
             $check2 = $permition->save();
-            return $check2 ? "-1" : "0";
+
+            if($check2) {
+                return response('Alespoň jedna role musí mít přiřazenou možnost "Správy rolí"!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+            }else{
+                return response('Nastala chyba při ukládání dat do tabulky permitions.' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+
+            }
         }
 
-        return $check ? "1" : "0";
+        $check_default = DB::table('permition')
+            ->where('default', '=','1')
+            ->get();
+
+        if(count($check_default) == 0){
+            return response('Alespoň 1 role musí být nastavena jako výchozí, jinak nebude možná registrace nových uživatelů.' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }elseif (count($check_default) > 1){
+            return response('Je označeno více rolí jako výchozích, to může zapříčinit nesprávné rozdělení rolí při registraci nových uživatelů.' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+
+        if(!$check) {
+            return response('Nastala chyba při ukládání dat do tabulky permitions' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
 
     }
 

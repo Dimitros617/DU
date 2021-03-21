@@ -9,20 +9,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
+      <change afterPath="$PROJECT_DIR$/resources/views/new-user-error.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BooksController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Big_box.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Big_box.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Chapters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Chapters.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Elements.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Elements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Middle_box.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Middle_box.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/chapters.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/chapters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapter-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermitionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermitionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/fortify.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/fortify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/lock.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/permition-save.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/permition-save.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/big-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/big-box.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empty-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/empty-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/finish-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/finish-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/image-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/image-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/middle-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/middle-box.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/permitions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/permitions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/text-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/text-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/title-element.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user-status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/video-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/video-element.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/fortify/src/Http/Controllers/RegisteredUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithInput.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Http/Concerns/InteractsWithInput.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +265,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
@@ -257,8 +273,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Xamp\htdocs\baka\public\js" />
       <recent name="D:\Xamp\htdocs\baka\resources\views" />
+      <recent name="D:\Xamp\htdocs\baka\public\js" />
       <recent name="D:\Xamp\htdocs\baka\public\user_files" />
       <recent name="D:\Xamp\htdocs\baka\resources\views\auth" />
       <recent name="D:\Xamp\htdocs\VRS\resources\views" />
@@ -374,6 +390,7 @@
       <workItem from="1615799433596" duration="74641000" />
       <workItem from="1616000061081" duration="46613000" />
       <workItem from="1616149898381" duration="24598000" />
+      <workItem from="1616230997926" duration="17555000" />
     </task>
     <task id="LOCAL-00009" summary="Instalace jetstream">
       <created>1606141336488</created>

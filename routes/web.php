@@ -23,7 +23,8 @@ use App\Models\ListUsers;
 App::setLocale('cs');
 
 
-Route::get('/credentials', function () {    return view('credentials');});
+
+Route::get('/new-user-error', function () {    return view('new-user-error');});
 
 
 
@@ -73,7 +74,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/get_book_status/{id:id}',
 
 //Kapitoly
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_chapter', [ChapterController::class,'addChapter']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/status_chapter/{id:id}', [ChapterController::class,'statusChapter']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_chapter_status/{id:id}', [ChapterController::class,'getStatus']);
 
 
 //Pravidla
@@ -87,7 +88,7 @@ Route::post('/users/{id:id}/saveUserData', [ListUsersController::class,'saveUser
 Route::get('/users/usersSort/{sort?}', [ListUsersController::class,'usersSort']);
 Route::get('/users/usersFind/{find?}', [ListUsersController::class,'usersFind']);
 Route::get('/getUserNames', [ListUsersController::class,'getUserNames']);
-Route::middleware(['auth:sanctum', 'verified'])->get('/status_user/{id:id}', [ListUsersController::class,'statusUser']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_user_status/{id:id}', [ListUsersController::class,'getStatus']);
 
 
 //Oprávnění

@@ -39,15 +39,15 @@ class BooksController extends Controller
 
     function getStatus($id)
     {
-        Log::info('ChapterController:getStatus');
+        Log::info('BooksController:getStatus');
 
-//        SELECT users.name, users.surname, MAX(histories.created_at), COUNT(histories.element_id) FROM `histories` JOIN users ON histories.user_id=users.id GROUP BY histories.element_id ORDER BY histories.created_at DESC
         $data = DB::table('histories')
             ->Join('users', 'histories.user_id', '=', 'users.id')
             ->where('histories.table_name', '=', 'books')
             ->where('histories.element_id', '=', $id)
             ->select( DB::raw('users.name'),DB::raw('users.surname'), DB::raw('MAX(histories.created_at) as last'),  DB::raw('COUNT(histories.element_id) as entry'), 'histories.user_id')
             ->groupBy('histories.element_id','histories.user_id')
+            ->orderBy('histories.created_at','desc')
             ->get();
 
         foreach ($data as $dat){

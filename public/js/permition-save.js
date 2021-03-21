@@ -17,32 +17,10 @@ let a = $('#savePermitionData-' + id).serialize();
             ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
             ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
 
-            if(response == "1"){
-
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#10003;</b>';
-                let roleCount = document.getElementById("list-"+id).getElementsByClassName("roleCount")[0].cloneNode(true);
-                document.getElementById("list-"+id).innerHTML = document.getElementById("panel-" + id).getElementsByClassName("permition-name")[0].value;
-                document.getElementById("list-"+id).appendChild(roleCount);
-
-            }else if(response == "-1"){
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Upss...',
-                    text: 'Alespoň jedna role musí mít přiřazenou možnost "Správy rolí"!',
-                    customClass: {
-                        container: 'su-shake-horizontal',
-                    }
-                })
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-
-                let roleCount = document.getElementById("list-"+id).getElementsByClassName("roleCount")[0].cloneNode(true);
-                document.getElementById("list-"+id).innerHTML = document.getElementById("panel-" + id).getElementsByClassName("permition-name")[0].value;
-                document.getElementById("list-"+id).appendChild(roleCount);
-
-            }else{
-                ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#x2715;</b>';
-            }
+            ele.querySelectorAll("div[id='buttonText']")[0].innerHTML = '<b>&#10003;</b>';
+            let roleCount = document.getElementById("list-"+id).getElementsByClassName("roleCount")[0].cloneNode(true);
+            document.getElementById("list-"+id).innerHTML = document.getElementById("panel-" + id).getElementsByClassName("permition-name")[0].value;
+            document.getElementById("list-"+id).appendChild(roleCount);
 
             setTimeout(function (ele){
                 //ele.getElementsByClassName('submit')[0].setAttribute("hidden","");
@@ -53,6 +31,15 @@ let a = $('#savePermitionData-' + id).serialize();
         },
         error: function (response){
             console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
             ele.querySelectorAll("div[id='buttonText']")[0].removeAttribute("hidden");
             ele.querySelectorAll("div[id='buttonLoading']")[0].setAttribute("hidden", "");
 

@@ -165,15 +165,49 @@ class ChapterController extends Controller
 
 
 
-    function statusChapter(Request $request)
+    function getStatus($id)
     {
-        Log::info('ChapterController:statusChapter');
+        Log::info('ChapterController:getStatus');
 
-        $check = true;
+        $data = DB::table('histories')
+            ->Join('users', 'histories.user_id', '=', 'users.id')
+            ->where('histories.table_name', '=', 'chapters')
+            ->where('histories.element_id', '=', $id)
+            ->select( DB::raw('users.name'),DB::raw('users.surname'), DB::raw('MAX(histories.created_at) as last'),  DB::raw('COUNT(histories.element_id) as entry'), 'histories.user_id')
+            ->groupBy('histories.element_id','histories.user_id')
+            ->orderBy('histories.created_at','desc')
+            ->get();
 
-        //TODO předat data o stavu žáků nad kapitolou
+        foreach ($data as $dat){
+            $lock = DB::table('locks')
+                ->where('table_name', '=', 'chapters')
+                ->where('element_id', '=', $id)
+                ->where('user_id', '=', $dat->user_id)
+                ->get();
 
-        return view('chapter-status', ['data' => array('James','Dominik','Lukas','Viol')]);
+            if(count($lock) != 0){
+                $dat->locked = $lock[0]->locked;
+                $dat->lockedDate = $lock[0]->created_at;
+            }else{
+                $dat->locked = null;
+            }
+
+            $finish = DB::table('finished')
+                ->Join('elements', 'finished.element_id', '=', 'elements.id')
+                ->where('elements.data', '=', ('chapters:'.$id))
+                ->where('finished.user_id', '=', $dat->user_id)
+                ->get();
+
+            if(count($finish) != 0){
+                $dat->finish = $finish[0]->created_at;
+            }else{
+                $dat->finish = null;
+            }
+
+        }
+
+
+        return view('status', ['data' => $data]);
     }
 
 }

@@ -20,6 +20,7 @@ foreach ($big_boxes_locks as $lock){
          include="middle_box"
          element_id="{{$big_box->id}}"
          locked="@if($big_box->security != null && $big_box->security != 'empty') 1 @else 0 @endif">
+        @if($big_box->security == 'invisible' && Auth::permition()->edit_content != '1') hidden @endif
         @include('locked-box')
     </div>
 @else
@@ -34,7 +35,10 @@ foreach ($big_boxes_locks as $lock){
          type="big_box"
          include="middle_box"
          element_id="{{$big_box->id}}"
-         locked="@if($big_box->security != null && $big_box->security != 'empty') 1 @else 0 @endif">
+         locked="@if($big_box->security != null && $big_box->security != 'empty') 1 @else 0 @endif"
+         @if($big_box->security == 'invisible' && Auth::permition()->edit_content != '1') hidden @endif
+    >
+
 
         @if($edit)
             @include('edit-bar')

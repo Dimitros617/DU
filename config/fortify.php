@@ -119,6 +119,8 @@ return [
 
     'views' => true,
 
+
+
     /*
     |--------------------------------------------------------------------------
     | Features
@@ -129,6 +131,8 @@ return [
     | these features or you can even remove all of these if you need to.
     |
     */
+
+    'permition' => 'permition',
 
     'features' => [
         Features::registration(),

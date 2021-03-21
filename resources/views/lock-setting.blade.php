@@ -25,6 +25,21 @@
             </div>
         </div>
 
+        {{--        Skritý--}}
+        <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05" id="invisible">
+
+            <div class="rule-title bg-su-texture shadow float-start text-su-hologram-blue-inverted ">Uplně skrýt</div>
+
+            <div class="switch-box float-end d-grid " style="margin-top: -5rem;">
+                <label class="switch  ms-auto me-auto">
+                    <input type="radio" name="rule" class="radio-rule-slider" @if($data->security == "invisible" )value="1" checked @else value="0" @endif>
+                    <span class="slider round" for="radio-rule-slider" onclick="changeRadio(this)"></span>
+
+                </label>
+                <div class="mt-2 font-weight-bolder text-white font-weight-bold">@if($data->security == "invisible" )ZAPNUTO @else VYPNUTO @endif</div>
+            </div>
+        </div>
+
 
         {{--        Pravidlo pro čas--}}
     <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05" id="time">

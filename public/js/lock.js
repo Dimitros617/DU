@@ -39,7 +39,7 @@ function setLock(ele, id, element_type, spinner, request, token ){
                             let key_type = rule.getAttribute('id');
                             let key = "null"
 
-                            if(key_type != "empty"){
+                            if(key_type != "empty" && key_type != "invisible"){
                                 key = rule.getElementsByClassName('rule-key')[0].value;
                             }
 

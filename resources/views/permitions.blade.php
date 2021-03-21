@@ -41,11 +41,32 @@
                     <form action="/savePermitionData" method="POST" id="savePermitionData-{{$permition->id}}" class="tab-pane-head bg-su-texture shadow bg-su-lwhite">
                         @csrf
 
-                        <input type="text" class="us-h2 text-su-blue w-100 bg-transparent permition-name text-su-shadow-white" name="name" value="{{$permition->name}}">
-                        <input type="text" name="id" value="{{$permition->id}}" hidden>
+                        <div class="d-inline-flex w-100 mb-4">
+                            <input type="text" class="us-h2 text-su-blue w-100 bg-transparent permition-name text-su-shadow-white" name="name" value="{{$permition->name}}">
+                            <input type="text" name="id" value="{{$permition->id}}" hidden>
 
+                            <div class="my_row">
+
+                                <div class="switch-box d-grid">
+                                    <label title="Přiřadzení všem nově registrovaným" for="default" class="text-su-blue">Výchozí role</label>
+                                    <label class="switch  ms-auto me-auto">
+                                        <input type="checkbox" id="default{{$permition->id}}" class="radio-rule-slider" @if($permition->default == 1)value="1" checked @else value="0" @endif >
+
+                                        <span class="slider round" for="radio-rule-slider" onclick="changeSwitch(this, this.parentNode.children[0], this.parentNode.parentNode.children[2],'ANO','NE',this.parentNode.parentNode.children[3])"></span>
+
+                                    </label>
+                                    <div hidden class="switch-label mt-2 font-weight-bolder text-white font-weight-bold text-su-shadow">@if($permition->default == 1)ANO @else NE @endif</div>
+                                    <input class="d-none" type="text" name="default"  @if($permition->default == 1)value="1" @else value="0" @endif >
+                                </div>
+
+                            </div>
+                        </div>
                 <div class="my-row-row">
+
+
+
                     <div class="my_row">
+
 
                         <div class="switch-box d-grid">
                             <label for="possibility_read">Čtení kapitol</label>

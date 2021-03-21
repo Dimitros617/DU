@@ -22,6 +22,8 @@ foreach ($elements_locks as $lock){
          include="null"
          element_id="{{$element->id}}"
          locked="@if($element->security != null && $element->security != 'empty') 1 @else 0 @endif"
+         @if($element->security == 'invisible' && Auth::permition()->edit_content != '1') hidden @endif
+
     >
         @include('locked-box')
     </div>
