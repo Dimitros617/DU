@@ -582,6 +582,55 @@ function fileSelector(output, label, spinner){
 
 }
 
+function upload(form, loading, request, label){
+
+    loading.removeAttribute("hidden");
+    request.setAttribute("hidden", "");
+
+    $.ajax({
+        url: '/save_file_result',
+        method: 'POST',
+        data: new FormData(form),
+        processData: false,
+        contentType: false,
+        datatype : "application/json",
+        success:function(response){
+
+            loading.setAttribute("hidden", "");
+            request.removeAttribute("hidden");
+            label.innerHTML = 'Odevzdáno: ' + response;
+            request.innerHTML = '<b>&#10003;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+
+            request.removeAttribute("hidden");
+            loading.setAttribute("hidden", "");
+            request.innerHTML = '<b>&#x2715;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+        }
+    });
+
+}
+
 function download(url) {
     let element = document.createElement('a');
     element.setAttribute('href', url);

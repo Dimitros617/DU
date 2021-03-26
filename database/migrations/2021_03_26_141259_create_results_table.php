@@ -18,6 +18,8 @@ class CreateResultsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('element_id')->nullable();
             $table->string('data')->nullable();
+            $table->string('result')->nullable();
+            $table->string('comments')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

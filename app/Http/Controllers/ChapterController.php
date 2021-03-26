@@ -66,6 +66,9 @@ class ChapterController extends Controller
             ->where('user_id', Auth::user()->id)
             ->get();
 
+        $results = DB::table('results')
+            ->get();
+
         $big_boxes = DB::table('big_box')
             ->join('chapters', 'big_box.parent', '=', 'chapters.id')
             ->where('chapters.id', $id)
@@ -128,6 +131,7 @@ class ChapterController extends Controller
             'elements' => $elements,
             'elements_locks' => $elements_locks,
             'finished' => $finished,
+            'results' => $results,
             'edit' => $edit,
             'title_name' => $title_name]);
 

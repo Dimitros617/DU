@@ -11,6 +11,7 @@ use App\Models\Files;
 use App\Models\Finished;
 use App\Models\Images;
 use App\Models\Middle_box;
+use App\Models\Results;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -186,6 +187,43 @@ class ContentController extends Controller
         if(!$check){
             return response('Chyba při ukládání do databáze Files!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }
+    }
+
+    function saveFileResult(Request $request){
+
+        Log::info('ContentController:saveFileResult');
+
+        if($request->file != "") {
+            $validatedData = $request->validate([
+                'file' => 'required|max:40960',
+            ]);
+
+
+            $file_name = $request->file('file')->getClientOriginalName();
+            $original_file_name = $file_name;
+            request()->file->move(public_path('/data/results'), $file_name);
+            $file_name = '/data/results/'.$file_name;
+        }
+
+        $data = DB::table('results')
+            ->where('user_id', '=', Auth::user()->id)
+            ->where('element_id', '=', $request->element_id)
+            ->get();
+
+        if(count($data) != 0){
+            Results::find($data[0]->id)->delete();
+        }
+
+        $file = new Results;
+        $file->data = $file_name;
+        $file->element_id = $request->element_id;
+        $file->user_id = Auth::user()->id;
+        $check = $file->save();
+
+        if(!$check){
+            return response('Chyba při ukládání do databáze Results!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+        return $original_file_name;
     }
 
     function removeFile(Request $request){
