@@ -68,6 +68,8 @@ class ContentController extends Controller
 
 
 
+
+
     function saveSetting(Request $request){
 
         $check = DB::table($request->table_name)

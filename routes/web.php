@@ -4,6 +4,7 @@ use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LockController;
+use App\Http\Controllers\ResultsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControllerUsing;
 use App\Http\Controllers\DashboardController;
@@ -42,16 +43,19 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->ge
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}', [ChapterController::class,'showChapter']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_content'])->get('/chapter/{id:id}/edit', [ChapterController::class,'showChapterEdit']);
 
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_files_results/{id:id}', [ResultsController::class,'showFilesResults']);
+
 //Kontent
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_image', [ContentController::class,'addImage']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_file', [ContentController::class,'saveFile']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_file_result', [ContentController::class,'saveFileResult']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_file', [ContentController::class,'addFile']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_name', [ContentController::class,'saveName']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_description', [ContentController::class,'saveDescription']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_column', [ContentController::class,'saveColumn']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_finished', [ContentController::class,'saveFinished']);
+
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read' ])->post('/save_file', [ContentController::class,'saveFile']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read' ])->post('/save_file_result', [ContentController::class,'saveFileResult']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read' ])->post('/add_file', [ContentController::class,'addFile']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove/{table_name?}/{id:id}', [ContentController::class,'removeElement']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->delete('/remove_image/{id:id}', [ContentController::class,'removeImage']);

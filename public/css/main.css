@@ -150,6 +150,10 @@ input.su-input-white {
     filter: drop-shadow( 1px 1px 3px #ffff);
 }
 
+.su-svg-shadow{
+    filter: drop-shadow( 1px 1px 3px #8c8c8c);
+}
+
 
 .su-hover-card:hover {
     margin: 1rem;

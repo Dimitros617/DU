@@ -42,6 +42,7 @@
     <form class="text-center text-su-orange fw-bold w-100 d-grid">
             @csrf
             <input type="text" name="element_id" value="{{$element->id}}" hidden>
+
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#ff9d09" class="bi bi-cloud-arrow-down-fill mx-auto" viewBox="0 0 16 16">
                 <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 5.146a.5.5 0 0 1-.708.708L8.5 6.707V10.5a.5.5 0 0 1-1 0V6.707L6.354 7.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2z"/>
             </svg>
@@ -57,6 +58,15 @@
              this.parentNode.getElementsByClassName('upload-result')[0].innerHTML = '';
              this.parentNode.getElementsByClassName('upload-comment')[0].innerHTML = '';
             ">
+
+            <div class="check-results w-100 d-block rounded " style="margin-top: -5rem">
+                <a href="/element_files_results/{{$element->id}}" class="text-decor-none float-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightbulb-fill text-su-orange mx-auto mb-2 su-svg-shadow-white" viewBox="0 0 16 16">
+                        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    VÝSLEDKY
+                </a>
+            </div>
 
             <div class="spinner-grow text-warning loading m-0 mx-auto" role="status" hidden></div>
             <div class="loading_request m-0 fw-bold text-su-orange mx-auto" role="status" hidden></div>

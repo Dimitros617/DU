@@ -9,18 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/app/Models/Results.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/results/2-seminarni-ukol-z-psdsb (1).pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/results/Bakalarska_prace.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/results/spirik_dp.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/data/spirik_dp.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/upload-element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/results.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/files-results.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_141259_create_results_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_141259_create_results_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/download-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/download-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/upload-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/upload-element.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -375,14 +370,7 @@
       <workItem from="1616149898381" duration="24598000" />
       <workItem from="1616230997926" duration="26413000" />
       <workItem from="1616756200547" duration="206000" />
-      <workItem from="1616756468869" duration="22154000" />
-    </task>
-    <task id="LOCAL-00012" summary="Edit dashboardu, upravena registrace, přidány stránky nová výpůjčka a seznam vůpůjček">
-      <created>1606494521332</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1606494521332</updated>
+      <workItem from="1616756468869" duration="26478000" />
     </task>
     <task id="LOCAL-00013" summary="Načítání dat z kategorie, problém v borrowing.blade.php">
       <created>1606516076882</created>
@@ -720,7 +708,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616777370671</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Přidán element pro uploadování souborů jako odpovědí">
+      <created>1616781483467</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1616781483467</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,7 +777,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Vyhledávání uživatelů podle role, pravopisná úprava u first user" />
     <MESSAGE value="Upraveno pass rule" />
     <MESSAGE value="Odkazy na dashboardu, zobrazení výpůjček u jednotlivých uživatelů, itemů, kategorií pro všechny s possibility_renting" />
     <MESSAGE value="Redirect na vlastní výpůjčky v seznamu uživatelů a bez odkazu na poslání zprávy sám sobě, prázdná hláška v category.blade.php" />
@@ -807,7 +801,8 @@
     <MESSAGE value="Dodoělán status nad žákem, přidáno skrývání elementů jako další lock a dodělána defaultní role" />
     <MESSAGE value="Přidáno do hlavičky název učebnice a smazán starý menu bar" />
     <MESSAGE value="Opravena responzivnost, přidána oprávění přístupu + přidán element na stahování souborů" />
-    <option name="LAST_COMMIT_MESSAGE" value="Opravena responzivnost, přidána oprávění přístupu + přidán element na stahování souborů" />
+    <MESSAGE value="Přidán element pro uploadování souborů jako odpovědí" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidán element pro uploadování souborů jako odpovědí" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
