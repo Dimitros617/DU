@@ -647,6 +647,34 @@ progress {
     max-width: 1320px;
   }
 }
+
+.scale-100{
+    transform: scale(1) !important;
+}
+
+.scale-90{
+    transform: scale(0.9) !important;
+}
+
+.scale-80{
+    transform: scale(0.8) !important;
+}
+
+.scale-70{
+    transform: scale(0.7) !important;
+}
+
+.scale-60{
+    transform: scale(0.6) !important;
+}
+
+.scale-50{
+    transform: scale(0.5) !important;
+}
+
+
+
+
 .row {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -1087,6 +1115,11 @@ progress {
   }
 }
 @media (min-width: 768px) {
+
+    .scale-md-100{
+        transform: scale(1) !important;
+    }
+
   .col-md {
     flex: 1 0 0%;
   }
@@ -8602,6 +8635,8 @@ a.badge-dark:focus, a.badge-dark.focus {
     margin-top: auto !important;
     margin-bottom: auto !important;
   }
+
+
 
   .mt-md-0 {
     margin-top: 0 !important;

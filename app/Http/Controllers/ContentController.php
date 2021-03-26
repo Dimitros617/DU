@@ -7,6 +7,7 @@ use App\Models\Big_box;
 use App\Models\Books;
 use App\Models\Chapters;
 use App\Models\Elements;
+use App\Models\Files;
 use App\Models\Finished;
 use App\Models\Images;
 use App\Models\Middle_box;
@@ -48,6 +49,20 @@ class ContentController extends Controller
         Log::info('ContentController:getImagesSelectorGallery');
         $data = DB::table('images')->get();
         return view('images-selector-gallery', ['images' => $data]);
+    }
+
+    function getFileSelector(Request $request){
+
+        Log::info('ContentController:getFileSelector');
+        $data = DB::table('files')->get();
+        return view('files-selector', ['files' => $data]);
+    }
+
+    function getFileSelectorGallery(){
+
+        Log::info('ContentController:getFileSelectorGallery');
+        $data = DB::table('files')->get();
+        return view('files-selector-gallery', ['files' => $data]);
     }
 
 
@@ -129,6 +144,69 @@ class ContentController extends Controller
         if(!$check){
             return response('Chyba při ukládání do databáze Images!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }
+    }
+
+    function addFile(Request $request){
+
+        Log::info('ContentController:addFile');
+
+        $file = new Files;
+        $file->url = $request->url;
+        $file->name = $request->url;
+        $file->owner = Auth::user()->id;
+        $check = $file->save();
+
+        if(!$check){
+            return response('Chyba při ukládání do databáze Files!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
+    function saveFile(Request $request){
+
+        Log::info('ContentController:saveFile');
+
+        if($request->file != "") {
+            $validatedData = $request->validate([
+                'file' => 'required|max:40960',
+            ]);
+
+
+            $file_name = $request->file('file')->getClientOriginalName();
+            $original_file_name = $file_name;
+            request()->file->move(public_path('/data'), $file_name);
+            $file_name = '/data/'.$file_name;
+        }
+
+        $file = new Files;
+        $file->url = $file_name;
+        $file->name = $original_file_name;
+        $file->owner = Auth::user()->id;
+        $check = $file->save();
+
+        if(!$check){
+            return response('Chyba při ukládání do databáze Files!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+    }
+
+    function removeFile(Request $request){
+
+        Log::info('ContentController:removeFile ');
+
+        $file = Files::find($request->id);
+
+        if (is_file(public_path($file->url))) {
+            $check = unlink(public_path($file->url));
+            if(!$check){
+                return response('Chyba při mazání souboru ze složky! v databázi ale nadále zůstal.' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+            }
+        }
+
+        $check = Files::find($request->id)->delete();
+
+        if(!$check){
+            return response('Chyba při mazání z databáze, ale fyzicky se soubor vymazal správně!' . $request->table_name, 500)->header('Content-Type', 'text/plain');
+        }
+
     }
 
     function removeImage(Request $request){

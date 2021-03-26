@@ -9,10 +9,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
+      <change afterPath="$PROJECT_DIR$/app/Models/Files.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_140825_create_files_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_141259_create_results_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/05_seminarni_ukol_nahradni.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/2-seminarni-ukol-z-psdsb (1).pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/5-seminarni-ukol-z-psdsb.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/FrolíkCV4.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/FrolíkCV4.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/download.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/hello.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/pencil.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/upload.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/button-bar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/download-element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/files-selector-gallery.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/files-selector.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/chapters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/elements-selector.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/elements-selector.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/empty-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EMPTY-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/images-selector.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/images-selector.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,14 +396,9 @@
       <workItem from="1615799433596" duration="74641000" />
       <workItem from="1616000061081" duration="46613000" />
       <workItem from="1616149898381" duration="24598000" />
-      <workItem from="1616230997926" duration="26125000" />
-    </task>
-    <task id="LOCAL-00010" summary="Edit welcome page, img add, css">
-      <created>1606473449946</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1606473449946</updated>
+      <workItem from="1616230997926" duration="26413000" />
+      <workItem from="1616756200547" duration="206000" />
+      <workItem from="1616756468869" duration="18049000" />
     </task>
     <task id="LOCAL-00011" summary="Překlad hotov">
       <created>1606478114630</created>
@@ -709,7 +736,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616330783171</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Přidáno do hlavičky název učebnice a smazán starý menu bar">
+      <created>1616365005259</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1616365005259</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -771,7 +805,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Zhezkání controllerů" />
     <MESSAGE value="Vyhledávání uživatelů podle role, pravopisná úprava u first user a easter eggu" />
     <MESSAGE value="Vyhledávání uživatelů podle role, pravopisná úprava u first user" />
     <MESSAGE value="Upraveno pass rule" />
@@ -796,7 +829,8 @@
     <MESSAGE value="Přidáno rozdělování na učebnice + implementováno img selector na element setting" />
     <MESSAGE value="Doděláno pozicování kapitol a učebnic" />
     <MESSAGE value="Dodoělán status nad žákem, přidáno skrývání elementů jako další lock a dodělána defaultní role" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodoělán status nad žákem, přidáno skrývání elementů jako další lock a dodělána defaultní role" />
+    <MESSAGE value="Přidáno do hlavičky název učebnice a smazán starý menu bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přidáno do hlavičky název učebnice a smazán starý menu bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -805,6 +839,16 @@
           <url>file://$PROJECT_DIR$/app/Http/Controllers/ControllerUsing.php</url>
           <line>10</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/big-box.blade.php</url>
+          <line>1</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/big-box.blade.php</url>
+          <line>9</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

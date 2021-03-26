@@ -226,6 +226,161 @@ function addImage(url, loading, request){
     });
 }
 
+function saveFile(form, loading, request){
+
+
+
+    loading.removeAttribute("hidden");
+    request.setAttribute("hidden", "");
+
+    $.ajax({
+        url: '/save_file',
+        method: 'POST',
+        data: new FormData(form),
+        processData: false,
+        contentType: false,
+        datatype : "application/json",
+        success:function(response){
+
+            loading.setAttribute("hidden", "");
+            request.removeAttribute("hidden");
+
+            request.innerHTML = '<b>&#10003;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+
+
+        },
+        error: function (response){
+            console.log(response);
+                let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Hmm... CHYBA!',
+                    text: err ,
+                    customClass: {
+                        container: 'su-shake-horizontal',
+                    }
+                })
+
+            request.removeAttribute("hidden");
+            loading.setAttribute("hidden", "");
+            request.innerHTML = '<b>&#x2715;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+        }
+    });
+}
+
+function addFile(url, loading, request){
+
+
+
+    loading.removeAttribute("hidden");
+    request.setAttribute("hidden", "");
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+
+    var pattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+
+    if (!pattern.test(url)) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Ajajaj!',
+            text: 'Zadaný text není platná URL adresa' ,
+            customClass: {
+                container: 'su-shake-horizontal',
+            }
+        })
+        return;
+    }
+
+    $.ajax({
+        url: '/add_file',
+        method: 'POST',
+        data:
+            {
+                _token: token,
+                url: url,
+            },
+        success:function(response){
+
+            loading.setAttribute("hidden", "");
+            request.removeAttribute("hidden");
+
+            request.innerHTML = '<b>&#10003;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+
+
+        },
+        error: function (response){
+            console.log(response);
+
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+
+            request.removeAttribute("hidden");
+            loading.setAttribute("hidden", "");
+            request.innerHTML = '<b>&#x2715;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+        }
+    });
+}
+
+function removeFile(element, spinner, request){
+
+    let id = element.getAttribute('file_id');
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+
+    spinner.removeAttribute("hidden");
+
+
+
+    $.ajax({
+        url: '/remove_file/'+id,
+        type: 'delete',
+        data:
+            {
+                _token: token,
+                id: id,
+            },
+        success:function(response){
+            element.remove();
+            spinner.setAttribute("hidden", "");
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+            spinner.setAttribute("hidden", "");
+
+        }
+    });
+}
+
 function removeImage(element, spinner, request){
 
     let id = element.getAttribute('image_id');
@@ -264,11 +419,11 @@ function removeImage(element, spinner, request){
             });
       }
 
-function refreshGallery(gallery){
+function refreshGallery(gallery, url){
 
-    setTimeout(function (gallery){
+    setTimeout(function (gallery, url){
         $.ajax({
-            url: '/image_selector_gallery',
+            url: url,
             method: 'get',
             success:function(response){
                 gallery.innerHTML = response;
@@ -287,7 +442,7 @@ function refreshGallery(gallery){
 
             }
         });
-    }, 100,gallery);
+    }, 100,gallery, url);
 }
 
 /**

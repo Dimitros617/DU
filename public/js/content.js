@@ -447,12 +447,7 @@ function removeElement(element, spinner){
                 }
             });
         }
-        else if(result.isDenied){
-
-        }
-        else{
-
-        }
+        spinner.setAttribute("hidden", "");
 
     })
 
@@ -527,6 +522,77 @@ function imageSelector(output, imgElement, spinner){
         }
     });
 
+}
+
+function fileSelector(output, label, spinner){
+
+    if(spinner != null) {
+        spinner.removeAttribute("hidden");
+    }
+    $.ajax({
+        url: '/file_selector',
+        type: 'get',
+        success:function(response){
+            if(spinner != null) {
+                spinner.setAttribute("hidden", "");
+            }
+            Swal.fire({
+                html: response,
+                showCloseButton: false,
+                showCancelButton: false,
+                showConfirmButton: false,
+                showDenyButton: false,
+                confirmButtonText: `Vložit`,
+                denyButtonText: `Zrušit`,
+                focusConfirm: false,
+                customClass: 'modal-page',
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    let val = document.getElementById('file-selector-output').value;
+                    if(output != null){
+                        output.value = val;
+                        label.innerHTML = val.split('/')[val.split('/').length-1];
+                        label.value = val;
+                        output.click();
+                    }
+
+                }
+                spinner.setAttribute("hidden", "");
+
+            })
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            Swal.fire({
+                icon: 'error',
+                title: 'Hmm... CHYBA!',
+                text: err ,
+                customClass: {
+                    container: 'su-shake-horizontal',
+                }
+            })
+            if(spinner != null) {
+                spinner.setAttribute("hidden", "");
+            }
+
+        }
+    });
+
+}
+
+function download(url) {
+    let element = document.createElement('a');
+    element.setAttribute('href', url);
+    element.setAttribute('download', url.split('/')[url.split('/').length-1]);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }
 
 // Swal.fire({

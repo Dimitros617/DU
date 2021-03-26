@@ -16,11 +16,11 @@
         <div class="input-group flex-wrap justify-center">
             <input type="text" class="form-control images-selector-url-input mb-2" style="min-width: 25rem;" placeholder="URL obrázku">
             <div class="input-group-append">
-                <button class="su-button su-button-sucess su-button-text text-white m-0 ms-2" type="button" onclick="addImage(this.parentNode.parentNode.getElementsByClassName('images-selector-url-input')[0].value,this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0], this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0]); refreshGallery(this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('images-gallery')[0])">Vložit</button>
+                <button class="su-button su-button-sucess su-button-text text-white m-0 ms-2" type="button" onclick="addImage(this.parentNode.parentNode.getElementsByClassName('images-selector-url-input')[0].value,this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0], this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0]); refreshGallery(this.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('images-gallery')[0],'/image_selector_gallery')">Vložit</button>
                 <button class="su-button su-button-danger su-button-text text-white m-0 ms-2" type="button" onclick="this.parentNode.getElementsByClassName('images-selector-file-input')[0].click()" >Vybrat soubor</button>
                 <form hidden>
                     @csrf
-                   <input type="file" name="img" class="images-selector-file-input" onchange="saveImage(this.parentNode,this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0],this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0]); refreshGallery(this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('images-gallery')[0])">
+                   <input type="file" name="img" class="images-selector-file-input" onchange="saveImage(this.parentNode,this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading')[0],this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('loading_request')[0]); refreshGallery(this.parentNode.parentNode.parentNode.parentNode.parentNode.getElementsByClassName('images-gallery')[0],'/image_selector_gallery')">
                 </form>
 
             </div>

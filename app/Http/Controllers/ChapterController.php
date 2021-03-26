@@ -55,6 +55,7 @@ class ChapterController extends Controller
         if(count($args)>1 && $args[1]){
             $edit = true;
         }
+        $title_name = Books::find((Chapters::find($id)->parent))->name;
 
         $data = DB::table('chapters')
             ->where('id', $id)
@@ -117,16 +118,6 @@ class ChapterController extends Controller
 
         //TODO zde mazat záznamy starší jak měsíc u každého člověka z historie vstupu
 
-//        return ['chapter' => $data,
-//            'big_boxes' => $big_boxes,
-//            'middle_boxes' => $middle_boxes,
-//            'big_boxes_locks' => $big_boxes_locks,
-//            'middle_boxes_locks' => $middle_boxes_locks,
-//            'elements' => $elements,
-//            'elements_locks' => $elements_locks,
-//            'edit' => $edit];
-
-//        return $elements;
 
         return view('chapter',
             ['chapter' => $data,
@@ -137,7 +128,8 @@ class ChapterController extends Controller
             'elements' => $elements,
             'elements_locks' => $elements_locks,
             'finished' => $finished,
-            'edit' => $edit]);
+            'edit' => $edit,
+            'title_name' => $title_name]);
 
     }
 

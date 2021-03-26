@@ -16,6 +16,7 @@ div#userList {
     margin: 0.6rem;
     transition-duration: 0.5s;
     cursor: pointer;
+    min-width: 20rem;
 }
 
 .userElement:hover {

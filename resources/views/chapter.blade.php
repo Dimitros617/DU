@@ -1,5 +1,6 @@
 @section('title', 'Kapitola ' . $chapter->name )
 @section('css', URL::asset('css/chapter.css'))
+@section('title_name',$title_name)
 
 <x-app-layout>
 

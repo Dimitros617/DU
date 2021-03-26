@@ -66,5 +66,33 @@ class DatabaseSeeder extends Seeder
             'svg' => 'finish.svg',
             'blade' => 'finish-element',
         ]);
+
+        DB::table('element_types')->insert([
+            'id' => 5,
+            'name' => 'Stáhnout zadání',
+            'svg' => 'download.svg',
+            'blade' => 'download-element',
+        ]);
+
+        DB::table('element_types')->insert([
+            'id' => 6,
+            'name' => 'Nahrát zadání',
+            'svg' => 'upload.svg',
+            'blade' => 'upload-element',
+        ]);
+
+        DB::table('element_types')->insert([
+            'id' => 7,
+            'name' => 'ABC Test',
+            'svg' => 'check.svg',
+            'blade' => 'abc-test-element',
+        ]);
+
+        DB::table('element_types')->insert([
+            'id' => 8,
+            'name' => ' Otevřený Test',
+            'svg' => 'pencil.svg',
+            'blade' => 'open-test-element',
+        ]);
     }
 }

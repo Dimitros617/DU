@@ -9,7 +9,7 @@
             onclick="addElement(document.getElementById('{{$data->table_name}}_{{$data->id}}'),null,null,{{$element->id}})"
         >
 
-            <div class="chapter_img bg-su-image-center w-100 mb-3" style="background-image: url('/user_files/{{$element->svg}}'); height: 30px"></div>
+            <div class="chapter_img bg-su-image-center w-100 mb-3 bg-transparent" style="background-image: url('/user_files/{{$element->svg}}'); height: 30px"></div>
             <div class="w-100  text-su-blue text-su-shadow-white fw-bolder">{{$element->name}}</div>
 
         </div>

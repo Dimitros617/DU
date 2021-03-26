@@ -925,6 +925,24 @@ input::placeholder {
 
 @media (max-width: 768px) {
 
+    .su-mt-md-4{
+        margin-top: 1rem !important;
+    }
+
+    .su-w-100{
+        width: 100% !important;
+    }
+
+    .rule-title {
+        background: #0000000d;
+        width: 100%;
+        padding: 32px 1rem;
+        margin-left: -1px;
+        margin-top: 0;
+        text-align: initial;
+        display: block;
+    }
+
     #buttonHoverText {
         font-weight: 400;
         display: block;
