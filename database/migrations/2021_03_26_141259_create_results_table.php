@@ -17,6 +17,7 @@ class CreateResultsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('element_id')->nullable();
+            $table->json('data_json')->nullable();
             $table->string('data')->nullable();
             $table->string('result')->nullable();
             $table->string('comments')->nullable();

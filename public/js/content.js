@@ -67,14 +67,7 @@ function addElement(parent, icon, spinner, type){
             error: function (response){
                 console.log(response);
                 let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Hmm... CHYBA!',
-                    text: err ,
-                    customClass: {
-                        container: 'su-shake-horizontal',
-                    }
-                })
+                allertError(err);
 
                 spinner.setAttribute("hidden", "");
                 icon.removeAttribute("hidden");
@@ -135,14 +128,7 @@ function moveElement(parent, direction, request, loading){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            allertError(err);
 
             request.removeAttribute("hidden");
             loading.setAttribute("hidden", "");
@@ -234,14 +220,7 @@ function editSetting(ele, element, id, element_type, spinner, request, token){
                         error: function (response){
                             console.log(response);
                             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Hmm... CHYBA!',
-                                text: err ,
-                                customClass: {
-                                    container: 'su-shake-horizontal',
-                                }
-                            })
+                            allertError(err);
                             spinner.setAttribute("hidden", "");
 
                         }
@@ -276,14 +255,7 @@ function editSetting(ele, element, id, element_type, spinner, request, token){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            allertError(err);
             request.removeAttribute("hidden");
             spinner.setAttribute("hidden", "");
             request.innerHTML = '<b>&#x2715;</b>';
@@ -323,14 +295,7 @@ function saveColumn(element, spinner, request, data, column, route){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            allertError(err);
             spinner.setAttribute("hidden", "");
 
         }
@@ -369,14 +334,7 @@ function finishElement(element){
                 error: function (response){
                     console.log(response);
                     let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Hmm... CHYBA!',
-                        text: err ,
-                        customClass: {
-                            container: 'su-shake-horizontal',
-                        }
-                    })
+                    allertError(err);
                     spinner.setAttribute("hidden", "");
 
                 }
@@ -434,14 +392,7 @@ function removeElement(element, spinner){
                 error: function (response){
                     console.log(response);
                     let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Hmm... CHYBA!',
-                        text: err ,
-                        customClass: {
-                            container: 'su-shake-horizontal',
-                        }
-                    })
+                    allertError(err);
                     spinner.setAttribute("hidden", "");
 
                 }
@@ -507,14 +458,7 @@ function imageSelector(output, imgElement, spinner){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            allertError(err);
             if(spinner != null) {
                 spinner.setAttribute("hidden", "");
             }
@@ -565,14 +509,7 @@ function fileSelector(output, label, spinner){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            allertError(err);
             if(spinner != null) {
                 spinner.setAttribute("hidden", "");
             }
@@ -610,14 +547,7 @@ function upload(form, loading, request, label){
         error: function (response){
             console.log(response);
             let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
-            Swal.fire({
-                icon: 'error',
-                title: 'Hmm... CHYBA!',
-                text: err ,
-                customClass: {
-                    container: 'su-shake-horizontal',
-                }
-            })
+            allertError(err);
 
             request.removeAttribute("hidden");
             loading.setAttribute("hidden", "");

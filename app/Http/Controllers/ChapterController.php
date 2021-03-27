@@ -36,13 +36,32 @@ class ChapterController extends Controller
         $history = new HistoryController;
         $history->log(Auth::user()->id, 'books', $id);
 
+        $lockController = new LockController();
+        $request = new \Illuminate\Http\Request();
+        $request->replace(['table_name' => 'books', 'id' => $id]);
+
+        $checkLock = $lockController->checkLock($request);
+        if($checkLock[0] != '1'){
+            abort(401);
+        }
+
         return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_name' => $title_name]);
 
     }
 
+    function showChapterResultUser($id, $user_id){
+        Log::info('ChapterController:showChapterResultUser');
+        return $this->showChapter($id, 'user_results', $user_id, );
+    }
+
+    function showChapterResult($id, $element){
+        Log::info('ChapterController:showChapterResult');
+        return $this->showChapter($id, 'results', $element);
+    }
+
     function showChapterEdit($id){
         Log::info('ChapterController:showChapterEdit');
-        return $this->showChapter($id, true);
+        return $this->showChapter($id, 'edit');
     }
 
     function showChapter($id){
@@ -52,8 +71,25 @@ class ChapterController extends Controller
         $args = func_get_args();
 
         $edit = false;
-        if(count($args)>1 && $args[1]){
-            $edit = true;
+        $test_results = false;
+        $result_user = Auth::user()->id;
+        $result_element = 'chapters_'.$id;
+
+        if(count($args)>1 ){
+            for ($i = 1; $i < count($args); $i++) {
+                if ($args[$i]=='edit') {
+                    $edit = true;
+                }
+                if ($args[$i]=='user_results') {
+                    $test_results = true;
+                    $result_user = $args[++$i];
+                }
+                if ($args[$i]=='results') {
+                    $test_results = true;
+                    $result_element = $args[++$i];
+                }
+            }
+
         }
         $title_name = Books::find((Chapters::find($id)->parent))->name;
 
@@ -104,7 +140,7 @@ class ChapterController extends Controller
             ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
             ->join('chapters', 'big_box.parent', '=', 'chapters.id')
             ->where('chapters.id', $id)
-            ->select('elements.id', 'elements.parent', 'elements.name', 'elements.description', 'elements.url', 'elements.security', 'elements.key', 'elements.position', 'elements.style', 'elements.type', 'elements.data', 'elements.data1', 'elements.data2', 'elements.results', 'elements.created_at', 'elements.updated_at', 'element_types.blade')
+            ->select('elements.id', 'elements.parent', 'elements.name', 'elements.description', 'elements.url', 'elements.security', 'elements.key', 'elements.position', 'elements.style', 'elements.type', 'elements.data_json', 'elements.data', 'elements.data1', 'elements.data2', 'elements.correct', 'elements.correct_json', 'elements.created_at', 'elements.updated_at', 'element_types.blade')
             ->orderBy('position', 'asc')
             ->get();
 
@@ -115,11 +151,27 @@ class ChapterController extends Controller
             ->select( 'locks.element_id', 'locks.locked')
             ->get();
 
+        $elements_results = DB::table('results')
+            ->where('user_id', $result_user)
+            ->orderBy('element_id', 'asc')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+
         $data = $data[0];
         $history = new HistoryController;
         $history->log(Auth::user()->id, 'chapters', $id);
 
         //TODO zde mazat záznamy starší jak měsíc u každého člověka z historie vstupu
+
+        $lockController = new LockController();
+        $request = new \Illuminate\Http\Request();
+        $request->replace(['table_name' => 'chapters', 'id' => $id]);
+
+        $checkLock = $lockController->checkLock($request);
+        if($checkLock[0] != '1'){
+            abort(401);
+        }
 
 
         return view('chapter',
@@ -130,10 +182,14 @@ class ChapterController extends Controller
             'middle_boxes_locks' => $middle_boxes_locks,
             'elements' => $elements,
             'elements_locks' => $elements_locks,
+            'elements_results' => $elements_results,
             'finished' => $finished,
             'results' => $results,
+            'result_element' => $result_element,
             'edit' => $edit,
-            'title_name' => $title_name]);
+            'test_results' => $test_results,
+            'title_name' => $title_name
+            ]);
 
     }
 

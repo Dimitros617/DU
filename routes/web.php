@@ -42,8 +42,12 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_permitions'])->ge
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}', [ChapterController::class,'showChapter']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_content'])->get('/chapter/{id:id}/edit', [ChapterController::class,'showChapterEdit']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}/results', [ChapterController::class,'showResult']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}/results/{element?}', [ChapterController::class,'showChapterResult']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_content'])->get('/chapter/{id:id}/results/user/{user_id?}', [ChapterController::class,'showChapterResultUser']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_files_results/{id:id}', [ResultsController::class,'showFilesResults']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_abc_results/{id:id}', [ResultsController::class,'showABCResults']);
 
 //Kontent
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
@@ -52,6 +56,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post(
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_description', [ContentController::class,'saveDescription']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_column', [ContentController::class,'saveColumn']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_finished', [ContentController::class,'saveFinished']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_result', [ResultsController::class,'addResult']);
 
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read' ])->post('/save_file', [ContentController::class,'saveFile']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read' ])->post('/save_file_result', [ContentController::class,'saveFileResult']);

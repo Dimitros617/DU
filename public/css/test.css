@@ -1,0 +1,25 @@
+
+
+.correct-answer {
+    border-left: 20px solid #CBF3F0;
+    background-color: #CBF3F0 !important;
+}
+
+.bad-answer {
+    border-left: 20px solid #FFBF69;
+    background-color: #FFBF69 !important;
+}
+
+@media (max-width: 768px) {
+    .correct-answer {
+        border-left: none;
+        border-bottom: 20px solid #CBF3F0;
+        background-color: #CBF3F0 !important;
+    }
+
+    .bad-answer {
+        border-left: none;
+        border-bottom: 20px solid #FFBF69;
+        background-color: #FFBF69 !important;
+    }
+}

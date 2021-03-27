@@ -339,7 +339,7 @@ class ContentController extends Controller
 
 
         $check = true;
-        if($new != $request->data){
+        if($new != $request->data && json_encode($request->data) != $new){
             $check = false;
         }
 
@@ -347,6 +347,8 @@ class ContentController extends Controller
             return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }
     }
+
+
 
     function saveFinished(Request $request){
 

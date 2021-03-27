@@ -33,6 +33,8 @@ class DashboardController extends Controller
             ->get();
 
 
+
+
         return view('dashboard', ['books' => $data, 'locked' => $check_locks]);
 
     }

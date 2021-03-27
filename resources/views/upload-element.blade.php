@@ -6,7 +6,7 @@
      old_style="{{$element->style}}"
      old_name="{{$element->name}}"
      old_description="{{$element->description}}"
-     class=" bg-norepeat bg-su-lblack overflow-hidden w-100 mx-auto sm:px-6 lg:px-8 p-5 pt-4 mb-3"
+     class=" bg-norepeat bg-su-lblack overflow-hidden w-100 mx-auto sm:px-6 lg:px-8 pt-4 mb-3 pb-3"
      id="elements_{{$element->id}}"
      type="elements"
      include="null"
@@ -53,20 +53,26 @@
             <label class="upload-result text-su-blue mt-4">{{$res}}</label>
             <label class="upload-comment text-su-blue fw-light">{{$comment}}</label>
 
-            <input type="file" name="file" class="mx-auto my-3" onchange="upload(this.parentNode, this.parentNode.getElementsByClassName('loading')[0], this.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.getElementsByClassName('upload-label')[0] ),
+            <button class="su-button-text text-white  su-button su-button-sucess my-3 mx-auto w-content" style="flex-basis: auto;"
+                    onclick="this.parentNode.getElementsByClassName('file-input')[0].click()"
+            >Vybrat soubor</button>
+
+            <input hidden type="file" name="file" class="mx-auto my-3 file-input" onchange="upload(this.parentNode, this.parentNode.getElementsByClassName('loading')[0], this.parentNode.getElementsByClassName('loading_request')[0],this.parentNode.getElementsByClassName('upload-label')[0] ),
              this.parentNode.getElementsByClassName('upload-time')[0].innerHTML = 'Teď';
              this.parentNode.getElementsByClassName('upload-result')[0].innerHTML = '';
              this.parentNode.getElementsByClassName('upload-comment')[0].innerHTML = '';
             ">
 
-            <div class="check-results w-100 d-block rounded " style="margin-top: -5rem">
-                <a href="/element_files_results/{{$element->id}}" class="text-decor-none float-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">
+        @if(Auth::permition()->edit_content == '1' &&  !$test_results)
+            <div class="check-results w-100 d-block rounded mt--5 su-mt-md-2 " >
+                <a href="/element_files_results/{{$element->id}}" class="text-decor-none w-content mx-auto mx-md-0 float-md-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightbulb-fill text-su-orange mx-auto mb-2 su-svg-shadow-white" viewBox="0 0 16 16">
                         <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
                     </svg>
                     VÝSLEDKY
                 </a>
             </div>
+        @endif
 
             <div class="spinner-grow text-warning loading m-0 mx-auto" role="status" hidden></div>
             <div class="loading_request m-0 fw-bold text-su-orange mx-auto" role="status" hidden></div>

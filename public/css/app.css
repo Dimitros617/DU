@@ -1930,6 +1930,10 @@ img, video {
     height: 10rem
 }
 
+.min-h-40 {
+    min-height: 10rem
+}
+
 .text-xs {
     font-size: .75rem
 }

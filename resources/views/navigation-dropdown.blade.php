@@ -10,13 +10,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div class="notifDiv">
-            <div class="flex justify-between flex-sm-row h-40 flex-column">
+            <div class="flex justify-between flex-sm-row min-h-40 flex-column">
 
                 <div class="flex mx-auto mx-md-0">
 
 
                     <!-- Logo -->
-                    <div class="w-100 ms-md-4 mb-55px flex-shrink-0 flex items-center size scale-80 scale-md-100">
+                    <div class="w-100 ms-md-4 mb-55px flex-shrink-0 flex items-center size scale-50 scale-sm-80 scale-md-100">
                         <a class="ml-20 headLogoMobile mt-4-5 mt-sm-5 "  href="{{ route('dashboard') }}">
                             <div class="float-start ">
                             <x-jet-application-logo class="block h-9 w-auto "/>
@@ -34,8 +34,8 @@
 
                 @if(View::hasSection('title_name'))
                     <div class="title_name_box d-flex flex-column justify-center">
-                        <div class="text-su-lblue fw-bold ">UČEBNICE</div>
-                        <div class="text-su-blue h1 fw-bold ms-3">@yield('title_name')</div>
+                        <div class="text-su-lblue fw-bold text-center text-sm-start">UČEBNICE</div>
+                        <div class="text-su-blue h1 fw-bold m-0 ms-sm-3 text-center text-sm-start">@yield('title_name')</div>
                     </div>
                 @endif
 

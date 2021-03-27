@@ -18,6 +18,9 @@ class CreateElementTypesTable extends Migration
             $table->string('name',50)->default('Nový typ elementu');
             $table->string('blade',2048)->default('default_element');
             $table->string('svg',512)->default('default_element.svg');
+            $table->string('data')->nullable();
+            $table->json('data_json')->nullable();
+            $table->string('correct',512)->nullable();
 
         });
     }

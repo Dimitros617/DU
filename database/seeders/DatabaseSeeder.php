@@ -83,16 +83,23 @@ class DatabaseSeeder extends Seeder
 
         DB::table('element_types')->insert([
             'id' => 7,
-            'name' => 'ABC Test',
+            'name' => 'ABC Zadání',
             'svg' => 'check.svg',
             'blade' => 'abc-test-element',
         ]);
 
         DB::table('element_types')->insert([
             'id' => 8,
-            'name' => ' Otevřený Test',
+            'name' => ' Otevřené zadání',
             'svg' => 'pencil.svg',
             'blade' => 'open-test-element',
+        ]);
+
+        DB::table('element_types')->insert([
+            'id' => 9,
+            'name' => 'Odevzdat test',
+            'svg' => 'finish.svg',
+            'blade' => 'finish-test-element',
         ]);
     }
 }

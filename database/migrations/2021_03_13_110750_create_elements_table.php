@@ -25,10 +25,12 @@ class CreateElementsTable extends Migration
             $table->string('url')->nullable();
             $table->string('name',50)->nullable()->default('Nový element');
             $table->string('description',2048)->nullable()->default('Popisek');
+            $table->json('data_json')->nullable();
             $table->string('data',4096)->nullable();
             $table->string('data1',2048)->nullable();
             $table->string('data2',2048)->nullable();
-            $table->string('results',2048)->nullable();
+            $table->string('correct',2048)->nullable();
+            $table->json('correct_json')->nullable();
 
 
             $table->timestamps();

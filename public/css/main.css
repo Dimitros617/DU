@@ -1,4 +1,6 @@
-
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
 
 .bg-su-blue{
     background: #2EC4B6 !important;
@@ -832,6 +834,12 @@ svg.h-6.w-6 {
     text-align: left;
 }
 
+.mt--5 {
+    margin-top: -5rem !important;
+}
+
+
+
 #su-dragable {
     position: absolute;
     z-index: 9;
@@ -899,6 +907,10 @@ input::placeholder {
     }
 
 
+    .pageTitle{
+        padding: 3px 1rem;
+    }
+
 
     .headLogoMobile {
         transform: scale(2);
@@ -931,6 +943,14 @@ input::placeholder {
 
     .su-mt-md-4{
         margin-top: 1rem !important;
+    }
+
+    .su-mt-md--5 {
+        margin-top: -5rem !important;
+    }
+
+    .su-mt-md-2 {
+        margin-top: 0.5rem !important;
     }
 
     .su-w-100{

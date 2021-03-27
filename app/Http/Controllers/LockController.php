@@ -82,11 +82,12 @@ class LockController extends Controller
 
     /**
      * @param Request $request  string type = název tabulky ve kterém je zamčený element | id = id zamčeného elementu
-     * @return 1 = přístup povolen | 0 = zamčeno zkus zadat klíč
+     * @return (Array) = 1 = přístup povolen | 0 = zamčeno zkus zadat klíč
      */
     function checkLock(Request $request)
     {
         Log::info('LockController:checkLock ');
+        Log::info($request->table_name);
 
         if(Auth::permition()->edit_content == "1"){
             return array("1");

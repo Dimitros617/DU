@@ -9,12 +9,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/results.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/files-results.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/test.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/data/results/FrolíkCV4.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/finish-test-element.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/test-results.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110740_create_element_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110740_create_element_types_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_141259_create_results_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_141259_create_results_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/results.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/results.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/middle-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/middle-box.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/upload-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/upload-element.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -371,6 +391,7 @@
       <workItem from="1616230997926" duration="26413000" />
       <workItem from="1616756200547" duration="206000" />
       <workItem from="1616756468869" duration="26478000" />
+      <workItem from="1616838239825" duration="31474000" />
     </task>
     <task id="LOCAL-00013" summary="Načítání dat z kategorie, problém v borrowing.blade.php">
       <created>1606516076882</created>

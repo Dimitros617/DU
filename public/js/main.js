@@ -10,6 +10,24 @@ function IsJsonString(str) {
     return true;
 }
 
+function allertError(text){
+    Swal.fire({
+        icon: 'error',
+        title: 'Hmm... CHYBA!',
+        text: text ,
+        customClass: {
+            container: 'su-shake-horizontal',
+        }
+    })
+}
+
+function allertWarning(text){
+    Swal.fire({
+        icon: 'warning',
+        title: 'Pozor!',
+        text: text ,
+    })
+}
 
 function getStatus(spinner, route){
 
