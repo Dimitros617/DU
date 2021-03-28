@@ -18,13 +18,9 @@
             <div class="pageTitle mb-4 mt-8 text-su-shadow-white">Všechny výsledky</div>
             @csrf
 
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-around">
             @foreach($results as $result)
 
-                @php
-                    $url_name = explode('/', $result->data);
-                    $url_name = $url_name[count($url_name)-1];
-                @endphp
 
                 <div class="box rounded-3 shadow m-2 p-3 bg-su-blue-gradient" style="min-width: 30%" type="results" element_id="{{$result -> id}}">
 
@@ -41,13 +37,15 @@
 
                     </div>
 
-                    <a class="file_download cursor-pointer "  href="{{$result -> data}}" download="{{$url_name}}" title="Stáhnout soubor">
+                    <a class="file_download cursor-pointer "  href="/chapter/{{$chapter_id}}/results/{{$result -> id}}/user/{{$result -> user_id}}"  title="Zobrazit test">
                         <div class="p-3 shadow rounded su-animation-02 su-hover-shadow my-3 bg-su-blue-orange-gradient ">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark text-su-orange mx-auto su-svg-shadow-white" viewBox="0 0 16 16">
-                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-                        </svg>
-                        <label class="text-center w-100 h3 text-su-shadow-white text-su-orange cursor-pointer mt-1">{{$url_name}}</label>
-                        <label class="text-center w-100 text-su-shadow-white text-su-orange cursor-pointer mt-1 ">{{$result -> updated_at}}</label>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark text-su-orange mx-auto su-svg-shadow-white" viewBox="0 0 16 16">
+                                <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+
+                            <label class="text-center w-100 text-su-shadow-white text-su-orange cursor-pointer mt-1 fw-bold">{{$result -> updated_at}}</label>
+{{--                            <label class="text-center w-100 h3 text-su-shadow-white text-su-orange cursor-pointer mt-1">{{$url_name}}</label>--}}
+
                         </div>
                     </a>
 

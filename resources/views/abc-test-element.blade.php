@@ -114,7 +114,7 @@
                 <span class="w-100 p-4 m-0 ms-md-4 text-su-blue h4 c-text" @if($edit) contentEditable=true @endif data-text="Zadejte odpověď C">@if($element->data_json != null){{$data_json->c_text}}@endif</span>
                 @if($test_results)
                     <span class="my-1 my-sm-4">
-                    @if($my_result != null && $element->data_json != null && $my_result->c_result == $data_json->c_result)
+                        @if($my_result != null && $element->data_json != null && $my_result->c_result == $data_json->c_result)
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle-fill text-su-blue mx-auto" viewBox="0 0 16 16">
                             <title>Správná odpověď</title>
                           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>

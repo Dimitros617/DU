@@ -49,14 +49,25 @@ class ChapterController extends Controller
 
     }
 
-    function showChapterResultUser($id, $user_id){
-        Log::info('ChapterController:showChapterResultUser');
-        return $this->showChapter($id, 'user_results', $user_id, );
+    function showChapterResultMe($chapter_id, $result_id){
+        return $this->showChapterResult($chapter_id, $result_id, Auth::user()->id);
     }
 
-    function showChapterResult($id, $element){
+    function showChapterResult($chapter_id, $result_id, $user_id){
+
         Log::info('ChapterController:showChapterResult');
-        return $this->showChapter($id, 'results', $element);
+
+        $count = DB::table('results')
+            ->where('user_id', $user_id)
+            ->where('id', $result_id)
+            ->orderBy('position', 'asc')
+            ->count();
+
+        if($count == 0 || (Auth::permition()->edit_content != "1" && $user_id != Auth::user()->id)){
+            abort(401);
+        }
+
+        return $this->showChapter($chapter_id, 'results', $result_id, $user_id);
     }
 
     function showChapterEdit($id){
@@ -74,19 +85,23 @@ class ChapterController extends Controller
         $test_results = false;
         $result_user = Auth::user()->id;
         $result_element = 'chapters_'.$id;
+        $result_id = null;
 
         if(count($args)>1 ){
             for ($i = 1; $i < count($args); $i++) {
                 if ($args[$i]=='edit') {
                     $edit = true;
                 }
-                if ($args[$i]=='user_results') {
-                    $test_results = true;
-                    $result_user = $args[++$i];
-                }
                 if ($args[$i]=='results') {
                     $test_results = true;
-                    $result_element = $args[++$i];
+                    $result_id = $args[++$i];
+                    $result_user = $args[++$i];
+                    $result_element = DB::table('results')
+                        ->Join('elements', 'results.element_id', '=', 'elements.id')
+                        ->where('results.id', '=', $result_id)
+                        ->where('results.user_id','=', $result_user)
+                        ->value('elements.data');
+                    $result_element = str_replace(':','_',$result_element);
                 }
             }
 
@@ -151,11 +166,16 @@ class ChapterController extends Controller
             ->select( 'locks.element_id', 'locks.locked')
             ->get();
 
-        $elements_results = DB::table('results')
-            ->where('user_id', $result_user)
-            ->orderBy('element_id', 'asc')
-            ->orderBy('created_at', 'desc')
-            ->get();
+        if($test_results) {
+            $elements_results = DB::table('results')
+                ->where('user_id','=', $result_user)
+                ->where('data','=', $result_id)
+                ->orderBy('element_id', 'asc')
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }else{
+            $elements_results = null;
+        }
 
 
         $data = $data[0];

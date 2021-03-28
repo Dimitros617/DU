@@ -57,23 +57,90 @@ function saveABCtest(element, spinner, request){
     saveColumn(element,spinner,request,bad,'data1');
 }
 
-function finishTest(id, spinner, request){
+function finishTest(button, id, spinner, request){
 
 
     let container = document.getElementById(id.replaceAll(':','_'));
 
     let elements = container.getElementsByClassName('test');
 
-    for(let element of elements){
 
-        switch(element.getAttribute('test_type')) {
-            case 'abc':
-                addResult(element, spinner, request, getDataFromABC(element), 'data_json')
-                break;
-            default:
-                allertError('Neznámý typ testu! ' + element.getAttribute('test_type'));
+    let route = '/add_result'
+
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+    spinner.removeAttribute("hidden");
+    $.ajax({
+        url: route,
+        type: 'post',
+        data: {
+            _token: token,
+            data: 'test',
+            element_id: button.getAttribute('element_id'),
+            column: 'data',
+        },
+        success:function(response){
+
+            for(let element of elements){
+
+                // elements_id.push(element.getAttribute('element_id'));
+                switch(element.getAttribute('test_type')) {
+                    case 'abc':
+                        addTestResult(element, spinner, request, response['id'], getDataFromABC(element))
+                        break;
+                    default:
+                        allertError('Neznámý typ testu! ' + element.getAttribute('test_type'));
+                }
+            }
+
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            spinner.setAttribute("hidden", "");
+
         }
-    }
+    });
+
+
+
+
+
+}
+
+function addTestResult(element, spinner, request, data, data_json){
+
+    route = '/add_test_result'
+
+    let token =  document.querySelectorAll("input[name='_token']")[0].value;
+    spinner.removeAttribute("hidden");
+    $.ajax({
+        url: route,
+        type: 'post',
+        data: {
+            _token: token,
+            data: data,
+            data_json: data_json,
+            element_id: element.getAttribute('element_id'),
+        },
+        success:function(response){
+            spinner.setAttribute("hidden", "");
+            request.removeAttribute("hidden");
+            request.innerHTML = '<b>&#10003;</b>';
+
+            setTimeout(function (request){
+                request.setAttribute("hidden", "");
+            },1000,request);
+            allertWarning('Celkem odevzdáno: ' + response['count'] + 'x    Výsedek: ' + response['result'])
+        },
+        error: function (response){
+            console.log(response);
+            let err = IsJsonString(response.responseText)? JSON.parse(response.responseText).messages : response.responseText
+            allertError(err);
+            spinner.setAttribute("hidden", "");
+
+        }
+    });
 
 }
 
@@ -100,7 +167,7 @@ function addResult(element, spinner, request, data, column){
                 setTimeout(function (request){
                     request.setAttribute("hidden", "");
                 },1000,request);
-                allertWarning('Celkem odevzdáno: ' + response + 'x')
+                allertWarning('Celkem odevzdáno: ' + response['count'] + 'x')
             },
             error: function (response){
                 console.log(response);
@@ -122,7 +189,6 @@ function addResult(element, spinner, request, data, column){
                 element.remove();
             }
         }
-
     }
 
     function isDescendant(parent, child) {

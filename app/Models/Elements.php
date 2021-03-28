@@ -64,4 +64,21 @@ class Elements extends Model
 
     }
 
+    public static function getAllTestsResultsFrom($id){
+
+        $elements = DB::table('results')
+            ->join('users', 'results.user_id', '=', 'users.id')
+            ->join('elements', 'results.element_id', '=', 'elements.id')
+            ->join('element_types', 'elements.type', '=', 'element_types.id')
+            ->where('element_types.blade', 'like', '%test%')
+            ->where('elements.id', $id)
+            ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.user_id', 'results.element_id', 'results.data_json', 'results.data', 'results.result', 'results.comments', 'results.created_at', 'results.updated_at')
+            ->orderBy('user_id', 'asc')
+            ->orderBy('element_id', 'asc')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return $elements;
+    }
+
 }

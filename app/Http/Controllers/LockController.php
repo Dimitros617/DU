@@ -87,7 +87,6 @@ class LockController extends Controller
     function checkLock(Request $request)
     {
         Log::info('LockController:checkLock ');
-        Log::info($request->table_name);
 
         if(Auth::permition()->edit_content == "1"){
             return array("1");
