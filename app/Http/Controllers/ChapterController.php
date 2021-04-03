@@ -33,8 +33,7 @@ class ChapterController extends Controller
             ->select( 'locks.element_id', 'locks.locked')
             ->get();
 
-        $history = new HistoryController;
-        $history->log(Auth::user()->id, 'books', $id);
+
 
         $lockController = new LockController();
         $request = new \Illuminate\Http\Request();
@@ -44,6 +43,8 @@ class ChapterController extends Controller
         if($checkLock[0] != '1'){
             abort(401);
         }
+        $history = new HistoryController;
+        $history->log(Auth::user()->id, 'books', $id);
 
         return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_name' => $title_name]);
 
@@ -179,8 +180,7 @@ class ChapterController extends Controller
 
 
         $data = $data[0];
-        $history = new HistoryController;
-        $history->log(Auth::user()->id, 'chapters', $id);
+
 
         //TODO zde mazat záznamy starší jak měsíc u každého člověka z historie vstupu
 
@@ -193,6 +193,8 @@ class ChapterController extends Controller
             abort(401);
         }
 
+        $history = new HistoryController;
+        $history->log(Auth::user()->id, 'chapters', $id);
 
         return view('chapter',
             ['chapter' => $data,

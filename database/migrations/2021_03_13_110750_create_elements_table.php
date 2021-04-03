@@ -19,6 +19,10 @@ class CreateElementsTable extends Migration
             $table->unsignedBigInteger('type');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
+            $table->integer('entry_limit')->nullable();
+            $table->integer('time_limit')->nullable();
+            $table->dateTime('start_at')->nullable();
+            $table->dateTime('end_at')->nullable();
             $table->string('position')->nullable();
             $table->string('style')->nullable();
 

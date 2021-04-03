@@ -782,13 +782,23 @@ svg.h-6.w-6 {
 
 
 /* Rule page */
-.rule-box {
+.rule-box, .limit-box {
     border-radius: 10px;
     overflow: hidden;
     padding: 2rem;
-    margin-top: 2rem;
 }
 
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #ff9f1c !important;
+}
+
+.daterangepicker td.in-range {
+    background-color: #ff9f1c33 !important;
+}
+
+.daterangepicker td.available:hover, .daterangepicker th.available:hover {
+    background-color: #ff9f1c !important;
+}
 
 /*Opacity*/
 
@@ -937,6 +947,34 @@ input::placeholder {
         margin-left: 22px;
     }
 
+    .modal-page{
+        width:100% !important;
+    }
+
+    .modal-page .swal2-content {
+        padding: 0;
+    }
+
+    .su-h3 {
+        font-weight: 700;
+        font-size: large;
+    }
+
+    .pageTitle {
+        font-size: xx-large;
+    }
+
+    .text-su-hologram-blue-inverted {
+        font-size: xx-large;
+        text-align: center;
+    }
+
+    .rule-key {
+        width: 100% !important;
+        font-size: larger !important;
+        padding: 1rem 0 !important;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -955,6 +993,10 @@ input::placeholder {
 
     .su-w-100{
         width: 100% !important;
+    }
+
+    .su-w-50{
+        width: 50% !important;
     }
 
     .rule-title {

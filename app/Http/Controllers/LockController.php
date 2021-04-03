@@ -53,8 +53,8 @@ class LockController extends Controller
 
         }
 
-        Log::info($options);
-        return view('lock-setting', ['data' => $data, 'table' => $table, 'options' => $options]);
+        Log::info($options); //TODO options
+        return view('lock-setting', ['table_name' => $request->table_name, 'data' => $data, 'table' => $table, 'options' => $options]);
     }
 
     function saveRule(Request $request)
@@ -80,6 +80,53 @@ class LockController extends Controller
 
     }
 
+    function getLimits(Request $request){
+        Log::info('LockController:getLimits ');
+
+        $check_data = DB::table($request->table_name)
+            ->where('id', $request->id)
+            ->get()[0];
+
+
+        $count = DB::table('histories')
+            ->where('table_name', $request->table_name)
+            ->where('element_id', $request->id)
+            ->where('user_id', Auth::user()->id)
+            ->count();
+
+        if($check_data->entry_limit != null) {
+            $entry_limit = ($count < $check_data->entry_limit);
+        }else{
+            $entry_limit = null;
+        }
+
+        $now = Carbon::now();
+        if($check_data->start_at != null) {
+
+            $start = Carbon::createFromFormat('Y-m-d H:i:s', $check_data->start_at);
+            $end = Carbon::createFromFormat('Y-m-d H:i:s', $check_data->end_at);
+
+            $date_limit = $now->between($start,$end);
+        }else{
+            $date_limit = null;
+        }
+        $ret = ['entry_limit' => $entry_limit,
+                'entry_limit_actual' => $count,
+                'entry_limit_max' => $check_data->entry_limit,
+                'time_limit' => $check_data->time_limit,
+                'date_limit' => $date_limit,
+                'date_limit_now' => $now->toDateTimeString(),
+                'date_limit_start' => $check_data->start_at,
+                'date_limit_end' => $check_data->end_at,
+        ];
+
+
+
+
+        return $ret;
+
+    }
+
     /**
      * @param Request $request  string type = název tabulky ve kterém je zamčený element | id = id zamčeného elementu
      * @return (Array) = 1 = přístup povolen | 0 = zamčeno zkus zadat klíč
@@ -87,6 +134,7 @@ class LockController extends Controller
     function checkLock(Request $request)
     {
         Log::info('LockController:checkLock ');
+
 
         if(Auth::permition()->edit_content == "1"){
             return array("1");
@@ -101,11 +149,9 @@ class LockController extends Controller
             return response('Duplicitní položky v tabulce ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }
 
-        if($check_data[0]->security == 'empty' || $check_data[0]->security == null){
+        if(($check_data[0]->security == 'empty' || $check_data[0]->security == null) && $check_data[0]->entry_limit == null && $check_data[0]->time_limit == null && $check_data[0]->start_at == null){
             return array("1");
         }
-
-
 
         $check_locks = DB::table('locks')
             ->Join('users', 'locks.user_id', '=', 'users.id')
@@ -158,6 +204,19 @@ class LockController extends Controller
                 return response('Problém při mazání záznamu z tabulky Locks', 500)->header('Content-Type', 'text/plain');
             }
         }
+
+            $limits = $this->getLimits($request);
+
+            if($limits['entry_limit'] == false){
+                return array('0', 'limit');
+            }
+            if($limits['time_limit'] != null){
+                return array('1', 'limit');
+            }
+            if($limits['date_limit'] == false){
+                return array('0', 'limit');
+            }
+
 
             $response_data = null;
             switch ($check_data[0]->security) {

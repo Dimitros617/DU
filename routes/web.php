@@ -99,6 +99,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/get_chapter_status/{id:id
 
 //Pravidla
 Route::middleware(['auth:sanctum', 'verified'])->get('/rule_setting/{table_name?}/{id:id}', [LockController::class,'ruleSetting']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/get_limits/{table_name?}/{id:id}', [LockController::class,'getLimits']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/check_lock/{table_name?}/{id:id}', [LockController::class,'checkLock']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/save_rule', [LockController::class,'saveRule']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/unlock', [LockController::class,'unlock']);

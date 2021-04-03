@@ -18,7 +18,7 @@
             </svg>
         </div>
 
-        <div class="edit-box-icon"  onclick="setLock(this, this.parentNode.parentNode.parentNode.getAttribute('element_id'),this.parentNode.parentNode.parentNode.getAttribute('type'),this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],  undefined)">
+        <div class="edit-box-icon"  onclick="setLock(this.parentNode.parentNode.parentNode, this.parentNode.parentNode.parentNode.getAttribute('element_id'),this.parentNode.parentNode.parentNode.getAttribute('type'),this.parentNode.getElementsByClassName('loading')[0],this.parentNode.getElementsByClassName('loading_request')[0],  undefined)">
             <svg onload="changeLockImg(this, this.parentNode.parentNode.parentNode.parentNode.getAttribute('locked').trim())" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lock-fill" name="lock" viewBox="0 0 16 16">
                 <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
             </svg>
