@@ -9,23 +9,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
+      <change afterPath="$PROJECT_DIR$/public/data/results/FrolíkCV2.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/timer-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/lock.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/finish-test-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/finish-test-element.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/upload-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/upload-element.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/jetstream/resources/views/components/application-logo.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,14 +379,8 @@
       <workItem from="1616756468869" duration="26478000" />
       <workItem from="1616838239825" duration="32132000" />
       <workItem from="1616923522510" duration="24789000" />
-      <workItem from="1617360412331" duration="22661000" />
-    </task>
-    <task id="LOCAL-00014" summary="Snaha o dynmické URL nfunguje zase">
-      <created>1606659433868</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1606659433868</updated>
+      <workItem from="1617360412331" duration="23964000" />
+      <workItem from="1617523551413" duration="12956000" />
     </task>
     <task id="LOCAL-00015" summary="Dočasná oprava migrate databáze">
       <created>1606777358799</created>
@@ -727,7 +718,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616961743581</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Locky rozdělení na omezení a zámky + byly přidány další 3 omezení s AND funcí a upraveno do responzivní verze">
+      <created>1617482064002</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1617482064003</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -789,7 +787,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Redirect na vlastní výpůjčky v seznamu uživatelů a bez odkazu na poslání zprávy sám sobě, prázdná hláška v category.blade.php" />
     <MESSAGE value="Úprava categories.blade.php - Aktuální závazky" />
     <MESSAGE value="Dodána hláška, když uživatel nemá žádné výpůjčky" />
     <MESSAGE value="#27 Snad vše upraveno; dodán jiný font" />
@@ -814,7 +811,8 @@
     <MESSAGE value="Přidán element pro uploadování souborů jako odpovědí" />
     <MESSAGE value="Přidán autotest, opraveny chyby" />
     <MESSAGE value="vyhodnocování autotestů a zobrazování výsledků" />
-    <option name="LAST_COMMIT_MESSAGE" value="vyhodnocování autotestů a zobrazování výsledků" />
+    <MESSAGE value="Locky rozdělení na omezení a zámky + byly přidány další 3 omezení s AND funcí a upraveno do responzivní verze" />
+    <option name="LAST_COMMIT_MESSAGE" value="Locky rozdělení na omezení a zámky + byly přidány další 3 omezení s AND funcí a upraveno do responzivní verze" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

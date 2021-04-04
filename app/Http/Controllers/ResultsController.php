@@ -207,7 +207,64 @@ class ResultsController extends Controller
             }
         }
 
-        return view('test-results', ['results' => $data, 'element_name' => Elements::find($id)->name, 'chapter_id' => $id]);
+        return view('test-results', ['results' => $data, 'element_name' => Chapters::find($id)->name, 'chapter_id' => $id]);
+
+    }
+
+    function showAllResults($id){
+
+        Log::info('ResultsController:showResult ');
+
+        if(Auth::permition()->edit_content != "1") {
+            $data = DB::table('results')
+                ->join('users', 'results.user_id', '=', 'users.id')
+                ->join('elements', 'results.element_id', '=', 'elements.id')
+                ->join('element_types', 'elements.type', '=', 'element_types.id')
+                ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+                ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+                ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+                ->where('chapters.id', $id)
+                ->where('results.data',  'like', '%test%')
+                ->where('users.id', Auth::user()->id)
+                ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.user_id', 'results.element_id', 'results.data_json', 'results.data', 'results.result', 'results.comments', 'results.created_at', 'results.updated_at')
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }else{
+            $data = DB::table('results')
+                ->join('users', 'results.user_id', '=', 'users.id')
+                ->join('elements', 'results.element_id', '=', 'elements.id')
+                ->join('element_types', 'elements.type', '=', 'element_types.id')
+                ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+                ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+                ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+                ->where('results.data',  'like', '%test%')
+                ->where('chapters.id', $id)
+                ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.user_id', 'results.element_id', 'results.data_json', 'results.data', 'results.result', 'results.comments', 'results.created_at', 'results.updated_at')
+                ->orderBy('user_id', 'asc')
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
+
+        foreach ($data as $dat){
+            if($dat->result == null){
+                $results = DB::table('results')
+                    ->where('data', '=', $dat->id)
+                    ->get();
+
+                $ok = 0;
+                $max = 0;
+                foreach ($results as $result){
+                    $ok += intval(explode('/',$result->result)[0]);
+                    $max += intval(explode('/',$result->result)[1]);
+                }
+                $dat->result = $ok . "/" . $max;
+                DB::table('results')
+                    ->where('id', $dat->id)
+                    ->update(['result' => ($ok . "/" . $max)]);
+            }
+        }
+
+        return view('test-results', ['results' => $data, 'element_name' => Chapters::find($id)->name, 'chapter_id' => $id]);
 
     }
 

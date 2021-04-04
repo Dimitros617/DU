@@ -7,7 +7,7 @@
 
 <div class="chapter-lock-setting">
 
-    <form id="limit_setting" class="mb-5">
+    <form id="limit_setting" class="mb-5" @if($table_name != 'chapters') hidden @endif >
 
         {{--        Pravidlo pro počet vstupů--}}
         <div class="limit-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05 flex-column p-1 p-md-4" id="entry_limit">
@@ -47,8 +47,8 @@
 
             <div class="rule mt-5 w-100 d-inline-block d-md-inline-flex justify-center">
                 <div class="rule-text ms-3 me-3 mt-1 font-weight-bold h2 text-white text-su-shadow">Zobrazit pouze na </div>
-                <input type="number" class="rule-key rule-text su-input-white text-center w- font-weight-bold h2 text-white text-su-shadow shadow" min="30" @if($data->time_limit != null)value="{{$data->time_limit}}" @else value="1" @endif>
-                <div class="rule-text ms-3 me-3 mt-1 font-weight-bold h2 text-white text-su-shadow"> vteřin. </div>
+                <input type="number" class="rule-key rule-text su-input-white text-center w- font-weight-bold h2 text-white text-su-shadow shadow" min="1" @if($data->time_limit != null)value="{{$data->time_limit}}" @else value="1" @endif>
+                <div class="rule-text ms-3 me-3 mt-1 font-weight-bold h2 text-white text-su-shadow"> min. </div>
             </div>
 
         </div>

@@ -222,7 +222,7 @@ function checkLock(id, element_type, spinner, request, url, token){
 
             var limits = limits_response;
             var html_limits = limits['entry_limit'] != null ?'<b>Omezení vstupů na: </b>' + limits['entry_limit_max'] + 'x <br><b>Tebou navštíveno: </b>' + limits['entry_limit_actual'] + 'x <br> <hr>':'';
-                html_limits +=  limits['time_limit'] != null ?'<b>Omezeno časem: </b>' + (limits['time_limit'] == null ? 'NE' : limits['time_limit'] + ' s') + ' <br> <hr>': '';
+                html_limits +=  limits['time_limit'] != null ?'<b>Omezeno časem: </b>' + (limits['time_limit'] == null ? 'NE' : limits['time_limit'] + ' min') + ' <br> <hr>': '';
                 html_limits +=  limits['date_limit'] != null ?'<b>Povoleno od: </b>' + limits['date_limit_start'] + ' <br> <b>Povoleno do: </b>' + (limits['date_limit_end'] == limits['date_limit_start']? 'neomezeno': limits['date_limit_end']) + ' <br> <hr>' : '';
             $.ajax({
                 url: '/check_lock/' + element_type + "/" + id,
@@ -230,7 +230,7 @@ function checkLock(id, element_type, spinner, request, url, token){
                 success: function (response) {
 
                     spinner.setAttribute("hidden", "");
-                    if (response[0] == "1" && response.length == 1) {
+                    if (response[0] == "1") {
 
                         if(html_limits.trim() != ""){
                             Swal.fire({
@@ -494,4 +494,68 @@ function unlock(url,spinner,html_limits){
             location.reload();
         }
     })
+}
+
+function changeTimerMod(ele){
+
+    let bar_container = document.getElementById('timer-bar-container');
+    let text = document.getElementById('timer-bar-time') ;
+    ele.setAttribute('mod',(ele.getAttribute('mod').trim()+1)%3);
+
+    switch (ele.getAttribute('mod').trim()){
+        case "0":
+            bar_container.removeAttribute('hidden');
+            text.classList.remove('text-su-lorange');
+            text.classList.add('text-white');
+            break;
+        case "1":
+            bar_container.setAttribute('hidden',"");
+            break;
+        case "2":
+            text.classList.remove('text-white');
+            text.classList.add('text-su-lorange');
+            break;
+    }
+
+
+
+
+}
+
+function setTimer(time){
+
+    let bar = document.getElementById('timer-bar');
+    let text = document.getElementById('timer-bar-time') ;
+    time *= 60;
+
+    if(window.time_limit == undefined) {
+
+        window.second = time;
+        window.time_limit = setInterval(function (bar, text, time) {
+
+            let percent = (100 * window.second) / time;
+            bar.style.setProperty("width", percent + "%", "important")
+            let sec = window.second % 60;
+            let min = (window.second - sec) / 60;
+            text.innerHTML = (min != 0 ? min + ':' : '') + (sec < 10 ? '0' : '') + sec;
+            window.second--;
+            if (window.second < 0) {
+                clearInterval(window.time_limit);
+                text.innerHTML = 'Ukončuji...'
+                closeAllTests()
+            }
+        }, 1000, bar, text, time);
+    }
+
+}
+
+function closeAllTests(){
+    let buttons = document.getElementsByClassName('finish-test-button')
+    for(let butt of buttons){
+        butt.click();
+    }
+
+    setTimeout(function (){
+        location.href = window.location.pathname +'/all_results';
+    },3000)
 }

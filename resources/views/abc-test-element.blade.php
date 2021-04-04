@@ -149,16 +149,16 @@
                 </div>
             @endif
 
-            @if(Auth::permition()->edit_content == '1' &&  !$test_results)
-                <div class="check-results w-100 d-block rounded mt-2" >
-                    <a href="/element_abc_results/{{$element->id}}" class="text-decor-none w-content mx-auto mx-md-0 float-md-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightbulb-fill text-su-orange mx-auto mb-2 su-svg-shadow-white" viewBox="0 0 16 16">
-                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                        VÝSLEDKY
-                    </a>
-                </div>
-            @endif
+{{--            @if(Auth::permition()->edit_content == '1' &&  !$test_results)--}}
+{{--                <div class="check-results w-100 d-block rounded mt-2" >--}}
+{{--                    <a href="/element_abc_results/{{$element->id}}" class="text-decor-none w-content mx-auto mx-md-0 float-md-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">--}}
+{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightbulb-fill text-su-orange mx-auto mb-2 su-svg-shadow-white" viewBox="0 0 16 16">--}}
+{{--                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>--}}
+{{--                        </svg>--}}
+{{--                        VÝSLEDKY--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            @endif--}}
 
         </div>
 

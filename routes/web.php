@@ -47,7 +47,8 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read,edit_
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{chapter_id?}/results/{result_id?}', [ChapterController::class,'showChapterResultMe']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{chapter_id?}/results/{result_id?}/user/{user_id?}', [ChapterController::class,'showChapterResult']);
 
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/chapter/{id:id}/all_results/{element_id?}', [ResultsController::class,'showResults']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}/all_results', [ResultsController::class,'showAllResults']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}/all_results/{element_id?}', [ResultsController::class,'showResults']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_files_results/{id:id}', [ResultsController::class,'showFilesResults']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_abc_results/{id:id}', [ResultsController::class,'showABCResults']);
 

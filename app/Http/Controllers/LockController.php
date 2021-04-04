@@ -120,9 +120,6 @@ class LockController extends Controller
                 'date_limit_end' => $check_data->end_at,
         ];
 
-
-
-
         return $ret;
 
     }
@@ -207,14 +204,14 @@ class LockController extends Controller
 
             $limits = $this->getLimits($request);
 
-            if($limits['entry_limit'] == false){
-                return array('0', 'limit');
+            if($limits['entry_limit'] == false && $limits['entry_limit'] != null){
+                return array('0', 'limit','entry');
             }
             if($limits['time_limit'] != null){
                 return array('1', 'limit');
             }
-            if($limits['date_limit'] == false){
-                return array('0', 'limit');
+            if($limits['date_limit'] == false && $limits['date_limit'] != null){
+                return array('0', 'limit','date');
             }
 
 

@@ -39,7 +39,7 @@
 
     @endphp
 
-    <form class="text-center text-su-orange fw-bold w-100 d-grid">
+    <form class="text-center text-su-orange fw-bold w-100 d-grid" onsubmit="return false">
             @csrf
             <input type="text" name="element_id" value="{{$element->id}}" hidden>
 
@@ -61,6 +61,7 @@
              this.parentNode.getElementsByClassName('upload-time')[0].innerHTML = 'Teď';
              this.parentNode.getElementsByClassName('upload-result')[0].innerHTML = '';
              this.parentNode.getElementsByClassName('upload-comment')[0].innerHTML = '';
+             return false;
             ">
 
         @if(Auth::permition()->edit_content == '1' &&  !$test_results)

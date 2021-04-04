@@ -23,8 +23,8 @@ class CreateChaptersTable extends Migration
             $table->string('key')->nullable();
             $table->string('position')->nullable();
             $table->string('style')->nullable();
-            $table->integer('entry_limit')->nullable()->default(30);
-            $table->integer('time_limit')->nullable()->default(30);
+            $table->integer('entry_limit')->nullable()->default(1);
+            $table->integer('time_limit')->nullable()->default(1);
             $table->dateTime('start_at')->nullable();
             $table->dateTime('end_at')->nullable();
             $table->timestamps();

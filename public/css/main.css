@@ -175,6 +175,10 @@ input.su-input-white {
     transition-duration: 1s;
 }
 
+.su-animation-linear{
+    animation-timing-function: cubic-bezier(0, 0, 1, 1);
+}
+
 .su-animation-move-right:hover{
  margin-left: 0.5rem !important;
 }

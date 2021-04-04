@@ -88,7 +88,9 @@
         @endif
     </div>
 
-
-
-
+    @if(!$edit && !$test_results)
+        <div time="{{$chapter->time_limit}}">
+            @include('timer-bar')
+        </div>
+    @endif
 </x-app-layout>
