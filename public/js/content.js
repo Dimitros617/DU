@@ -371,7 +371,7 @@ function removeElement(element, spinner){
         showCancelButton: false,
         showConfirmButton: true,
         showDenyButton: true,
-        confirmButtonText: `Uložit`,
+        confirmButtonText: `Smazat`,
         denyButtonText: `Zrušit`,
         focusConfirm: false,
     }).then((result) => {

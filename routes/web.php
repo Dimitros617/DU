@@ -50,7 +50,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->g
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}/all_results', [ResultsController::class,'showAllResults']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chapter/{id:id}/all_results/{element_id?}', [ResultsController::class,'showResults']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_files_results/{id:id}', [ResultsController::class,'showFilesResults']);
-Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_abc_results/{id:id}', [ResultsController::class,'showABCResults']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_abc_results/{element_id?}', [ResultsController::class,'showABCResults']);
 
 //Kontent
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);

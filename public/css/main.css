@@ -915,6 +915,10 @@ input::placeholder {
 /* Logo hlavička*/
 @media (max-width: 576px) {
 
+    .su-w-sm-100{
+        width: 100% !important;
+    }
+
     .buttonsDiv {
         width: 100%;
 

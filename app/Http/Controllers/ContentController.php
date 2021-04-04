@@ -445,6 +445,10 @@ class ContentController extends Controller
                 $check = Books::deleteHard($request->id);
                 Log::info('Delete books');
                 break;
+            case 'results':
+                $check = Results::tryDeleteTests($request->id);
+                Log::info('Delete results');
+                break;
         }
 
         if(!$check) {

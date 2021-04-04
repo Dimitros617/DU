@@ -9,19 +9,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/public/data/results/FrolíkCV2.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/timer-bar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/graph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/apkicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/test-abc-results.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Elements.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Elements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Results.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Results.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/lock.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/lock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/results.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/results.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/finish-test-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/finish-test-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/upload-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/upload-element.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/elements-selector.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/elements-selector.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/test-results.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-results.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -380,14 +385,7 @@
       <workItem from="1616838239825" duration="32132000" />
       <workItem from="1616923522510" duration="24789000" />
       <workItem from="1617360412331" duration="23964000" />
-      <workItem from="1617523551413" duration="12956000" />
-    </task>
-    <task id="LOCAL-00015" summary="Dočasná oprava migrate databáze">
-      <created>1606777358799</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606777358799</updated>
+      <workItem from="1617523551413" duration="35655000" />
     </task>
     <task id="LOCAL-00016" summary="Vendor ;+ database repaire">
       <created>1607017809884</created>
@@ -725,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617482064003</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Implementována kontrola času na kapitole, opraven upload a check limits lock">
+      <created>1617539188609</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1617539188610</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +792,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Úprava categories.blade.php - Aktuální závazky" />
     <MESSAGE value="Dodána hláška, když uživatel nemá žádné výpůjčky" />
     <MESSAGE value="#27 Snad vše upraveno; dodán jiný font" />
     <MESSAGE value="Postupné doplňování dashboardu - sekce admin" />
@@ -812,7 +816,8 @@
     <MESSAGE value="Přidán autotest, opraveny chyby" />
     <MESSAGE value="vyhodnocování autotestů a zobrazování výsledků" />
     <MESSAGE value="Locky rozdělení na omezení a zámky + byly přidány další 3 omezení s AND funcí a upraveno do responzivní verze" />
-    <option name="LAST_COMMIT_MESSAGE" value="Locky rozdělení na omezení a zámky + byly přidány další 3 omezení s AND funcí a upraveno do responzivní verze" />
+    <MESSAGE value="Implementována kontrola času na kapitole, opraven upload a check limits lock" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementována kontrola času na kapitole, opraven upload a check limits lock" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

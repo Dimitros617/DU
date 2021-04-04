@@ -14,6 +14,7 @@ class Elements extends Model
 
     public static function deleteHard($id)
     {
+//        Log::info('Elements:deleteHard ' . $id);
         $data = DB::table('finished')
                 ->Join('elements', 'finished.element_id', '=', 'elements.id')
                 ->where('elements.id', $id)
@@ -28,8 +29,27 @@ class Elements extends Model
         }
 
         if(!$check1){
-            Log::info('Chyba při mazání finished elementů: ' . $check1);
+            Log::info('Chyba při mazání finished elementů');
         }
+
+        $data2 = DB::table('results')
+            ->where('element_id', $id)
+            ->get();
+
+        $check3 = true;
+        if(count($data2) != 0) {
+
+            foreach ($data2 as $result){
+                $temp_check = Results::tryDeleteTests($result->id);
+                $check3 = $temp_check == null ? true : $temp_check;
+            }
+        }
+
+
+        if(!$check3){
+            Log::info('Chyba při mazání results');
+        }
+
 
         Elements::delete_reposition(Elements::find($id)->position);
 
@@ -39,7 +59,7 @@ class Elements extends Model
             Log::info('Chyba při mazání elementů z elements');
         }
 
-        return ($check1 && $check2 ? true : false);
+        return ($check1 && $check2 && $check3 ? true : false);
     }
 
     public static function delete_reposition($position){

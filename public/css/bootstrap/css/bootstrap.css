@@ -461,6 +461,10 @@ summary {
     cursor: pointer;
 }
 
+.cursor-help{
+    cursor: help;
+}
+
 progress {
   vertical-align: baseline;
 }

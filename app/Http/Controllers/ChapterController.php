@@ -160,6 +160,7 @@ class ChapterController extends Controller
             ->orderBy('position', 'asc')
             ->get();
 
+
         $elements_locks = DB::table('locks')
             ->Join('users', 'locks.user_id', '=', 'users.id')
             ->where('table_name', 'elements')

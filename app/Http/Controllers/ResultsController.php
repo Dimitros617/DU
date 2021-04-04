@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use stdClass;
 use function PHPUnit\Framework\throwException;
 
 class ResultsController extends Controller
@@ -269,19 +270,106 @@ class ResultsController extends Controller
     }
 
 
-    function showABCResults($id){
+    function showABCResults($element_id){
         Log::info('ResultsController:showABCResults');
 
-//        $data = DB::table('results')
-//            ->Join('users', 'results.user_id', '=', 'users.id')
-//            ->where('element_id', '=', $id)
-//            ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.data', 'results.result', 'results.comments', 'results.updated_at')
-//            ->orderBy('results.updated_at','asc')
-//            ->get();
-//
-//        return view('files-results', ['results' => $data, 'element_name' => Elements::find($id)-
-        //TODO
 
-        return 'TODO';
+        $graph_data = DB::table('results')
+            ->join('users', 'results.user_id', '=', 'users.id')
+            ->where('results.element_id', '=', $element_id)
+            ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.user_id', 'results.element_id', 'results.data_json', 'results.data', 'results.result', 'results.comments', 'results.created_at' )
+            ->groupBy('results.user_id')
+            ->orderBy('results.user_id', 'asc')
+            ->orderBy('results.created_at', 'desc')
+            ->get();
+
+
+        $graph = null;
+        if(count($graph_data) != 0 ) {
+            $graph = new stdClass();
+            $graph->count = count($graph_data);
+
+            $a_count = 0;
+            $b_count = 0;
+            $c_count = 0;
+            foreach ($graph_data as $results) {
+                $data_json = json_decode($results->data_json);
+
+                $graph->a_text = $data_json->a_text;
+                $graph->b_text = $data_json->b_text;
+                $graph->c_text = $data_json->c_text;
+
+                if($data_json->a_result == "1"){
+                    $a_count++;
+                }
+
+                if($data_json->b_result == "1"){
+                    $b_count++;
+                }
+
+                if($data_json->c_result == "1"){
+                    $c_count++;
+                }
+            }
+            $graph->a_result = $a_count;
+            $graph->b_result = $b_count;
+            $graph->c_result = $c_count;
+
+        }
+
+        if(Auth::permition()->edit_content != "1") {
+            $data = DB::table('results')
+                ->join('users', 'results.user_id', '=', 'users.id')
+                ->where('results.element_id', '=', $element_id)
+                ->where('users.id', Auth::user()->id)
+                ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.user_id', 'results.element_id', 'results.data_json', 'results.data', 'results.result', 'results.comments', 'results.created_at', 'results.updated_at')
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }else{
+            $data = DB::table('results')
+                ->join('users', 'results.user_id', '=', 'users.id')
+                ->where('results.element_id', '=', $element_id)
+                ->select('users.nick', 'users.name', 'users.surname', 'results.id', 'results.user_id', 'results.element_id', 'results.data_json', 'results.data', 'results.result', 'results.comments', 'results.created_at', 'results.updated_at')
+                ->orderBy('user_id', 'asc')
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
+
+        foreach ($data as $dat){
+
+                $data_json =  json_decode($dat->data_json);
+                $data_json_correct = json_decode(Elements::find($dat->element_id)->data_json);
+
+                $dat->a_text = $data_json->a_text;
+                $dat->b_text = $data_json->b_text;
+                $dat->c_text = $data_json->c_text;
+
+                $dat->a_result_val = $data_json->a_result;
+                $dat->b_result_val = $data_json->b_result;
+                $dat->c_result_val = $data_json->c_result;
+
+                if($data_json->a_result == $data_json_correct->a_result){
+                    $dat->a_result = true;
+                }else{
+                    $dat->a_result = false;
+                }
+
+                if($data_json->b_result == $data_json_correct->b_result){
+                    $dat->b_result = true;
+                }else{
+                    $dat->b_result = false;
+                }
+
+                if($data_json->c_result == $data_json_correct->c_result){
+                    $dat->c_result = true;
+                }else{
+                    $dat->c_result = false;
+                }
+
+        }
+
+
+        return view('test-abc-results', ['results' => $data, 'graph' => $graph]);
+
     }
 }

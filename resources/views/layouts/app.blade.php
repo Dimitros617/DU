@@ -43,6 +43,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js"></script>
+
+
+
 
 
 

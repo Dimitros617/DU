@@ -115,12 +115,12 @@
                 @if($test_results)
                     <span class="my-1 my-sm-4">
                         @if($my_result != null && $element->data_json != null && $my_result->c_result == $data_json->c_result)
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle-fill text-su-blue mx-auto" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle-fill text-su-blue mx-auto" viewBox="0 0 16 16">
                             <title>Správná odpověď</title>
                           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                         </svg>
                         @else
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill text-su-orange mx-auto" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill text-su-orange mx-auto" viewBox="0 0 16 16">
                             <title>Špatná odpověď</title>
                           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
                         </svg>
@@ -149,16 +149,16 @@
                 </div>
             @endif
 
-{{--            @if(Auth::permition()->edit_content == '1' &&  !$test_results)--}}
-{{--                <div class="check-results w-100 d-block rounded mt-2" >--}}
-{{--                    <a href="/element_abc_results/{{$element->id}}" class="text-decor-none w-content mx-auto mx-md-0 float-md-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightbulb-fill text-su-orange mx-auto mb-2 su-svg-shadow-white" viewBox="0 0 16 16">--}}
-{{--                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>--}}
-{{--                        </svg>--}}
-{{--                        VÝSLEDKY--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            @endif--}}
+            @if(Auth::permition()->edit_content == '1' &&  !$test_results)
+                <div class="check-results w-100 d-block rounded mt-2" >
+                    <a href="/element_abc_results/{{$element->id}}" class="text-decor-none w-content mx-auto mx-md-0 float-md-end text-su-blue fw-bold d-grid text-center bg-su-blue-gradient rounded-3 shadow p-3 su-animation-02 cursor-pointer su-hover-shadow text-su-shadow-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-lightbulb-fill text-su-orange mx-auto mb-2 su-svg-shadow-white" viewBox="0 0 16 16">
+                            <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13h-5a.5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm3 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        VÝSLEDKY
+                    </a>
+                </div>
+            @endif
 
         </div>
 

@@ -24,6 +24,18 @@
 
                 <div class="box rounded-3 shadow m-2 p-3 bg-su-blue-gradient" style="min-width: 30%" type="results" element_id="{{$result -> id}}">
 
+                    @if(Auth::permition()->edit_content == '1')
+                    <div class="float-end">
+                        <div class="spinner-grow text-black loading" role="status" hidden></div>
+                        <div class="loading_request text-su-orange" role="status" hidden></div>
+                        <div class=" edit-box-icon " onclick="removeElement(this.parentNode.parentNode, this.parentNode.getElementsByClassName('loading')[0])">
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash-fill" name="delete" viewBox="0 0 16 16">
+                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    @endif
+
                     <div class="nameDiv">
 
                         <div class="nick">
