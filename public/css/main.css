@@ -2,6 +2,10 @@
     content:attr(data-text)
 }
 
+[placeholder=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+
 .bg-su-blue{
     background: #2EC4B6 !important;
 }
@@ -75,6 +79,10 @@
 
 .text-su-shadow{
     text-shadow: 0 0 7px #0000004d;
+}
+
+.text-su-shadow-none{
+    text-shadow: none !important;
 }
 
 .text-su-shadow-white{
@@ -917,6 +925,10 @@ input::placeholder {
 
     .su-w-sm-100{
         width: 100% !important;
+    }
+
+    .su-d-sm-none {
+        display: none !important;
     }
 
     .buttonsDiv {

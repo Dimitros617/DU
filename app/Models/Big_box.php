@@ -76,4 +76,47 @@ class Big_box extends Model
 
         return $elements;
     }
+
+    public static function getAllWithChildren($id){
+
+        $big_box = DB::table('big_box')
+            ->where('id', '=', $id)
+            ->get();
+
+        $middle_box = DB::table('middle_box')
+            ->where('parent', '=', $id)
+            ->get();
+
+        $elements = DB::table('elements')
+            ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->where('middle_box.parent', '=' , $id)
+            ->select('elements.*')
+            ->get();
+
+
+
+        return array_merge(json_decode($big_box), json_decode($middle_box), json_decode($elements));
+
+    }
+
+    public static function getAllWithoutChildren($id){
+
+        $big_box = DB::table('big_box')
+            ->where('id', '<>', $id)
+            ->get();
+
+        $middle_box = DB::table('middle_box')
+            ->where('parent', '<>', $id)
+            ->get();
+
+        $elements = DB::table('elements')
+            ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->where('middle_box.parent', '<>' , $id)
+            ->select('elements.*')
+            ->get();
+
+
+
+        return array_merge(json_decode($big_box), json_decode($middle_box), json_decode($elements));
+    }
 }

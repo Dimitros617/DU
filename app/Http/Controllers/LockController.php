@@ -25,27 +25,27 @@ class LockController extends Controller
         switch ($request->table_name) {
             case 'books':
                 $data = Books::find($request->id);
-                $options = DB::table('chapters')->get();
+                $options = Books::getAllWithoutChildren($request->id);
                 $table = array('books','Učebnice');
                 break;
             case 'chapters':
                 $data = Chapters::find($request->id);
-                $options = DB::table('chapters')->get();
+                $options = Chapters::getAllWithoutChildren($request->id);
                 $table = array('chapters','Kapitola');
                 break;
             case 'big_box':
                 $data = Big_box::find($request->id);
-                $options = DB::table('big_box')->get();
+                $options = Big_box::getAllWithoutChildren($request->id);
                 $table = array('big_box','Velký box');
                 break;
             case 'middle_box':
                 $data = Middle_box::find($request->id);
-                $options = DB::table('middle_box')->get();
+                $options = Middle_box::getAllWithoutChildren($request->id);
                 $table = array('middle_box','Box');
                 break;
             case 'elements':
                 $data = Elements::find($request->id);
-                $options = DB::table('elements')->get();
+                $options = Elements::getAllWithoutChildren($request->id);
                 $table = array('elements','Element');
                 break;
             default:
@@ -53,7 +53,6 @@ class LockController extends Controller
 
         }
 
-        Log::info($options); //TODO options
         return view('lock-setting', ['table_name' => $request->table_name, 'data' => $data, 'table' => $table, 'options' => $options]);
     }
 

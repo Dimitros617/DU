@@ -77,4 +77,78 @@ class Books extends Model
 
         return $elements;
     }
+
+    public static function getAllWithChildren($id){
+
+        $books = DB::table('books')
+            ->where('id', '=', $id)
+            ->get();
+
+
+        $chapters = DB::table('chapters')
+            ->where('parent', '=', $id)
+            ->get();
+
+        $big_box = DB::table('big_box')
+            ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+            ->where('chapters.parent', '=', $id)
+            ->get();
+
+        $middle_box = DB::table('middle_box')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+            ->where('chapters.parent', '=' , $id)
+            ->select('middle_box.*')
+            ->get();
+
+        $elements = DB::table('elements')
+            ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+            ->where('chapters.parent', '=' , $id)
+            ->select('elements.*')
+            ->get();
+
+
+
+        return array_merge(json_decode($books), json_decode($chapters), json_decode($big_box), json_decode($middle_box), json_decode($elements));
+
+    }
+
+    public static function getAllWithoutChildren($id){
+
+
+        $books = DB::table('books')
+            ->where('id', '<>', $id)
+            ->get();
+
+
+        $chapters = DB::table('chapters')
+            ->where('parent', '<>', $id)
+            ->get();
+
+        $big_box = DB::table('big_box')
+            ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+            ->where('chapters.parent', '<>', $id)
+            ->get();
+
+        $middle_box = DB::table('middle_box')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+            ->where('chapters.parent', '<>' , $id)
+            ->select('middle_box.*')
+            ->get();
+
+        $elements = DB::table('elements')
+            ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->join('chapters', 'big_box.parent', '=', 'chapters.id')
+            ->where('chapters.parent', '<>' , $id)
+            ->select('elements.*')
+            ->get();
+
+
+
+        return array_merge(json_decode($books), json_decode($chapters), json_decode($big_box), json_decode($middle_box), json_decode($elements));
+    }
 }

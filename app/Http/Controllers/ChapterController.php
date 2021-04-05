@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Books;
 use App\Models\Chapters;
+use App\Models\Histories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +19,12 @@ class ChapterController extends Controller
         Log::info('ChapterController:showChapters');
 
         $title_name = Books::find($id)->name;
+
+        $chat = [
+            'table_name' => 'books',
+            'element_id' => $id,
+            'name' => $title_name,
+        ];
 
         $data = DB::table('chapters')
             ->where('parent', $id)
@@ -43,10 +50,12 @@ class ChapterController extends Controller
         if($checkLock[0] != '1'){
             abort(401);
         }
-        $history = new HistoryController;
-        $history->log(Auth::user()->id, 'books', $id);
 
-        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_name' => $title_name]);
+
+
+        Histories::log(Auth::user()->id, 'books', $id);
+
+        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_name' => $title_name, 'chat' => $chat]);
 
     }
 
@@ -108,6 +117,12 @@ class ChapterController extends Controller
 
         }
         $title_name = Books::find((Chapters::find($id)->parent))->name;
+
+        $chat = [
+            'table_name' => 'chapters',
+            'element_id' => $id,
+            'name' => Chapters::find($id)->name,
+        ];
 
         $data = DB::table('chapters')
             ->where('id', $id)
@@ -183,8 +198,6 @@ class ChapterController extends Controller
         $data = $data[0];
 
 
-        //TODO zde mazat záznamy starší jak měsíc u každého člověka z historie vstupu
-
         $lockController = new LockController();
         $request = new \Illuminate\Http\Request();
         $request->replace(['table_name' => 'chapters', 'id' => $id]);
@@ -194,8 +207,7 @@ class ChapterController extends Controller
             abort(401);
         }
 
-        $history = new HistoryController;
-        $history->log(Auth::user()->id, 'chapters', $id);
+        Histories::log(Auth::user()->id, 'chapters', $id);
 
         return view('chapter',
             ['chapter' => $data,
@@ -211,7 +223,8 @@ class ChapterController extends Controller
             'result_element' => $result_element,
             'edit' => $edit,
             'test_results' => $test_results,
-            'title_name' => $title_name
+            'title_name' => $title_name,
+            'chat' => $chat
             ]);
 
     }

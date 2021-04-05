@@ -15,7 +15,9 @@ function drawGraph(data){
 
     chart.tooltip().useHtml(true);
     chart.tooltip().titleFormat("<span style='font-weight:600; font-size: large' >{%title}:</span> <span style='font-weight:200; font-size: large' >{%x}</span>");
-    chart.tooltip().format("<span style='font-weight:600; font-size: large' >ANO:</span> <span style='font-weight:200; font-size: large' >{%value}x </span><br> <span style='font-weight:600; font-size: large' >NE:</span> <span style='font-weight:200; font-size: large' >{%no}x</span>");
+    chart.tooltip().format(
+        "<span style='font-weight:600; font-size: large' >ANO:</span> <span style='font-weight:200; font-size: large' >{%value}x </span><br> <span style='font-weight:600; font-size: large' >NE:</span> <span style='font-weight:200; font-size: large' >{%no}x</span>"
+    );
     chart.container("graph");
 
     chart.draw();

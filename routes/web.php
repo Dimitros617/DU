@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LockController;
 use App\Http\Controllers\ResultsController;
@@ -27,7 +28,7 @@ App::setLocale('cs');
 
 Route::get('/new-user-error', function () {    return view('new-user-error');});
 
-
+//Route::get('/test_route', function () {    return \App\Models\Big_box::getAllWithoutChildren(2);});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', [DashboardController::class,'show']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class,'show']) ->name('dashboard');
@@ -53,6 +54,12 @@ Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->get('/element_abc_results/{element_id?}', [ResultsController::class,'showABCResults']);
 
 //Kontent
+
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/chat/{table_name?}/{element_id?}', [ChatController::class,'getChat']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->get('/get_chat_comments/{table_name?}/{element_id?}', [ChatController::class,'getChatComments']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->post('/add_comment', [ChatController::class,'addComment']);
+Route::middleware(['auth:sanctum', 'verified', 'permition:possibility_read'])->delete('/remove_comment/{id:id}', [ChatController::class,'removeComment']);
+
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_image', [ContentController::class,'saveImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/add_image', [ContentController::class,'addImage']);
 Route::middleware(['auth:sanctum', 'verified', 'permition:edit_content'])->post('/save_name', [ContentController::class,'saveName']);

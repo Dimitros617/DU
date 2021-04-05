@@ -29,13 +29,22 @@
 
 @-webkit-keyframes rotating {
     from{
-        -webkit-transform: rotate(0deg);
+        -webkit-transform:scale(2) rotate(0deg);
+
     }
     to{
-        -webkit-transform: rotate(360deg);
+        -webkit-transform:scale(2) rotate(360deg);
+
     }
 }
 
+
+
 .rotating-1 {
     -webkit-animation: rotating 1s linear infinite;
+}
+
+.rotating-chat {
+    -webkit-animation: rotating 1s linear infinite;
+
 }

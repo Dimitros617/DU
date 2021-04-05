@@ -138,7 +138,7 @@
 
         <div class="w-100 text-center text-su-lblue fw-bold su-h3 p-1 p-md-4">NEBO</div>
         {{--        Pravidlo pro předchozí--}}
-    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05 flex-column p-1 p-md-4" id="prev">
+    <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05 flex-column p-1 p-md-4" id="prev" @if($table_name == 'books') hidden @endif>
 
         <div class="rule-title  bg-su-texture shadow float-start text-su-hologram-blue-inverted">Odemknout po předchozím</div>
 
@@ -156,7 +156,7 @@
             <select type="number" class=" rule-key rule-text su-input-white text-center w- font-weight-bold h2 text-white text-su-shadow shadow" >
 {{--                Value musí být ve formátu tabulka:id prvku--}}
                 @foreach($options as $option)
-                    <option value="{{$table[0]}}:{{$option->id}}" @if(($table[0].":".$option->id) == $data->key) selected @endif>{{$table[1]}}: {{$option->name}}</option>
+                    <option value="{{$table[0]}}:{{$option->id}}" @if(($table[0].":".$option->id) == $data->key) selected @endif>{{$option->display_name}}: {{$option->name}}</option>
                 @endforeach
             </select>
             <div class="rule-text ms-3 me-3 mt-1 font-weight-bold h2 text-white text-su-shadow"></div>

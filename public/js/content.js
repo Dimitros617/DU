@@ -273,6 +273,7 @@ function saveColumn(element, spinner, request, data, column, route){
 
     let token =  document.querySelectorAll("input[name='_token']")[0].value;
     spinner.removeAttribute("hidden");
+
     $.ajax({
         url: route,
         type: 'post',

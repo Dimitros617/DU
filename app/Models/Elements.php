@@ -101,4 +101,22 @@ class Elements extends Model
         return $elements;
     }
 
+    public static function getAllWithChildren($id){
+
+        $elements = DB::table('elements')
+            ->where('id', '=', $id)
+            ->get();
+
+        return $elements;
+    }
+
+    public static function getAllWithoutChildren($id){
+
+        $elements = DB::table('elements')
+            ->where('id', '<>', $id)
+            ->get();
+
+        return $elements;
+    }
+
 }

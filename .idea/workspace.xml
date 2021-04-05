@@ -9,24 +9,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/public/js/graph.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/apkicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/test-abc-results.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Comments.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_05_143611_create_comments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/Bez názvu-17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/chat-comments.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/chat.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResultsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HistoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HistoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LockController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Big_box.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Big_box.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Books.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Chapters.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Chapters.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Elements.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Elements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Results.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Results.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Histories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Histories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Middle_box.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Middle_box.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/animation.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/animation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap-utilities.rtl.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/bootstrap/css/bootstrap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/results.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/results.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/05_seminarni_ukol_nahradni.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/2-seminarni-ukol-z-psdsb (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/5-seminarni-ukol-z-psdsb.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/FrolíkCV4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/results/2-seminarni-ukol-z-psdsb (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/results/Bakalarska_prace.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/results/FrolíkCV2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/results/FrolíkCV4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/results/spirik_dp.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/data/spirik_dp.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/elements-selector.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/elements-selector.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/5-seminarni-ukol-z-psdsb.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Bez názvu-12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Bez názvu-18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Bez názvu-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Bez názvu-32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Bez názvu-43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Bez názvu-44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/FrolíkCV4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/Screenshot_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/apkicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/asd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/hello.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/user_files/pozadiAPK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/button-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/button-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/test-results.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/test-results.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -385,14 +428,8 @@
       <workItem from="1616838239825" duration="32132000" />
       <workItem from="1616923522510" duration="24789000" />
       <workItem from="1617360412331" duration="23964000" />
-      <workItem from="1617523551413" duration="35655000" />
-    </task>
-    <task id="LOCAL-00016" summary="Vendor ;+ database repaire">
-      <created>1607017809884</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1607017809884</updated>
+      <workItem from="1617523551413" duration="37503000" />
+      <workItem from="1617617209521" duration="22551000" />
     </task>
     <task id="LOCAL-00017" summary="Oprava databáze, přejmenování categories">
       <created>1607104286882</created>
@@ -730,7 +767,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617539188610</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Přiná možnost zobrazení výsledků na ABC testem solo + graf">
+      <created>1617569203262</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1617569203262</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +836,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Dodána hláška, když uživatel nemá žádné výpůjčky" />
     <MESSAGE value="#27 Snad vše upraveno; dodán jiný font" />
     <MESSAGE value="Postupné doplňování dashboardu - sekce admin" />
     <MESSAGE value="Typografická úprava all-loans" />
@@ -817,7 +860,8 @@
     <MESSAGE value="vyhodnocování autotestů a zobrazování výsledků" />
     <MESSAGE value="Locky rozdělení na omezení a zámky + byly přidány další 3 omezení s AND funcí a upraveno do responzivní verze" />
     <MESSAGE value="Implementována kontrola času na kapitole, opraven upload a check limits lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementována kontrola času na kapitole, opraven upload a check limits lock" />
+    <MESSAGE value="Přiná možnost zobrazení výsledků na ABC testem solo + graf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Přiná možnost zobrazení výsledků na ABC testem solo + graf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

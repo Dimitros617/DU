@@ -7687,6 +7687,10 @@ a.badge-dark:focus, a.badge-dark.focus {
     display: none !important;
   }
 
+    .d-sm-contents {
+        display: contents !important;
+    }
+
     .flex-sm-flow-row {
         flex-flow: row !important;
     }

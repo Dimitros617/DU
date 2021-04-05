@@ -74,4 +74,34 @@ class Middle_box extends Model
 
         return $elements;
     }
+
+    public static function getAllWithChildren($id){
+
+        $middle_box = DB::table('middle_box')
+            ->where('id', '=', $id)
+            ->get();
+
+        $elements = DB::table('elements')
+            ->where('parent', '=', $id)
+            ->get();
+
+
+
+        return array_merge(json_decode($middle_box), json_decode($elements));
+    }
+
+    public static function getAllWithoutChildren($id){
+
+        $middle_box = DB::table('middle_box')
+            ->where('id', '<>', $id)
+            ->get();
+
+        $elements = DB::table('elements')
+            ->where('parent', '<>', $id)
+            ->get();
+
+
+
+        return array_merge(json_decode($middle_box), json_decode($elements));
+    }
 }

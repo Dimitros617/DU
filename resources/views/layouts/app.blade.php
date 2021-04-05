@@ -35,6 +35,7 @@
     <script src="{{ URL::asset('css/bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
     <script src="{{ URL::asset('js/dragable.js') }}"></script>
+    <script src="{{ URL::asset('js/chat.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script  src="{{ URL::asset('js/sweetalert2/dist/sweetalert2.js') }}"></script>
 

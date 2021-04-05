@@ -27,6 +27,8 @@ class CreateElementsTable extends Migration
             $table->string('style')->nullable();
 
             $table->string('url')->nullable();
+            $table->string('display_name',50)->default('Element');
+            $table->string('type_name',50)->default('elements');
             $table->string('name',50)->nullable()->default('Nový element');
             $table->string('description',2048)->nullable()->default('Popisek');
             $table->json('data_json')->nullable();

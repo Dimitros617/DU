@@ -17,6 +17,8 @@ class CreateBigBoxTable extends Migration
             $table->id();
             $table->unsignedBigInteger('parent');
             $table->string('name',50)->nullable()->default('Nový velký box');
+            $table->string('display_name',50)->default('Velká sekce');
+            $table->string('type_name',50)->default('big_box');
             $table->string('description',1024)->nullable()->default('Popisek nového velkého boxu');
             $table->string('img')->default('default.png');
             $table->string('security')->nullable();

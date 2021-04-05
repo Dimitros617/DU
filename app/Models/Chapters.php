@@ -77,4 +77,61 @@ class Chapters extends Model
 
         return $elements;
     }
+
+    public static function getAllWithChildren($id){
+
+        $chapters = DB::table('chapters')
+            ->where('id', '=', $id)
+            ->get();
+
+        $big_box = DB::table('big_box')
+            ->where('parent', '=', $id)
+            ->get();
+
+        $middle_box = DB::table('middle_box')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->where('big_box.parent', '=' , $id)
+            ->select('middle_box.*')
+            ->get();
+
+        $elements = DB::table('elements')
+            ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->where('big_box.parent', '=' , $id)
+            ->select('elements.*')
+            ->get();
+
+
+
+        return array_merge(json_decode($chapters), json_decode($big_box), json_decode($middle_box), json_decode($elements));
+
+    }
+
+    public static function getAllWithoutChildren($id){
+
+        $chapters = DB::table('chapters')
+            ->where('id', '<>', $id)
+            ->get();
+
+        $big_box = DB::table('big_box')
+            ->where('parent', '<>', $id)
+            ->get();
+
+        $middle_box = DB::table('middle_box')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->where('big_box.parent', '<>' , $id)
+            ->select('middle_box.*')
+            ->get();
+
+        $elements = DB::table('elements')
+            ->join('middle_box', 'elements.parent', '=', 'middle_box.id')
+            ->join('big_box', 'middle_box.parent', '=', 'big_box.id')
+            ->where('big_box.parent', '<>' , $id)
+            ->select('elements.*')
+            ->get();
+
+
+
+        return array_merge(json_decode($chapters), json_decode($big_box), json_decode($middle_box), json_decode($elements));
+    }
 }

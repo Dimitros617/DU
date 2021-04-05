@@ -32,10 +32,14 @@ class DashboardController extends Controller
             ->select( 'locks.element_id', 'locks.locked')
             ->get();
 
+        $chat = [
+            'table_name' => 'global',
+            'element_id' => '0',
+            'name' => 'Globální',
+        ];
 
 
-
-        return view('dashboard', ['books' => $data, 'locked' => $check_locks]);
+        return view('dashboard', ['books' => $data, 'locked' => $check_locks, 'chat' => $chat]);
 
     }
 

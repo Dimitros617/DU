@@ -444,7 +444,11 @@ function refreshGallery(gallery, url){
             url: url,
             method: 'get',
             success:function(response){
-                gallery.innerHTML = response;
+                gallery.innerHTML = "";
+
+                setTimeout(function (gallery, response){
+                    gallery.innerHTML = response;
+                },100, gallery, response);
             },
             error: function (response){
                 console.log(response);

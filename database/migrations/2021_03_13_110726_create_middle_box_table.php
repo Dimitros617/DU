@@ -17,6 +17,8 @@ class CreateMiddleBoxTable extends Migration
             $table->id();
             $table->unsignedBigInteger('parent');
             $table->string('name',50)->nullable()->default('Nový box');
+            $table->string('display_name',50)->default('Část');
+            $table->string('type_name',50)->default('middle_box');
             $table->string('description',1024)->nullable()->default('Popisek nového boxu');
             $table->string('img')->default('default.png');
             $table->string('security')->nullable();
