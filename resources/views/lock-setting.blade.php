@@ -136,7 +136,7 @@
 
     </div>
 
-        <div class="w-100 text-center text-su-lblue fw-bold su-h3 p-1 p-md-4">NEBO</div>
+        <div class="w-100 text-center text-su-lblue fw-bold su-h3 p-1 p-md-4" @if($table_name == 'books') hidden @endif>NEBO</div>
         {{--        Pravidlo pro předchozí--}}
     <div class="rule-box bg-su-blue-orange-gradient shadow su-hover-shadow su-animation-05 flex-column p-1 p-md-4" id="prev" @if($table_name == 'books') hidden @endif>
 

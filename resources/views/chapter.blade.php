@@ -88,8 +88,8 @@
         @endif
     </div>
 
-    @if(!$edit && !$test_results)
-        <div time="{{$chapter->time_limit}}">
+    @if(!$edit && !$test_results && $chapter->time_limit != null)
+        <div time="{{$chapter->time_limit}}" @if($chapter->time_limit == null) hidden @endif>
             @include('timer-bar')
         </div>
     @endif
