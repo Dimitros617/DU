@@ -16,7 +16,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
         <link rel="stylesheet" href="{{ URL::asset('css/auth.css') }}">
 

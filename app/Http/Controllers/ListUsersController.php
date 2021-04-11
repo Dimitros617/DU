@@ -109,9 +109,11 @@ class ListUsersController extends Controller
                 ->get();
 
             if(count($name) != 0){
+                $dat->display_name = $name[0]->display_name;
                 $dat->name = $name[0]->name;
             }else{
-                $dat->name = null;
+                $dat->display_name = $dat->old_display_name;
+                $dat->name = $dat->old_name;
             }
 
             $lock = DB::table('locks')

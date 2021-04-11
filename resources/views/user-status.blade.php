@@ -8,7 +8,7 @@
     @foreach($data as $dat)
         <div class="status-row d-inline-flex w-100 mx-auto mb-3 justify-content-between bg-su-blue-orange-gradient rounded-3 shadow p-5" style="    border-left: 10px solid #ff9f1c;">
 
-            <div class="status-name fw-bold h1 text-su-blue text-su-shadow-white" style="line-height: 200%;">{{$dat->name}}</div>
+            <div class="status-name fw-bold h1 text-su-blue text-su-shadow-white" style="line-height: 200%;">{{$dat->display_name}} {{$dat->name}}</div>
 
             <div class="status-visited d-grid">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-door-open status-svg su-svg-shadow-white" viewBox="0 0 16 16">

@@ -64,6 +64,7 @@ class BooksController extends Controller
                 $dat->locked = null;
             }
 
+
             $finish = DB::table('finished')
                 ->Join('elements', 'finished.element_id', '=', 'elements.id')
                 ->where('elements.data', '=', ('books:'.$id))

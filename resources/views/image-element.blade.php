@@ -19,6 +19,5 @@
         @include('edit-bar')
     @endif
 
-    {{-- TODO ZDE vložte vlastní kod--}}
 
 </div>

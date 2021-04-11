@@ -10,7 +10,7 @@ let a = $('#savePermitionData-' + id).serialize();
 
     $.ajax({
         url: '/savePermitionData',
-        method: 'POST',
+        method: 'post',
         data:$('#savePermitionData-' + id).serialize(),
         success:function(response){
 

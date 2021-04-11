@@ -15,6 +15,8 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
+            $table->string('old_name');
+            $table->string('old_display_name');
             $table->string('table_name');
             $table->tinyInteger('element_id');
             $table->unsignedBigInteger('user_id');

@@ -43,7 +43,7 @@
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Jste si jistý, že chcete odstranit Váš účet? Poté, co smažete svůj účet, všechna Vaše data (kromě historie výpůjček) budou nenávratně smazána. Prosím, zadejte své heslo jako potvrzení, že chcete trvale a nenávratně odstranit Váš účet.') }}
+                {{ __('Jste si jistý, že chcete odstranit Váš účet? Poté, co smažete svůj účet, všechna Vaše data budou nenávratně smazána. Prosím, zadejte své heslo jako potvrzení, že chcete trvale a nenávratně odstranit Váš účet.') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
                     <x-jet-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Heslo') }}"

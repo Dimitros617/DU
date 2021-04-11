@@ -23,7 +23,15 @@ class Histories extends Model
      */
     public static function log($user, $table, $id, $remove = true){
 
+        Log::info('Histories:log');
+
+        $data= DB::table($table)
+            ->where('id', '=', $id)
+            ->get()[0];
+
         $history = new Histories;
+        $history->old_name = $data->name;
+        $history->old_display_name = $data->display_name;
         $history->table_name = $table;
         $history->element_id = $id;
         $history->user_id = $user;

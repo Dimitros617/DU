@@ -13,6 +13,10 @@ class Big_box extends Model
     protected $table = 'Big_box';
     use HasFactory;
 
+    /**
+     * @param $id = (Integer) id objektu který chceme smazat
+     * @return bool = (Boolean) true či false zda proběhlo mazání z databáze úspěšně.
+     */
     public static function deleteHard($id)
     {
         $data = DB::table('middle_box')
@@ -36,6 +40,9 @@ class Big_box extends Model
         return ($check1 && $check2 ? true : false);
     }
 
+    /**
+     * @param $position = (Integer) pozice, od které budou všechny následující posunuty při smazání této
+     */
     public static function delete_reposition($position){
 
         $dats = DB::table('big_box')
@@ -58,6 +65,10 @@ class Big_box extends Model
 
     }
 
+    /**
+     * @param $id = (Integer) ID objektu z kterého chceme získat všechny testy, pokud je obsahuje
+     * @return \Illuminate\Support\Collection collekce záznamů z databáze, které mají za předka tento objekt
+     */
     public static function getAllTestsResultsFrom($id){
 
         $elements = DB::table('results')
@@ -77,6 +88,10 @@ class Big_box extends Model
         return $elements;
     }
 
+    /**
+     * @param $id = (Integer) ID elementu který chceme vrátit a spolu s ním všechny jeho potomky
+     * @return array = (Vrátí všechny objekty v jednom poly)
+     */
     public static function getAllWithChildren($id){
 
         $big_box = DB::table('big_box')
@@ -99,6 +114,10 @@ class Big_box extends Model
 
     }
 
+    /**
+     * @param $id = (Integer) ID elementu který NEchceme vrátit a spolu s ním všechny jeho potomky
+     * @return array = (Vrátí všechny objekty a všechny jejich potomky mimo definovaného v jednom poly)
+     */
     public static function getAllWithoutChildren($id){
 
         $big_box = DB::table('big_box')

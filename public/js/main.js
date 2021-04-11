@@ -125,7 +125,7 @@ function saveImage(form, loading, request){
 
     $.ajax({
         url: '/save_image',
-        method: 'POST',
+        method: 'post',
         data: new FormData(form),
         processData: false,
         contentType: false,
@@ -475,10 +475,13 @@ function refreshGallery(gallery, url){
  * @param loading = (Element) Loading spinner
  * @param request = (Element) label pro vypsání requestu
  * @param route = (String) kterou routu, tedy co chceme uloži "text", "description"...
- * @param token (String) pokud není definován form, stringová hodnota tokenu pro poslání POST metodou
+ * @param token (String) pokud není definován form, stringová hodnota tokenu pro poslání PUT metodou
  */
 function saveText(form, table, id, loading, request, route, token){
 
+    // if(token == undefined){
+    //     token =  document.querySelectorAll("input[name='_token']")[0].value;
+    // }
 
     let element = form.querySelectorAll(("input[name="+route+"]"))[0];
     let value = element.value;
@@ -499,7 +502,7 @@ function saveText(form, table, id, loading, request, route, token){
 
     $.ajax({
         url: '/save_'+route,
-        method: 'POST',
+        method: 'post',
         data: data,
         processData: false,
         contentType: false,
