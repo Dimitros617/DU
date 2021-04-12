@@ -10,9 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lock-setting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user-status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user-status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListUsersController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,14 +373,8 @@
       <workItem from="1617960968800" duration="2943000" />
       <workItem from="1617982384429" duration="6030000" />
       <workItem from="1618042536343" duration="10168000" />
-      <workItem from="1618131775657" duration="14537000" />
-    </task>
-    <task id="LOCAL-00019" summary="Přidána možnost vypůjčit si Itemy přes UI + uprava migraci (nutný Drop DB)">
-      <created>1607200610477</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1607200610477</updated>
+      <workItem from="1618131775657" duration="15344000" />
+      <workItem from="1618245168005" duration="119000" />
     </task>
     <task id="LOCAL-00020" summary="Přidáno zobrazování již zabraných termínů vypůjčky itemu uživately">
       <created>1607209011631</created>
@@ -720,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618148173732</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Opravena chyba časového limitu pro neoprávněné uživatele">
+      <created>1618180213633</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1618180213633</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,7 +781,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Typografická úprava all-loans" />
     <MESSAGE value="Reedit and remove graphic" />
     <MESSAGE value="Edit user bladu, přidáno mazání a mdální okna" />
     <MESSAGE value="Dodělány podmínky pro zamikání a kontrolu" />
@@ -807,7 +805,8 @@
     <MESSAGE value="Přiná možnost zobrazení výsledků na ABC testem solo + graf" />
     <MESSAGE value="Přidáno lockování na all elements, mazaní záznamů starších jak 30 dní a možnost diskuzí" />
     <MESSAGE value="Vráceny put na post" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vráceny put na post" />
+    <MESSAGE value="Opravena chyba časového limitu pro neoprávněné uživatele" />
+    <option name="LAST_COMMIT_MESSAGE" value="Opravena chyba časového limitu pro neoprávněné uživatele" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

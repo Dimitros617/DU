@@ -97,7 +97,7 @@ class ListUsersController extends Controller
         $data = DB::table('histories')
             ->Join('users', 'histories.user_id', '=', 'users.id')
             ->where('histories.user_id', '=', $id)
-            ->select( DB::raw('MAX(histories.created_at) as last'),  DB::raw('COUNT(histories.element_id) as entry'), 'histories.table_name', 'histories.element_id','histories.user_id','users.name as user_name','users.surname as user_surname')
+            ->select( DB::raw('MAX(histories.created_at) as last'),  DB::raw('COUNT(histories.element_id) as entry'), 'histories.table_name', 'histories.old_name', 'histories.old_display_name', 'histories.element_id','histories.user_id','users.name as user_name','users.surname as user_surname')
             ->groupBy('histories.element_id')
             ->orderBy('histories.created_at','desc')
             ->get();
