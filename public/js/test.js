@@ -128,10 +128,40 @@ function addTestResult(element, spinner, request, data, data_json){
             request.removeAttribute("hidden");
             request.innerHTML = '<b>&#10003;</b>';
 
-            setTimeout(function (request){
+            if(window.add_test != undefined){
+                clearTimeout(window.add_test);
+            }
+
+            window.add_test = setTimeout(function (request, response){
                 request.setAttribute("hidden", "");
-            },1000,request);
-            allertWarning('Celkem odevzdáno: ' + response['count'] + 'x    Výsedek: ' + response['result'])
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Odevzdáno',
+                    text: 'Celkem odevzdáno: ' + response['count'] + 'x',
+                    showCloseButton: false,
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    showDenyButton: true,
+                    confirmButtonText: `Výsledky`,
+                    denyButtonText: `Odejít`,
+                    focusConfirm: false,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.href = window.location + "/all_results";
+                    }
+                    else if(result.isDenied){
+                        document.getElementById('main-book-link').click();
+                    }
+                    else{
+                        document.getElementById('main-book-link').click();
+                    }
+
+                })
+
+            },1000,request, response);
+            allertWarning('Celkem odevzdáno: ' + response['count'] + 'x');
+
         },
         error: function (response){
             console.log(response);

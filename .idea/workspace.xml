@@ -9,50 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee11485e-be3d-4401-963f-6d84bd64f0f9" name="Revert &quot;First Commit&quot;" comment="Revert &quot;First Commit&quot;&#10;&#10;This reverts commit 7389926d">
-      <change afterPath="$PROJECT_DIR$/public/css/quill/bubble.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/quill/snow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/text-editor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/45500_alt1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/45502.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/45503.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/checkered-flag-wave-black-white-background_33869-689.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/ori-45506-ev3-color-light-sensor-1142.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/user_files/ori-45509-ev3-infrared-seeker-1138.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/user_files/Screenshot_10.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChapterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173820_create_books_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_09_173828_create_chapters_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110715_create_big_box_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110726_create_middle_box_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_110750_create_elements_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/animation.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/animation.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chapter-menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chapter-menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/chapter.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/chapter.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/edit-setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/edit-setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/abc-test-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/chapters.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/chapters.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/edit-setting.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/finish-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/finish-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/middle-box.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/middle-box.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-dropdown.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/text-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/text-element.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/video-element.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/video-element.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -419,14 +379,7 @@
       <workItem from="1618131775657" duration="15344000" />
       <workItem from="1618245168005" duration="2887000" />
       <workItem from="1618296198976" duration="5971000" />
-      <workItem from="1618390625616" duration="16853000" />
-    </task>
-    <task id="LOCAL-00021" summary="Přidáno oznámení uživately o správném uložení dat do databáze">
-      <created>1607363889290</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1607363889290</updated>
+      <workItem from="1618390625616" duration="19041000" />
     </task>
     <task id="LOCAL-00022" summary="Přídána plná možnost editace stávajících itemů a kategorií, uživatelům z dostatečným oprávněním.">
       <created>1607383206671</created>
@@ -764,7 +717,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618245314029</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int">
+      <created>1618424103255</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1618424103255</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -826,7 +786,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Edit user bladu, přidáno mazání a mdální okna" />
     <MESSAGE value="Dodělány podmínky pro zamikání a kontrolu" />
     <MESSAGE value="Předělány universální obrázky a name ukládání, opraveno lockování a výpisy Errorů, přidány permitions" />
     <MESSAGE value="Repozicování a rozděláno editování" />
@@ -851,7 +810,8 @@
     <MESSAGE value="Vráceny put na post" />
     <MESSAGE value="Opravena chyba časového limitu pro neoprávněné uživatele" />
     <MESSAGE value="Opravena chyba při luser statusu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Opravena chyba při luser statusu" />
+    <MESSAGE value="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int" />
+    <option name="LAST_COMMIT_MESSAGE" value="Opravena chyba s text, elementy. Opraven image selector a ukládání, Změněn datový typ position na int" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
