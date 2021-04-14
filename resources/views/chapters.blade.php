@@ -1,7 +1,7 @@
 @section('title','Digitální učebnice')
 @section('css', URL::asset('css/chapter-menu.css'))
-
 @section('title_name',$title_name)
+@section('title_id',$title_id)
 
 <script src="/js/main.js"></script>
 <script src="/js/chapters.js"></script>

@@ -6,7 +6,7 @@
      old_style="{{$element->style}}"
      old_name="{{$element->name}}"
      old_description="{{$element->description}}"
-     class=" bg-norepeat  mx-auto sm:px-6 lg:px-8 p-5 pt-4 mb-3"
+     class=" bg-transparent bg-norepeat  mx-auto sm:px-6 lg:px-8 p-5 pt-4 mb-3"
      id="elements_{{$element->id}}"
      type="elements"
      include="null"

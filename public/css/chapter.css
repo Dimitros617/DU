@@ -70,3 +70,18 @@
     transform: scale(1.1);
 }
 
+.middle-box:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+@media (max-width: 768px) {
+    .middle-box div[type=elements] {
+        float: none !important;
+        min-width: 100% !important;
+        text-align: center !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+    }
+}

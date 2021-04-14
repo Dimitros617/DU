@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Response;
 use League\Flysystem\File;
 use phpDocumentor\Reflection\Element;
 use RealRashid\SweetAlert\Facades\Alert;
+use function PHPUnit\Framework\isNull;
 
 class ContentController extends Controller
 {
@@ -72,41 +73,71 @@ class ContentController extends Controller
 
     function saveSetting(Request $request){
 
-        $check = DB::table($request->table_name)
+        Log::info('ContentController:saveSetting');
+
+//        if($request->style == null){
+//            Log::info('ANO');
+//        }else{
+//            Log::info('NE');
+//        }
+
+        $check = 0;
+
+            DB::table($request->table_name)
                 ->where('id', $request->id)
                 ->update(['name' => $request->name, 'description' => $request->description, 'style' => $request->style]);
 
+        $check_data = DB::table($request->table_name)
+                ->where('id', $request->id)
+                ->get()[0];
+
+        if($check_data->name != $request->name || $check_data->description != $request->description || $check_data->style != $request->style){
+            $check++;
+        }
+
+//        Log::info('all: ' . $check);
+
         if($request->src != null){
-            $check = DB::table($request->table_name)
+            $check_data = DB::table($request->table_name)
                 ->where('id', $request->id)
                 ->update(['url' => $request->src]);
+            $check += $check_data ? 0 : 1;
         }
+//        Log::info('src: ' . $check);
 
         if($request->data != null){
-            $check = DB::table($request->table_name)
+            $check_data = DB::table($request->table_name)
                 ->where('id', $request->id)
                 ->update(['data' => $request->data]);
+            $check += $check_data ? 0 : 1;
         }
+//        Log::info('data: ' . $check);
 
         if($request->data1 != null){
-            $check = DB::table($request->table_name)
+            $check_data = DB::table($request->table_name)
                 ->where('id', $request->id)
                 ->update(['data1' => $request->data1]);
+            $check += $check_data ? 0 : 1;
         }
+//        Log::info('data1: ' . $check);
 
         if($request->data2 != null){
-            $check = DB::table($request->table_name)
+            $check_data = DB::table($request->table_name)
                 ->where('id', $request->id)
                 ->update(['data2' => $request->data2]);
+            $check += $check_data ? 0 : 1;
         }
+//        Log::info('data2: ' . $check);
 
         if($request->results != null){
-            $check = DB::table($request->table_name)
+            $check_data = DB::table($request->table_name)
                 ->where('id', $request->id)
                 ->update(['results' => $request->results]);
+            $check += $check_data ? 0 : 1;
         }
+//        Log::info('results: ' . $check);
 
-        if(!$check) {
+        if($check != 0) {
             return response('Nastala chyba při ukládání dat do tabulky: ' . $request->table_name, 500)->header('Content-Type', 'text/plain');
         }
     }

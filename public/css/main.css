@@ -467,6 +467,10 @@ button.submit {
     stroke: #FF9F1C !important;
 }
 
+.ql-editor {
+    white-space: inherit !important;
+}
+
 
 .modal-page{
     width:80% !important;

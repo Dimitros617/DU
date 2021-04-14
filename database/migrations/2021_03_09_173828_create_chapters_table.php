@@ -23,7 +23,7 @@ class CreateChaptersTable extends Migration
             $table->string('img')->default('/user_files/default.png');
             $table->string('security')->nullable();
             $table->string('key')->nullable();
-            $table->string('position')->nullable();
+            $table->integer('position')->nullable();
             $table->string('style')->nullable();
             $table->integer('entry_limit')->nullable();
             $table->integer('time_limit')->nullable();

@@ -62,7 +62,7 @@
                    onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','background-image')"
                    onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','background-image')"
             >
-                <svg title="Změnit obrázek" onclick="imageSelector(null,document.getElementById('{{$data->table_name}}_{{$data->id}}'), null);     $('input[onload]').trigger('onload');" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-image text-white cursor-pointer" viewBox="0 0 16 16">
+                <svg title="Změnit obrázek" onclick="window.temp_setting = document.getElementById('{{$data->table_name}}_{{$data->id}}').getElementsByClassName('edit-box-setting')[0] ;imageSelector(null,document.getElementById('{{$data->table_name}}_{{$data->id}}'), null);     $('input[onload]').trigger('onload');" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-image text-white cursor-pointer" viewBox="0 0 16 16">
                     <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
                 </svg>
@@ -249,7 +249,7 @@
 
             <div class="flex-column w-50 p-2">
                 <label class="edit-setting-label h3 text-su-blue text-su-shadow-white w-100 text-center">Dole</label>
-                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="3 rem"
+                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1 rem"
                        onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','margin-bottom')"
                        onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','margin-bottom')"
                 >
@@ -282,7 +282,7 @@
         <div class="edit-setting-box-mini p-3 d-flex flex-wrap  text-left ">
             <div class="flex-column w-50 p-2">
                 <label class="edit-setting-label h3 text-su-blue text-su-shadow-white w-100 text-center">Nahoře</label>
-                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1.5 rem"
+                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1 rem"
                        onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-top')"
                        onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-top')"
                 >
@@ -290,7 +290,7 @@
 
             <div class="flex-column w-50 p-2">
                 <label class="edit-setting-label h3 text-su-blue text-su-shadow-white w-100 text-center">Dole</label>
-                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1.5 rem"
+                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1 rem"
                        onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-bottom')"
                        onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-bottom')"
                 >
@@ -298,7 +298,7 @@
 
             <div class="flex-column w-50 p-2">
                 <label class="edit-setting-label h3 text-su-blue text-su-shadow-white w-100 text-center">Vlevo</label>
-                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1.5 rem"
+                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1 rem"
                        onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-left')"
                        onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-left')"
                 >
@@ -306,7 +306,7 @@
 
             <div class="flex-column w-50 p-2">
                 <label class="edit-setting-label h3 text-su-blue text-su-shadow-white w-100 text-center">Vpravo</label>
-                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1.5 rem"
+                <input type="text" class="w-100 p-2 su-input-white rounded font-weight-500 text-center" value="1 rem"
                        onchange="edit_saveStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-right')"
                        onload="edit_loadStyle(this, '{{$data->table_name}}','{{$data->id}}','padding-right')"
                 >

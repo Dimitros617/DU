@@ -33,10 +33,11 @@
 
 
                 @if(View::hasSection('title_name'))
-                    <div class="title_name_box d-flex flex-column justify-center">
+
+                    <a href="/chapters/@yield('title_id')" class="title_name_box d-flex flex-column justify-center text-decor-none cursor-pointer">
                         <div class="text-su-lblue fw-bold text-center text-sm-start">UČEBNICE</div>
                         <div class="text-su-blue h1 fw-bold m-0 ms-sm-3 text-center text-sm-start">@yield('title_name')</div>
-                    </div>
+                    </a>
                 @endif
 
                 <div class="float-user-name p-2 text-white bg-su-orange fw-bold h4 fixed right-0 top-0 py-2 px-5 text-right me-2 d-none d-md-block " style="border-radius: 0 0 5px 5px">

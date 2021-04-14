@@ -29,6 +29,17 @@
 
 @-webkit-keyframes rotating {
     from{
+        -webkit-transform:rotate(0deg);
+
+    }
+    to{
+        -webkit-transform:rotate(360deg);
+
+    }
+}
+
+@-webkit-keyframes rotating-chat {
+    from{
         -webkit-transform:scale(2) rotate(0deg);
 
     }
@@ -45,6 +56,6 @@
 }
 
 .rotating-chat {
-    -webkit-animation: rotating 1s linear infinite;
+    -webkit-animation: rotating-chat 1s linear infinite;
 
 }

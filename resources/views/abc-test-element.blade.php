@@ -6,7 +6,7 @@
      old_style="{{$element->style}}"
      old_name="{{$element->name}}"
      old_description="{{$element->description}}"
-     class="test bg-norepeat bg-su-lblack overflow-hidden w-100 mx-auto p-2 sm:px-4 lg:px-8  pt-4 mb-3"
+     class="test bg-norepeat bg-su-lblack overflow-hidden mx-auto p-2 sm:px-4 lg:px-8  pt-4 mb-3"
      test_type="abc"
      id="elements_{{$element->id}}"
      type="elements"

@@ -448,7 +448,7 @@ function refreshGallery(gallery, url){
 
                 setTimeout(function (gallery, response){
                     gallery.innerHTML = response;
-                },100, gallery, response);
+                },500, gallery, response);
             },
             error: function (response){
                 console.log(response);
@@ -464,7 +464,7 @@ function refreshGallery(gallery, url){
 
             }
         });
-    }, 100,gallery, url);
+    }, 10,gallery, url);
 }
 
 /**

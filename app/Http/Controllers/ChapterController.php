@@ -19,6 +19,7 @@ class ChapterController extends Controller
         Log::info('ChapterController:showChapters');
 
         $title_name = Books::find($id)->name;
+        $title_id = $id;
 
         $chat = [
             'table_name' => 'books',
@@ -55,7 +56,7 @@ class ChapterController extends Controller
 
         Histories::log(Auth::user()->id, 'books', $id);
 
-        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_name' => $title_name, 'chat' => $chat]);
+        return view('chapters', ['chapters' => $data, 'locked' => $check_locks, 'book' => $id, 'title_id' => $title_id, 'title_name' => $title_name, 'chat' => $chat]);
 
     }
 
@@ -117,6 +118,7 @@ class ChapterController extends Controller
 
         }
         $title_name = Books::find((Chapters::find($id)->parent))->name;
+        $title_id = Books::find((Chapters::find($id)->parent))->id;
 
         $chat = [
             'table_name' => 'chapters',
@@ -224,6 +226,7 @@ class ChapterController extends Controller
             'edit' => $edit,
             'test_results' => $test_results,
             'title_name' => $title_name,
+            'title_id' => $title_id,
             'chat' => $chat
             ]);
 

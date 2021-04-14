@@ -32,7 +32,7 @@ foreach ($middle_boxes_locks as $lock){
          old_style="{{$middle_box->style}}"
          old_name="{{$middle_box->name}}"
          old_description="{{$middle_box->description}}"
-         class=" bg-norepeat bg-su-lblack   sm:rounded-lg  mx-auto  sm:px-5 lg:px-8  py-4 mb-3 su-animation-02"
+         class=" bg-norepeat bg-transparent   sm:rounded-lg  mx-auto  sm:px-5 lg:px-8  py-4 mb-3 su-animation-02 middle-box"
          id="middle_box_{{$middle_box->id}}"
          type="middle_box"
          include="elements"

@@ -3,12 +3,12 @@ window.contentEdit = 0;
 
 
 
-window.addEventListener('beforeunload', (event) => {
-    if(window.contentEdit<=0){
-        delete e['returnValue'];
-    }
-    event.returnValue = `Ups.. našli jsme celkem ` + window.contentEdit + "neuložených záznamů.";
-});
+// window.addEventListener('beforeunload', (event) => {
+//     if(window.contentEdit<=0){
+//         delete e['returnValue'];
+//     }
+//     event.returnValue = `Ups.. našli jsme celkem ` + window.contentEdit + "neuložených záznamů.";
+// });
 
 /**
  *
@@ -194,6 +194,7 @@ function editSetting(ele, element, id, element_type, spinner, request, token){
                 if (result.isConfirmed) {
 
                     spinner.removeAttribute("hidden");
+                    let style = element.getAttribute('style');
                     $.ajax({
                         url: '/save_setting/' + element_type + "/" + id,
                         type: 'post',
@@ -443,8 +444,14 @@ function imageSelector(output, imgElement, spinner){
                         output.click();
                     }
                     if(imgElement != null){
-                        let refresh = '?random=\\' + new Date().getTime();
-                        imgElement.style.setProperty("background-image", "url('" + val + refresh + "')", "important")
+                        let refresh = '?random=' + new Date().getTime();
+                        imgElement.style.setProperty("background-image", "url('" + val + "')", "important")
+                    }
+                    if(window.temp_setting != undefined){
+                        window.temp_setting.classList.add('text-su-orange');
+                        window.temp_setting.classList.add('unblend');
+                        window.temp_setting.click();
+                        window.temp_setting = undefined;
                     }
                 }
                 else if(result.isDenied){

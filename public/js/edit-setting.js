@@ -186,19 +186,19 @@ function edit_saveStyle(ele, table_name, id, style){
             // background-size: contain;
 
         case "image-top":
-            box.style.setProperty("background-position", "top center", "important")
+            box.style.setProperty("background-position", "top center", "")
             break;
         case "image-left":
-            box.style.setProperty("background-position", "left center", "important")
+            box.style.setProperty("background-position", "left center", "")
             break;
         case "image-center":
-            box.style.setProperty("background-position", "center center", "important")
+            box.style.setProperty("background-position", "center center", "")
             break;
         case "image-right":
-            box.style.setProperty("background-position", "right center", "important")
+            box.style.setProperty("background-position", "right center", "")
             break;
         case "image-bottom":
-            box.style.setProperty("background-position", "bottom center", "important")
+            box.style.setProperty("background-position", "bottom center", "")
             break;
 
         case "image-contain":
@@ -211,7 +211,7 @@ function edit_saveStyle(ele, table_name, id, style){
 
         case "float-left":
             box.style.cssFloat = "left";
-            box.style.width = "40%";
+            box.style.width = "50%";
             break;
         case "float-none":
             box.style.cssFloat = "none";
@@ -219,7 +219,7 @@ function edit_saveStyle(ele, table_name, id, style){
             break;
         case "float-right":
             box.style.cssFloat = "right";
-            box.style.width = "40%";
+            box.style.width = "50%";
             break;
 
         case "width":

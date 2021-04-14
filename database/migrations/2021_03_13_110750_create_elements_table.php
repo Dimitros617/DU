@@ -23,7 +23,7 @@ class CreateElementsTable extends Migration
             $table->integer('time_limit')->nullable();
             $table->dateTime('start_at')->nullable();
             $table->dateTime('end_at')->nullable();
-            $table->string('position')->nullable();
+            $table->integer('position')->nullable();
             $table->string('style')->nullable();
 
             $table->string('url')->nullable();

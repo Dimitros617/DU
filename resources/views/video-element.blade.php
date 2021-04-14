@@ -7,7 +7,7 @@
      old_style="height: 40rem; {{$element->style}}"
      old_name="{{$element->name}}"
      old_description="{{$element->description}}"
-     class=" bg-norepeat bg-su-lblack overflow-hidden w-100 mx-auto mb-3 su-animation-02"
+     class=" bg-norepeat bg-su-lblack  mx-auto mb-3 su-animation-02"
      id="elements_{{$element->id}}"
      type="elements"
      element_type="video"
