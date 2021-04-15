@@ -419,11 +419,17 @@ class ContentController extends Controller
             ->orderBy('position', 'desc')
             ->first();
 
+        $position = $position->position;
+
+        Log::info('Position: ' . $position);
+
         if($position == "") {
             $position = 1;
         }else{
-            $position = ($position->position)+1;
+            $position = $position+1;
         }
+
+        Log::info('Position: ' . $position);
 
         if($request->type == null) {
 
